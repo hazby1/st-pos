@@ -4,13 +4,13 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
-class User extends BaseController
+class Admin extends BaseController
 {
     public function index()
     {
         //
         $data = [
-            'page' => 'v_user'
+            'page' => 'v_admin',
         ];
         return view('v_template', $data);
     }
