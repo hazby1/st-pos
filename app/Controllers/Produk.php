@@ -10,6 +10,10 @@ class Produk extends BaseController
     {
         //
         $data = [
+            'judul' => 'Master Data',
+            'subjudul' => 'Produk',
+            'menu' => 'masterdata',
+            'submenu' => 'produk',
             'page' => 'v_produk'
         ];
         return view('v_template', $data);

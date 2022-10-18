@@ -10,6 +10,10 @@ class User extends BaseController
     {
         //
         $data = [
+            'judul' => 'Master Data',
+            'subjudul' => 'user',
+            'menu' => 'masterdata',
+            'submenu' => 'user',
             'page' => 'v_user'
         ];
         return view('v_template', $data);

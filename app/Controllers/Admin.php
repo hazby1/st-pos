@@ -10,7 +10,24 @@ class Admin extends BaseController
     {
         //
         $data = [
+            'judul' => 'Dashboard',
+            'subjudul' => '',
+            'menu' => 'dashboard',
+            'submenu' => '',
             'page' => 'v_admin',
+        ];
+        return view('v_template', $data);
+    }
+
+    public function Setting()
+    {
+        //
+        $data = [
+            'judul' => 'Setting',
+            'subjudul' => '',
+            'menu' => 'setting',
+            'submenu' => '',
+            'page' => 'v_setting'
         ];
         return view('v_template', $data);
     }

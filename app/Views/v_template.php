@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SentralTEK POS</title>
+    <title>ST-POS | <?= $judul; ?></title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
@@ -97,7 +97,7 @@
         </nav>
 
 
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-danger elevation-4">
 
             <a href="#" class="brand-link">
                 <img src="<?= base_url('adminlte'); ?>/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -119,7 +119,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('admin'); ?>" class="nav-link <?= $menu == 'dashboard' ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -128,15 +128,15 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('jual'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-cash-register"></i>
                                 <p>
                                     Penjualan
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item menu-open mt-3">
-                            <a href="#" class="nav-link">
+                        <li class="nav-item <?= $menu == 'masterdata' ? 'menu-open' : ''; ?>">
+                            <a href="#" class="nav-link <?= $menu == 'masterdata' ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-server"></i>
                                 <p>
                                     Master Data
@@ -145,33 +145,33 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="<?= base_url('produk'); ?>" class="nav-link <?= $submenu == 'produk' ? 'active' : ''; ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Produk</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="<?= base_url('kategori'); ?>" class="nav-link <?= $submenu == 'kategori' ? 'active' : ''; ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Kategori</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="<?= base_url('satuan'); ?>" class="nav-link <?= $submenu == 'satuan' ? 'active' : ''; ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Satuan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-user nav-icon"></i>
+                                    <a href="<?= base_url('user'); ?>" class="nav-link <?= $submenu == 'user' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon"></i>
                                         <p>User</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item mt-3">
-                            <a href="#" class="nav-link">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/setting'); ?>" class="nav-link <?= $menu == 'setting' ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-cog"></i>
                                 <p>
                                     Setting
@@ -191,12 +191,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Starter Page</h1>
+                            <h1 class="m-0"><?= $judul; ?></h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Starter Page</li>
+                                <li class="breadcrumb-item"><a href="#"><?= $judul; ?></a></li>
+                                <li class="breadcrumb-item active"><?= $subjudul; ?></li>
                             </ol>
                         </div>
                     </div>
@@ -224,22 +224,22 @@
         </div>
 
 
-        <aside class="control-sidebar control-sidebar-dark">
+        <!-- <aside class="control-sidebar control-sidebar-dark">
 
             <div class="p-3">
                 <h5>Title</h5>
                 <p>Sidebar content</p>
             </div>
-        </aside>
+        </aside> -->
 
 
         <footer class="main-footer">
 
             <div class="float-right d-none d-sm-inline">
-                Anything you want
+                HSSCode
             </div>
 
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2022 <a href="#">SentralTEK POS</a>.</strong> All rights reserved.
         </footer>
     </div>
 

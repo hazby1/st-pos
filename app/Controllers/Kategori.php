@@ -10,6 +10,10 @@ class Kategori extends BaseController
     {
         //
         $data = [
+            'judul' => 'Master Data',
+            'subjudul' => 'Kategori',
+            'menu' => 'masterdata',
+            'submenu' => 'kategori',
             'page' => 'v_kategori'
         ];
         return view('v_template', $data);
