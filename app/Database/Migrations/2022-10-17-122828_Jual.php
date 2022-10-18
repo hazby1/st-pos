@@ -22,12 +22,10 @@ class Jual extends Migration
                 'unique' => true
             ],
             'tgl_jual' => [
-                'type' => 'DATE',
-                'constraint' => '25'
+                'type' => 'DATE'
             ],
             'jam' => [
-                'type' => 'TIME',
-                'constraint' => '15'
+                'type' => 'TIME'
             ],
             'grand_total' => [
                 'type' => 'INT',
@@ -45,11 +43,8 @@ class Jual extends Migration
                 'type' => 'INT',
                 'constraint' => '11',
             ],
-            'created_at DATETIME CURRENT_TIMESTAMP',
-            'updated_at' => [
-                'type' => 'DATETIME',
-                'DEFAULT' => 'NULL'
-            ]
+            'created_at DATETIME DEFAULT CURRENT_TIMESTAMP',
+            'updated_at DATETIME'
         ]);
 
         // Membuah primary key

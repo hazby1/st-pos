@@ -33,11 +33,8 @@ class User extends Migration
                 'type' => 'ENUM',
                 'constraint' => ['admin', 'kasir', 'teknisi']
             ],
-            'created_at DATETIME CURRENT_TIMESTAMP',
-            'updated_at' => [
-                'type' => 'DATETIME',
-                'DEFAULT' => 'NULL'
-            ]
+            'created_at DATETIME DEFAULT CURRENT_TIMESTAMP',
+            'updated_at DATETIME'
         ]);
 
         // Membuah primary key
