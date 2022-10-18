@@ -31,7 +31,7 @@ class User extends Migration
             ],
             'level' => [
                 'type' => 'ENUM',
-                'constraint' => 'admin', 'kasir', 'teknisi'
+                'constraint' => ['admin', 'kasir', 'teknisi']
             ],
             'created_at' => [
                 'type' => 'DATETIME',
