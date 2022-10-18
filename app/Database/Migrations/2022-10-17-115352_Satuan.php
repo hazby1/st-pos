@@ -20,10 +20,7 @@ class Satuan extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '250'
             ],
-            'created_at' => [
-                'type' => 'DATETIME',
-                'DEFAULT' => 'CURRENT_TIMESTAMP'
-            ],
+            'created_at DATETIME CURRENT_TIMESTAMP',
             'updated_at' => [
                 'type' => 'DATETIME',
                 'DEFAULT' => 'NULL'

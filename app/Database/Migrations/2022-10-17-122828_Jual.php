@@ -45,10 +45,7 @@ class Jual extends Migration
                 'type' => 'INT',
                 'constraint' => '11',
             ],
-            'created_at' => [
-                'type' => 'DATETIME',
-                'DEFAULT' => 'CURRENT_TIMESTAMP'
-            ],
+            'created_at DATETIME CURRENT_TIMESTAMP',
             'updated_at' => [
                 'type' => 'DATETIME',
                 'DEFAULT' => 'NULL'
