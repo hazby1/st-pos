@@ -74,7 +74,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
 
-        <div class="card card-outline card-primary">
+        <div class="card card-outline card-red">
             <div class="card-header text-center">
                 <a href="<?= base_url('adminlte'); ?>/index2.html" class="h1"><b>Sentral</b>TEK</a>
             </div>
@@ -128,6 +128,7 @@
     <script src="<?= base_url('adminlte'); ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script src="<?= base_url('adminlte'); ?>/dist/js/adminlte.min.js?v=3.2.0"></script>
+
 </body>
 
 </html>
