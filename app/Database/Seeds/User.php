@@ -11,7 +11,7 @@ class User extends Seeder
         // Membuat data
         $user_data = [
             [
-                'nama_user' => 'Admn',
+                'nama_user' => 'Admin',
                 'email' => 'admin@admin.com',
                 'password' => '21232f297a57a5a743894a0e4a801fc3',
                 'level' => 'admin'
