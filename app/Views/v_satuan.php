@@ -38,8 +38,8 @@
                             <td class="text-center"><b><?= $no++; ?></b></td>
                             <td><?= $nilai['nama_satuan']; ?></td>
                             <td class="text-center">
-                                <button class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i></button>
-                                <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                <button class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#edit-data<?= $nilai['id_satuan'] ?>"></i></button>
+                                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-data<?= $nilai['id_satuan'] ?>"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
                     <?php } ?>
@@ -51,7 +51,7 @@
 
 </div>
 
-<!-- Modal -->
+<!-- Modal Tambah Data -->
 <div class="modal fade" id="tambah-data">
     <!-- Modal Dialog -->
     <div class="modal-dialog">
@@ -85,4 +85,75 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+<!-- /.modal -->
+
+<!-- Modal Edit Data -->
+<?php foreach ($satuan as $key => $nilai) { ?>
+    <div class="modal fade" id="edit-data<?= $nilai['id_satuan'] ?>">
+        <!-- Modal Dialog -->
+        <div class="modal-dialog">
+            <!-- Modal Content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Data <?= $subjudul; ?></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- Form -->
+                <?= form_open('Satuan/UpdateData/' . $nilai['id_satuan']) ?>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">Nama Satuan</label>
+                        <input value="<?= $nilai['nama_satuan'] ?>" type="text" name="nama_satuan" class="form-control" placeholder="Satuan" required autofocus>
+                    </div>
+                </div>
+
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-warning btn-flat">Simpan</button>
+                </div>
+                <?= form_close(); ?>
+                <!-- end Form -->
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+<?php } ?>
+<!-- /.modal -->
+
+<!-- Modal Hapus Data -->
+<?php foreach ($satuan as $key => $nilai) { ?>
+    <div class="modal fade" id="delete-data<?= $nilai['id_satuan'] ?>">
+        <!-- Modal Dialog -->
+        <div class="modal-dialog">
+            <!-- Modal Content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Hapus Data <?= $subjudul; ?></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- Form -->
+                <div class="modal-body">
+                    <h5>Yakin akan menghapus <b><?= $nilai['nama_satuan']; ?></b>?</h5>
+                </div>
+
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Batal</button>
+                    <a href="<?= base_url('satuan/DeleteData/' . $nilai['id_satuan']) ?>" class="btn btn-danger btn-flat">Hapus</a>
+                </div>
+                <!-- end Form -->
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+<?php } ?>
 <!-- /.modal -->

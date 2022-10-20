@@ -38,4 +38,32 @@ class Satuan extends BaseController
 
         return redirect()->to('satuan');
     }
+
+    public function UpdateData($id_satuan)
+    {
+        // Mengedit data satuan
+        $data = [
+            'id_satuan' => $id_satuan,
+            'nama_satuan' => $this->request->getPost('nama_satuan'),
+        ];
+
+        $this->SatuanModel->UpdateData($data);
+
+        session()->setFlashdata('pesan', 'Data berhasil diubah!');
+
+        return redirect()->to('Satuan');
+    }
+
+    public function DeleteData($id_satuan)
+    {
+        // Menghapus data satuan
+        $data = [
+            'id_satuan' => $id_satuan
+        ];
+        $this->SatuanModel->DeleteData($data);
+
+        session()->setFlashdata('pesan', 'Data berhasil dihapus!');
+
+        return redirect()->to('Satuan');
+    }
 }
