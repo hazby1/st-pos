@@ -10,13 +10,13 @@ class Kategori extends Seeder
     {
         // Membuat data
         $satuan_data = [
-            ['nama_satuan' => 'Laptop'],
-            ['nama_satuan' => 'PC'],
-            ['nama_satuan' => 'Router'],
-            ['nama_satuan' => 'Printer'],
-            ['nama_satuan' => 'RAM'],
-            ['nama_satuan' => 'SSD'],
-            ['nama_satuan' => 'HDD']
+            ['nama_kategori' => 'Laptop'],
+            ['nama_kategori' => 'PC'],
+            ['nama_kategori' => 'Router'],
+            ['nama_kategori' => 'Printer'],
+            ['nama_kategori' => 'RAM'],
+            ['nama_kategori' => 'SSD'],
+            ['nama_kategori' => 'HDD']
         ];
 
         foreach ($satuan_data as $data) {
