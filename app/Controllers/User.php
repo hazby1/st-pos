@@ -32,7 +32,7 @@ class User extends BaseController
         $data = [
             'nama_user' => $this->request->getPost('nama_user'),
             'email' => $this->request->getPost('email'),
-            'password' => md5($this->request->getPost('password')),
+            'password' => sha1($this->request->getPost('password')),
             'level' => $this->request->getPost('level')
         ];
 
@@ -41,5 +41,35 @@ class User extends BaseController
         session()->setFlashdata('pesan', 'Data berhasil ditambahkan!');
 
         return redirect()->to('user');
+    }
+
+    public function UpdateData($id_user)
+    {
+        // Mengedit data user
+        $data = [
+            'id_user' => $id_user,
+            'nama_user' => $this->request->getPost('nama_user'),
+            'email' => $this->request->getPost('email'),
+            'level' => $this->request->getPost('level')
+        ];
+
+        $this->UserModel->UpdateData($data);
+
+        session()->setFlashdata('pesan', 'Data berhasil diubah!');
+
+        return redirect()->to('user');
+    }
+
+    public function DeleteData($id_user)
+    {
+        // Menghapus data user
+        $data = [
+            'id_user' => $id_user
+        ];
+        $this->UserModel->DeleteData($data);
+
+        session()->setFlashdata('pesan', 'Data berhasil dihapus!');
+
+        return redirect()->to('User');
     }
 }

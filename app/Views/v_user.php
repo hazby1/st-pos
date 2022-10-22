@@ -139,6 +139,23 @@
                         <label for="">Nama User</label>
                         <input value="<?= $nilai['nama_user'] ?>" type="text" name="nama_user" class="form-control" placeholder="User" required autofocus>
                     </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input value="<?= $nilai['email'] ?>" type="email" name="email" class="form-control" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input value="<?= $nilai['password'] ?>" type="text" name="password" class="form-control" placeholder="Password" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="level">Level</label>
+                        <select <?php  ?>name="level" class="form-control" placeholder="Level" required>
+                            <option value="">-- Pilih Level --</option>
+                            <option <?= $nilai['level'] == 'admin' ? 'selected' : ''; ?> value="admin">Admin</option>
+                            <option <?= $nilai['level'] == 'kasir' ? 'selected' : ''; ?> value="kasir">Kasir</option>
+                            <option <?= $nilai['level'] == 'teknisi' ? 'selected' : ''; ?> value="teknisi">Teknisi</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="modal-footer justify-content-between">
