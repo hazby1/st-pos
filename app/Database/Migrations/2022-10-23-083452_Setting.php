@@ -29,7 +29,7 @@ class Setting extends Migration
                 'constraint' => '250'
             ],
             'no_telepon' => [
-                'type' => 'INT',
+                'type' => 'VARCHAR',
                 'constraint' => '15'
             ],
             'deskripsi' => [
