@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ST-POS | <?= $judul; ?></title>
-
+    <link rel="icon" href="<?= base_url() ?>/favicon.ico" type="image/gif">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/fontawesome-free/css/all.min.css">
@@ -43,6 +43,10 @@
     <!-- ChartJS -->
     <script src="<?= base_url('adminlte'); ?>/plugins/chart.js/Chart.min.js"></script>
     <!-- end ChartJS -->
+
+    <!-- AutoNumeric -->
+    <script src="<?= base_url('autoNumeric'); ?>/src/AutoNumeric.js"></script>
+    <!-- end AutoNumeric -->
 </head>
 
 <body class="hold-transition sidebar-mini">

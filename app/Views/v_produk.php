@@ -21,6 +21,19 @@
                 echo '</h5></div>';
             }
             ?>
+
+            <?php
+            $errors = session()->getFlashdata('errors');
+            if (!empty($errors)) { ?>
+                <div class="alert alert-danger alert-dismissible">
+                    <h4>Periksa lagi data yang anda masukkan!</h4>
+                    <ul>
+                        <?php foreach ($errors as $key => $error) { ?>
+                            <li><?php esc($error) ?></li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            <?php } ?>
             <!-- end Alert -->
 
             <table id="example1" class="table table-striped table-bordered table-hover">
@@ -81,23 +94,28 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="">Kode Produk</label>
-                    <input type="text" name="kode_produk" class="form-control" placeholder="Kode Produk" required autofocus>
+                    <input type="text" name="kode_produk" class="form-control" placeholder="Kode Produk" required autofocus value="<?= old('kode_produk'); ?>">
                 </div>
                 <div class="form-group">
                     <label for="">Nama Produk</label>
-                    <input type="text" name="nama_produk" class="form-control" placeholder="Nama Produk" required>
+                    <input type="text" name="nama_produk" class="form-control" placeholder="Nama Produk" required value="<?= old('nama_produk'); ?>">
                 </div>
                 <div class="form-group">
                     <label for="">Kategori</label>
-                    <select name="kategori" class="form-control">
+                    <select name="id_kategori" class="form-control" required>
                         <option value="">-- Pilih Kategori --</option>
-                        <option value=""><?= $nilai['nama_kategori']; ?></option>
+                        <?php foreach ($kategori as $key => $kat) { ?>
+                            <option value="<?= $kat['id_kategori']; ?>"><?= $kat['nama_kategori']; ?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="">Satuan</label>
-                    <select name="satuan" class="form-control">
-                        <option value="">-- Pilih Kategori --</option>
+                    <select name="id_satuan" class="form-control" required>
+                        <option value="">-- Pilih Satuan --</option>
+                        <?php foreach ($satuan as $key => $sat) { ?>
+                            <option value="<?= $sat['id_satuan']; ?>"><?= $sat['nama_satuan']; ?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 <div class="form-group">
@@ -106,7 +124,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Rp</span>
                         </div>
-                        <input name="harga_beli" type="text" class="form-control" placeholder="Harga Beli">
+                        <input id="harga_beli" name="harga_beli" type="text" class="form-control" placeholder="Harga Beli" required value="<?= old('harga_beli'); ?>">
                     </div>
                 </div>
                 <div class="form-group">
@@ -115,12 +133,12 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Rp</span>
                         </div>
-                        <input name="harga_jual" type="text" class="form-control" placeholder="Harga Jual">
+                        <input id="harga_jual" name="harga_jual" type="text" class="form-control" placeholder="Harga Jual" required value="<?= old('harga_jual'); ?>">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="">Stok</label>
-                    <input type="text" name="stok" class="form-control" placeholder="Stok" required>
+                    <input id="stok" type="text" name="stok" class="form-control" placeholder="Stok" required value="<?= old('stok'); ?>">
                 </div>
             </div>
 
@@ -139,7 +157,8 @@
 <!-- /.modal -->
 
 <!-- Modal Edit Data -->
-<?php foreach ($produk as $key => $nilai) { ?>
+<?php
+foreach ($produk as $key => $nilai) { ?>
     <div class="modal fade" id="edit-data<?= $nilai['id_produk'] ?>">
         <!-- Modal Dialog -->
         <div class="modal-dialog">
@@ -156,14 +175,58 @@
                 <?= form_open('Produk/UpdateData/' . $nilai['id_produk']) ?>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="">Kode Produk</label>
+                        <input value="<?= $nilai['kode_produk']; ?>" type="text" name="kode_produk" class="form-control" placeholder="Kode Produk" required readonly>
+                    </div>
+                    <div class="form-group">
                         <label for="">Nama Produk</label>
-                        <input value="<?= $nilai['nama_produk'] ?>" type="text" name="nama_produk" class="form-control" placeholder="Produk" required autofocus>
+                        <input type="text" name="nama_produk" class="form-control" placeholder="Nama Produk" required value="<?= $nilai['nama_produk'] ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Kategori</label>
+                        <select name="id_kategori" class="form-control" required>
+                            <option value="">-- Pilih Kategori --</option>
+                            <?php foreach ($kategori as $key => $kat) { ?>
+                                <option value="<?= $kat['id_kategori']; ?>" <?= $nilai['id_kategori'] == $kat['id_kategori'] ? 'selected' : '' ?>><?= $kat['nama_kategori']; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Satuan</label>
+                        <select name="id_satuan" class="form-control" required>
+                            <option value="">-- Pilih Satuan --</option>
+                            <?php foreach ($satuan as $key => $sat) { ?>
+                                <option value="<?= $sat['id_satuan']; ?>" <?= $nilai['id_satuan'] == $sat['id_satuan'] ? 'selected' : '' ?>><?= $sat['nama_satuan']; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Harga Beli</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rp</span>
+                            </div>
+                            <input id="harga_beli<?= $nilai['id_produk']; ?>" name="harga_beli" type="text" class="form-control" placeholder="Harga Beli" required value="<?= $nilai['harga_beli']; ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Harga Jual</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rp</span>
+                            </div>
+                            <input id="harga_jual<?= $nilai['id_produk']; ?>" name="harga_jual" type="text" class="form-control" placeholder="Harga Jual" required value="<?= $nilai['harga_jual']; ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Stok</label>
+                        <input id="stok<?= $nilai['id_produk'] ?>" type="text" name="stok" class="form-control" placeholder="Stok" required value="<?= $nilai['stok'] ?>">
                     </div>
                 </div>
 
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-warning btn-flat">Simpan</button>
+                    <button type="submit" class="btn btn-primary btn-flat">Simpan</button>
                 </div>
                 <?= form_close(); ?>
                 <!-- end Form -->
@@ -210,6 +273,7 @@
 <!-- /.modal -->
 
 <script>
+    // DataTables
     $(function() {
         $("#example1").DataTable({
             "responsive": true,
@@ -230,4 +294,40 @@
         //     "responsive": true,
         // })
     })
+
+    // AutoNumeric
+    new AutoNumeric('#harga_beli', {
+        // currencySymbol: ''
+        digitalGroupSeparator: ',',
+        decimalPlaces: 0,
+    });
+    new AutoNumeric('#harga_jual', {
+        currencySymbol: '',
+        digitalGroupSeparator: ',',
+        decimalPlaces: 0,
+    });
+    new AutoNumeric('#stok', {
+        currencySymbol: '',
+        digitalGroupSeparator: ',',
+        decimalPlaces: 0,
+    });
+
+    <?php
+    foreach ($produk as $key => $nilai) { ?>
+        new AutoNumeric('#harga_beli<?= $nilai['id_produk'] ?>', {
+            // currencySymbol: ''
+            digitalGroupSeparator: ',',
+            decimalPlaces: 0,
+        });
+        new AutoNumeric('#harga_jual<?= $nilai['id_produk'] ?>', {
+            currencySymbol: '',
+            digitalGroupSeparator: ',',
+            decimalPlaces: 0,
+        });
+        new AutoNumeric('#stok<?= $nilai['id_produk'] ?>', {
+            currencySymbol: '',
+            digitalGroupSeparator: ',',
+            decimalPlaces: 0,
+        });
+    <?php } ?>
 </script>
