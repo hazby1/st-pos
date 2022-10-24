@@ -31,4 +31,14 @@ class UserModel extends Model
             ->where('id_user', $data['id_user'])
             ->delete($data);
     }
+
+    public function LoginUser($email, $password)
+    {
+        return $this->db->table('t_user')
+            ->where([
+                'email' => $email,
+                'password' => $password
+            ])
+            ->get()->getRowArray();
+    }
 }

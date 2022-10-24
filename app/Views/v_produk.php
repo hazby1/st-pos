@@ -29,7 +29,7 @@
                     <h4>Periksa lagi data yang anda masukkan!</h4>
                     <ul>
                         <?php foreach ($errors as $key => $error) { ?>
-                            <li><?php esc($error) ?></li>
+                            <li><?= esc($error) ?></li>
                         <?php } ?>
                     </ul>
                 </div>

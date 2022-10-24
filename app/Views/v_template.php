@@ -67,7 +67,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                    <a class="nav-link" href="<?= base_url('Home/Logout'); ?>">
                         <i class="fas fa-power-off"></i>
                         Logout
                     </a>
@@ -90,7 +90,7 @@
                         <img src="<?= base_url('adminlte'); ?>/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">User</a>
+                        <a href="#" class="d-block"><?= session()->get('nama_user'); ?></a>
                     </div>
                 </div>
 
@@ -107,13 +107,23 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?= base_url('jual'); ?>" class="nav-link">
+                            <a href="<?= base_url('penjualan'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-cash-register"></i>
                                 <p>
                                     Penjualan
                                 </p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="<?= base_url('servis'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-cash-register"></i>
+                                <p>
+                                    Servis
+                                </p>
+                            </a>
+                        </li>
+
                         <li class="nav-item <?= $menu == 'masterdata' ? 'menu-open' : ''; ?>">
                             <a href="#" class="nav-link <?= $menu == 'masterdata' ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-server"></i>
