@@ -23,6 +23,9 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'adminfilter'   => \App\Filters\AdminFilter::class,
+        'kasirfilter'   => \App\Filters\KasirFilter::class,
+        'teknisifilter'   => \App\Filters\TeknisiFilter::class,
     ];
 
     /**
@@ -33,14 +36,58 @@ class Filters extends BaseConfig
      */
     public $globals = [
         'before' => [
-            // 'honeypot',
-            // 'csrf',
-            // 'invalidchars',
+            // sebelum login controller apa saja yang boleh diakses
+            'adminfilter' => [
+                'except' => [
+                    'Home', 'Home/*',
+                    '/',
+                ]
+            ],
+            'kasirfilter' => [
+                'except' => [
+                    'Home', 'Home/*',
+                    '/',
+                ]
+            ],
+            'teknisifilter' => [
+                'except' => [
+                    'Home', 'Home/*',
+                    '/',
+                ]
+            ]
         ],
         'after' => [
+            // setelah login, controller yng bisa diakses :
             'toolbar',
-            // 'honeypot',
-            // 'secureheaders',
+            'adminfilter' => [
+                'except' => [
+                    'Home', 'Home/*',
+                    'Admin', 'Admin/*',
+                    'Penjualan', 'Penjualan/*',
+                    'Produk', 'Produk/*',
+                    'User', 'User/*',
+                    'Kategori', 'Kategori/*',
+                    'Satuan', 'Satuan/*',
+                    '/',
+                ]
+            ],
+            'kasirfilter' => [
+                'except' => [
+                    'Home', 'Home/*',
+                    '/',
+                    'Penjualan', 'Penjulan/*',
+                    'Kategori', 'Kategori/*',
+                    'Satuan', 'Satuan/*',
+                    'Produk', 'Produk/*',
+                ]
+            ],
+            'teknisifilter' => [
+                'except' => [
+                    'Home', 'Home/*',
+                    '/',
+                    'Servis', 'Servis/*',
+                ]
+            ],
         ],
     ];
 

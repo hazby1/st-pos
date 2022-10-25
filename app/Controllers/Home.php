@@ -70,6 +70,6 @@ class Home extends BaseController
         session()->remove('nama_user');
         session()->remove('level');
         session()->setFlashdata('pesan', 'Anda sudah logout!');
-        return redirect()->to('Home');
+        return redirect()->to(base_url('Home'));
     }
 }
