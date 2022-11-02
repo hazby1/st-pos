@@ -68,11 +68,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 <!-- Right navbar links -->
                 <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                            <i class="fas fa-th-large"></i>
-                        </a>
-                    </li>
+                    <?php if (session()->get('level') == 'admin') { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= base_url('admin'); ?>">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= base_url('Home/Logout'); ?>">
+                                <i class="fas fa-power-off"></i> Logout
+                            </a>
+                        </li>
+                    <?php } else { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= base_url('Home/Logout'); ?>">
+                                <i class="fas fa-power-off"></i> Logout
+                            </a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
         </nav>
@@ -115,7 +128,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <div class="col-3">
                                         <div class="form-group">
                                             <label for="">No Faktur</label>
-                                            <label class="form-control form-control-lg">123123123</label>
+                                            <label class="form-control form-control-lg"><?= $no_faktur; ?></label>
                                         </div>
                                     </div>
                                     <div class="col-3">
@@ -133,7 +146,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <div class="col-3">
                                         <div class="form-group">
                                             <label for="">Kasir</label>
-                                            <label class="form-control form-control-lg">Nama Kasir</label>
+                                            <label class="form-control form-control-lg"><?= session()->get('nama_user'); ?></label>
                                         </div>
                                     </div>
                                 </div>
