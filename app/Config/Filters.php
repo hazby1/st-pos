@@ -68,6 +68,8 @@ class Filters extends BaseConfig
                     'User', 'User/*',
                     'Kategori', 'Kategori/*',
                     'Satuan', 'Satuan/*',
+                    'Jasa', 'Jasa/*',
+                    'Servis', 'Servis/*',
                     '/',
                 ]
             ],
