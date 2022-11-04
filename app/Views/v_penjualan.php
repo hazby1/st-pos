@@ -20,6 +20,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- end DataTables -->
 
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <!-- End SweetAlert2 -->
+
     <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/dist/css/adminlte.min.css?v=3.2.0">
 
     <script src="<?= base_url('adminlte'); ?>/plugins/jquery/jquery.min.js"></script>
@@ -50,6 +54,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AutoNumeric -->
     <script src="<?= base_url('autoNumeric'); ?>/src/AutoNumeric.js"></script>
     <!-- end AutoNumeric -->
+
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="<?= base_url('adminlte') ?>/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="<?= base_url('adminlte') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="<?= base_url('adminlte') ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="<?= base_url('adminlte') ?>/dist/js/adminlte.min.js"></script>
 </head>
 
 <body class="hold-transition layout-top-nav">
@@ -172,35 +187,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12">
+                                        <?php echo form_open() ?>
                                         <div class="row">
                                             <div class="col-2 input-group">
-                                                <input name="kode_produk" placeholder="Kode Produk" class="form-control">
+                                                <input id="kode_produk" autocomplete="off" name="kode_produk" placeholder="Kode Produk" class="form-control">
                                                 <span class="input-group-append">
                                                     <button class="btn btn-primary "><i class="fas fa-search"></i></button>
                                                     <button class="btn btn-danger "><i class="fas fa-times"></i></button>
                                                 </span>
                                             </div>
                                             <div class="col-3">
-                                                <input type="text" class="form-control" name="nama_produk" placeholder="Nama Produk">
+                                                <input readonly type="text" class="form-control" name="nama_produk" placeholder="Nama Produk">
                                             </div>
                                             <div class="col-1">
-                                                <input type="text" class="form-control" name="kategori" placeholder="Kategori">
+                                                <input readonly type="text" class="form-control" name="nama_kategori" placeholder="Kategori">
                                             </div>
                                             <div class="col-1">
-                                                <input type="text" class="form-control" name="satuan" placeholder="Satuan">
+                                                <input readonly type="text" class="form-control" name="nama_satuan" placeholder="Satuan">
                                             </div>
                                             <div class="col-1">
-                                                <input type="text" class="form-control" name="harga_jual" placeholder="Harga">
+                                                <input readonly type="text" class="form-control" name="harga_jual" placeholder="Harga">
                                             </div>
                                             <div class="col-1">
-                                                <input type="number" value="1" min="1" class="form-control text-center" name="qty" placeholder="QTY">
+                                                <input id="qty" type="number" value="1" min="1" class="form-control text-center" name="qty" placeholder="QTY">
                                             </div>
                                             <div class="col-3">
-                                                <button class="btn  btn-primary"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                                <button class="btn  btn-warning"><i class="fas fa-sync"></i> Bersihkan</button>
+                                                <button type="submit" class="btn  btn-primary"><i class="fas fa-cart-plus"></i> Tambah</button>
+                                                <button type="reset" class="btn  btn-warning"><i class="fas fa-sync"></i> Bersihkan</button>
                                                 <button class="btn  btn-success"><i class="fas fa-cash-register"></i> Bayar</button>
                                             </div>
                                         </div>
+                                        <?php echo form_close() ?>
                                     </div>
                                 </div>
                                 <hr>
@@ -273,14 +290,45 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- ./wrapper -->
 
-    <!-- REQUIRED SCRIPTS -->
+    <script>
+        $(document).ready(function() {
+            $('#kode_produk').focus();
+            $('#kode_produk').keydown(function(e) {
+                let kode_produk = $('#kode_produk').val();
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    if (kode_produk == '') {
+                        Swal.fire('Kode produk harus diisi!');
+                    } else {
+                        CekProduk();
+                    }
+                }
+            })
+        });
 
-    <!-- jQuery -->
-    <script src="<?= base_url('adminlte') ?>/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?= base_url('adminlte') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="<?= base_url('adminlte') ?>/dist/js/adminlte.min.js"></script>
+        function CekProduk() {
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('Penjualan/CekProduk') ?>",
+                data: {
+                    kode_produk: $('#kode_produk').val(),
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    if (response.nama_produk == '') {
+                        Swal.fire('Kode produk tidak terdaftar!');
+                    } else {
+                        $('[name="nama_produk"]').val(response.nama_produk);
+                        $('[name="nama_kategori"]').val(response.nama_kategori);
+                        $('[name="nama_satuan"]').val(response.nama_satuan);
+                        $('[name="harga_jual"]').val(response.harga_jual);
+                        $('#qty').focus();
+                    }
+                }
+            });
+        }
+    </script>
+
 </body>
 
 </html>
