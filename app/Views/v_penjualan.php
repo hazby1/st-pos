@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
+
 <html lang="en">
 
 <head>
@@ -10,6 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ST-POS | <?= $judul; ?></title>
     <link rel="icon" href="<?= base_url() ?>/favicon.ico" type="image/gif">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/fontawesome-free/css/all.min.css">
@@ -20,11 +18,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- end DataTables -->
 
+    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/dist/css/adminlte.min.css?v=3.2.0">
+
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <!-- End SweetAlert2 -->
 
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/dist/css/adminlte.min.css?v=3.2.0">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
     <script src="<?= base_url('adminlte'); ?>/plugins/jquery/jquery.min.js"></script>
 
@@ -55,6 +58,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?= base_url('autoNumeric'); ?>/src/AutoNumeric.js"></script>
     <!-- end AutoNumeric -->
 
+    <script src="<?= base_url('adminlte'); ?>/dist/js/adminlte.min.js?v=3.2.0"></script>
+
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
@@ -63,8 +68,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?= base_url('adminlte') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- SweetAlert2 -->
     <script src="<?= base_url('adminlte') ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="<?= base_url('adminlte'); ?>/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="<?= base_url('adminlte'); ?>/plugins/jszip/jszip.min.js"></script>
+    <script src="<?= base_url('adminlte'); ?>/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="<?= base_url('adminlte'); ?>/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <!-- AdminLTE App -->
     <script src="<?= base_url('adminlte') ?>/dist/js/adminlte.min.js"></script>
+
+
 </head>
 
 <body class="hold-transition layout-top-nav">
@@ -176,7 +196,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </div>
                             <div class="card-body bg-dark color-palette">
                                 <div class="form-group">
-                                    <h1 class="text-bold text-right display-4 text-green">Rp4,500,000,-</h1>
+                                    <h1 class="text-bold text-right display-4 text-green">Rp<?= number_format($grandtotal, 0); ?>.-</h1>
                                 </div>
                             </div>
                         </div>
@@ -187,13 +207,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12">
-                                        <?php echo form_open() ?>
+                                        <?php echo form_open('penjualan/insertcart') ?>
                                         <div class="row">
                                             <div class="col-2 input-group">
-                                                <input id="kode_produk" autocomplete="off" name="kode_produk" placeholder="Kode Produk" class="form-control">
+                                                <input autofocus id="kode_produk" autocomplete="off" name="kode_produk" placeholder="Kode Produk" class="form-control">
                                                 <span class="input-group-append">
-                                                    <button class="btn btn-primary "><i class="fas fa-search"></i></button>
-                                                    <button class="btn btn-danger "><i class="fas fa-times"></i></button>
+                                                    <a data-toggle="modal" data-target="#cari-produk" class="btn btn-primary "><i class="fas fa-search"></i></a>
+                                                    <button type="reset" class="btn btn-danger "><i class="fas fa-times"></i></button>
                                                 </span>
                                             </div>
                                             <div class="col-3">
@@ -213,8 +233,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </div>
                                             <div class="col-3">
                                                 <button type="submit" class="btn  btn-primary"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                                <button type="reset" class="btn  btn-warning"><i class="fas fa-sync"></i> Bersihkan</button>
-                                                <button class="btn  btn-success"><i class="fas fa-cash-register"></i> Bayar</button>
+                                                <a href="<?= base_url('penjualan/ResetCart'); ?>" class="btn  btn-warning"><i class="fas fa-sync"></i> Bersihkan</a>
+                                                <a data-target="#pembayaran" data-toggle="modal" class="btn  btn-success"><i class="fas fa-cash-register"></i> Bayar</a>
                                             </div>
                                         </div>
                                         <?php echo form_close() ?>
@@ -236,17 +256,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>11111111</td>
-                                                    <td>Asus</td>
-                                                    <td>Laptop</td>
-                                                    <td class="text-right">@ 1,500,000</td>
-                                                    <td class="text-center">3 Unit</td>
-                                                    <td class="text-right">4,500,000</td>
-                                                    <td class="text-center">
-                                                        <a href="" class="btn btn-danger btn-xs"><i class="fas fa-times"></i></a>
-                                                    </td>
-                                                </tr>
+                                                <?php foreach ($cart as $key => $nilai) { ?>
+                                                    <tr>
+                                                        <td><?= $nilai['id']; ?></td>
+                                                        <td><?= $nilai['name']; ?></td>
+                                                        <td><?= $nilai['option']['nama_kategori']; ?></td>
+                                                        <td class="text-right">Rp<?= number_format($nilai['price'], 0); ?>.-</td>
+                                                        <td class="text-center"><?= $nilai['qty']; ?> <?= $nilai['option']['nama_satuan']; ?></td>
+                                                        <td class="text-right">Rp<?= number_format($nilai['subtotal'], 0); ?>.-</td>
+                                                        <td class="text-center">
+                                                            <a href="" class="btn btn-danger btn-xs"><i class="fas fa-times"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -270,6 +292,50 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
+
+        <!-- Modal Cari Produk -->
+        <div class="modal fade" id="cari-produk">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Daftar Produk</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table id="example1" class="table table-striped table-bordered table-hover text-sm">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>#</th>
+                                    <th width="120px">Kode Produk</th>
+                                    <th>Nama Produk</th>
+                                    <th width="100px">Harga</th>
+                                    <th width="100px">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $no = 1;
+                                foreach ($produk as $key  => $nilai) { ?>
+                                    <tr>
+                                        <td class="text-center"><?= $no++; ?></td>
+                                        <td><?= $nilai['kode_produk']; ?></td>
+                                        <td><?= $nilai['nama_produk']; ?></td>
+                                        <td class="text-right">Rp<?= number_format($nilai['harga_jual']); ?>.-</td>
+                                        <td class="text-center">
+                                            <button onclick="PilihProduk(<?= $nilai['kode_produk']; ?>)" href="" class="btn btn-success btn-xs">Pilih</button>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
@@ -327,6 +393,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 }
             });
         }
+
+        function PilihProduk(kode_produk) {
+            $('#kode_produk').val(kode_produk);
+            $('#cari-produk').modal('hide');
+            $('#kode_produk').focus();
+        }
+    </script>
+    <script>
+        // DataTables
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "paging": true,
+                "info": false,
+                "ordering": false,
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
     </script>
 
 </body>

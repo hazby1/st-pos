@@ -35,4 +35,14 @@ class PenjualanModel extends Model
             ->get()
             ->getRowArray();
     }
+
+    public function AllProduk()
+    {
+        return $this->db->table('t_produk')
+            ->join('t_kategori', 't_kategori.id_kategori=t_produk.id_kategori')
+            ->join('t_satuan', 't_satuan.id_satuan=t_produk.id_satuan')
+            ->orderBy('id_produk')
+            ->get()
+            ->getResultArray();
+    }
 }
