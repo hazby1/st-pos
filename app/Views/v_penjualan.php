@@ -58,6 +58,10 @@
     <script src="<?= base_url('autoNumeric'); ?>/src/AutoNumeric.js"></script>
     <!-- end AutoNumeric -->
 
+    <!-- Terbilang -->
+    <script src="<?= base_url('terbilang'); ?>/terbilang.js"></script>
+    <!-- end Terbilang -->
+
     <script src="<?= base_url('adminlte'); ?>/dist/js/adminlte.min.js?v=3.2.0"></script>
 
     <!-- REQUIRED SCRIPTS -->
@@ -282,7 +286,7 @@
 
                             </div>
                             <div class="card-body text-center text-waring bg-dark">
-                                <h1 for="">Empat Juta Lima Ratus Ribu Rupiah</h1>
+                                <h1 id="terbilang"></h1>
                             </div>
                         </div>
                     </div>
@@ -311,6 +315,7 @@
                                     <th width="120px">Kode Produk</th>
                                     <th>Nama Produk</th>
                                     <th width="100px">Harga</th>
+                                    <th width="100px">Stok</th>
                                     <th width="100px">Aksi</th>
                                 </tr>
                             </thead>
@@ -322,6 +327,7 @@
                                         <td><?= $nilai['kode_produk']; ?></td>
                                         <td><?= $nilai['nama_produk']; ?></td>
                                         <td class="text-right">Rp<?= number_format($nilai['harga_jual']); ?>.-</td>
+                                        <td><?= $nilai['stok']; ?></td>
                                         <td class="text-center">
                                             <button onclick="PilihProduk(<?= $nilai['kode_produk']; ?>)" href="" class="btn btn-success btn-xs">Pilih</button>
                                         </td>
@@ -359,6 +365,13 @@
     <script>
         $(document).ready(function() {
             $('#kode_produk').focus();
+
+            <?php if ($grandtotal == 0) { ?>
+                document.getElementById('terbilang').innerHTML = 'Nol Rupiah';
+            <?php } else { ?>
+                document.getElementById('terbilang').innerHTML = terbilang(<?= $grandtotal; ?>);
+            <?php } ?>
+
             $('#kode_produk').keydown(function(e) {
                 let kode_produk = $('#kode_produk').val();
                 if (e.keyCode == 13) {
