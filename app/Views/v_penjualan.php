@@ -269,7 +269,7 @@
                                                         <td class="text-center"><?= $nilai['qty']; ?> <?= $nilai['option']['nama_satuan']; ?></td>
                                                         <td class="text-right">Rp<?= number_format($nilai['subtotal'], 0); ?>.-</td>
                                                         <td class="text-center">
-                                                            <a href="" class="btn btn-danger btn-xs"><i class="fas fa-times"></i></a>
+                                                            <a href="<?= base_url('Penjualan/RemoveItemCart/' . $nilai['rowid']); ?>" class="btn btn-danger btn-xs"><i class="fas fa-times"></i></a>
                                                         </td>
                                                     </tr>
                                                 <?php } ?>
