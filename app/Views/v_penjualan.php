@@ -179,7 +179,7 @@
                                     <div class="col-3">
                                         <div class="form-group">
                                             <label for="">Jam</label>
-                                            <label class="form-control form-control-lg"><?= date('13:00:00'); ?></label>
+                                            <label id="jam" class="form-control form-control-lg"></label>
                                         </div>
                                     </div>
                                     <div class="col-3">
@@ -499,6 +499,7 @@
             });
         }
     </script>
+
     <script>
         // DataTables
         $(function() {
@@ -513,6 +514,32 @@
         });
     </script>
 
+    <!-- Jam realtime -->
+    <script>
+        window.onload = function() {
+            startTime();
+        }
+
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('jam').innerHTML = h + ':' + m + ':' + s;
+            var t = setTimeout(function() {
+                startTime();
+            }, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + 1;
+            }
+            return i;
+        }
+    </script>
 </body>
 
 </html>
