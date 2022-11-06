@@ -200,7 +200,7 @@
                             </div>
                             <div class="card-body bg-dark color-palette">
                                 <div class="form-group">
-                                    <h1 class="text-bold text-right display-4 text-green">Rp<?= number_format($grandtotal, 0); ?>.-</h1>
+                                    <h1 class="text-bold text-right display-4 text-green">Rp<?= number_format($grand_total, 0); ?>.-</h1>
                                 </div>
                             </div>
                         </div>
@@ -238,7 +238,7 @@
                                             <div class="col-3">
                                                 <button type="submit" class="btn  btn-primary"><i class="fas fa-cart-plus"></i> Tambah</button>
                                                 <a href="<?= base_url('penjualan/ResetCart'); ?>" class="btn  btn-warning"><i class="fas fa-sync"></i> Bersihkan</a>
-                                                <a data-target="#pembayaran" data-toggle="modal" class="btn  btn-success"><i class="fas fa-cash-register"></i> Bayar</a>
+                                                <a data-target="#pembayaran" data-toggle="modal" class="btn  btn-success" onclick="Pembayaran()"><i class="fas fa-cash-register"></i> Bayar</a>
                                             </div>
                                         </div>
                                         <?php echo form_close() ?>
@@ -343,6 +343,59 @@
         </div>
         <!-- /.modal -->
 
+        <!-- Modal Bayar -->
+        <div class="modal fade" id="pembayaran">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Pembayaran</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <?php echo form_open() ?>
+
+                        <div class="form-group">
+                            <label for="">Grand Total</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Rp</span>
+                                </div>
+                                <input id="grand_total" name="grand_total" class="form-control form-control-lg text-right text-danger" value="<?= number_format($grand_total); ?>" type="text" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Dibayar</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Rp</span>
+                                </div>
+                                <input name="dibayar" id="dibayar" class="form-control form-control-lg text-right text-success" type="text" autocomplete="false">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Kembalian</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Rp</span>
+                                </div>
+                                <input id="kembalian" name="kembalian" class="form-control form-control-lg text-right text-primary" type="text" readonly value="">
+                            </div>
+                        </div>
+                        <?php echo form_close() ?>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button class="btn btn-default" data-dismiss="modal">Batal</button>
+                        <button class="btn btn-primary"><i class="fas fa-save"></i> Bayar</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
@@ -366,10 +419,10 @@
         $(document).ready(function() {
             $('#kode_produk').focus();
 
-            <?php if ($grandtotal == 0) { ?>
+            <?php if ($grand_total == 0) { ?>
                 document.getElementById('terbilang').innerHTML = 'Nol Rupiah';
             <?php } else { ?>
-                document.getElementById('terbilang').innerHTML = terbilang(<?= $grandtotal; ?>);
+                document.getElementById('terbilang').innerHTML = terbilang(<?= $grand_total; ?>);
             <?php } ?>
 
             $('#kode_produk').keydown(function(e) {
@@ -383,6 +436,11 @@
                     }
                 }
             })
+        });
+
+        // Hitung Kembalian
+        $('#dibayar').keyup(function(e) {
+            HitungKembalian();
         });
 
         function CekProduk() {
@@ -411,6 +469,34 @@
             $('#kode_produk').val(kode_produk);
             $('#cari-produk').modal('hide');
             $('#kode_produk').focus();
+        }
+
+        function Pembayaran() {
+            $('#pembayaran').modal('show');
+        }
+
+        new AutoNumeric('#dibayar', {
+            digitGroupSeparator: ',',
+            decimalPlaces: 0
+        });
+
+        new AutoNumeric('#kembalian', {
+            digitGroupSeparator: ',',
+            decimalPlaces: 0
+        });
+
+        function HitungKembalian() {
+            let grand_total = $('#grand_total').val().replace(/[^.\d]/g, '').toString();
+            let dibayar = $('#dibayar').val().replace(/[^.\d]/g, '').toString();
+
+            let kembalian = parseFloat(dibayar) - parseFloat(grand_total);
+
+            $('#kembalian').val(kembalian);
+
+            new AutoNumeric('#kembalian', {
+                digitGroupSeparator: ',',
+                decimalPlaces: 0
+            });
         }
     </script>
     <script>

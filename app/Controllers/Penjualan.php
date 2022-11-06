@@ -19,7 +19,7 @@ class Penjualan extends BaseController
             'judul' => 'Penjualan',
             'no_faktur' => $this->PenjualanModel->NoFaktur(),
             'cart' => $cart->contents(),
-            'grandtotal' => $cart->total(),
+            'grand_total' => $cart->total(),
             'produk' => $this->PenjualanModel->AllProduk()
         ];
         return view('v_penjualan', $data);
