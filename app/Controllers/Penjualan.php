@@ -91,4 +91,46 @@ class Penjualan extends BaseController
 
         return redirect()->to(base_url('penjualan'));
     }
+
+    public function SimpanTransaksi()
+    {
+        # code...
+        $cart = \Config\Services::cart();
+        $produk = $cart->contents();
+        $no_faktur = $this->PenjualanModel->NoFaktur();
+        $dibayar = str_replace(",", "", $this->request->getPost('dibayar'));
+        $kembalian = str_replace(",", "", $this->request->getPost('kembalian'));
+
+        // Simpan ke t_rinci
+        foreach ($produk as $key => $nilai) {
+            # code...
+            $data = [
+                'no_faktur' => $no_faktur,
+                'kode_produk' => $nilai['id'],
+                'harga_jual' => $nilai['price'],
+                'qty' => $nilai['qty'],
+                'total_harga' => $nilai['subtotal'],
+            ];
+            $this->PenjualanModel->InsertRinciJual($data);
+        }
+
+        // Simpan ke t_jual
+        foreach ($produk as $key => $nilai) {
+            # code...
+            $data = [
+                'no_faktur' => $no_faktur,
+                'tgl_jual' => date('Y-m-d'),
+                'jam' => date('H:i:s'),
+                'grand_total' => $cart->total(),
+                'dibayar' => $dibayar,
+                'kembalian' => $kembalian,
+                'id_kasir' => session()->get('id_user'),
+            ];
+            $this->PenjualanModel->InsertJual($data);
+
+            $cart->destroy();
+            session()->setFlashdata('pesan', 'Transaksi berhasil!');
+            return redirect()->to('Penjualan');
+        }
+    }
 }

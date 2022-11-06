@@ -290,6 +290,21 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-12">
+                        <!-- Alert -->
+                        <?php
+                        if (session()->getFlashdata('pesan')) {
+                            echo '<div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <i class="icon fas fa-check"></i>';
+                            echo session()->getFlashdata('pesan');
+                            echo '</div>';
+                        }
+                        ?>
+                        <!-- end Alert -->
+                    </div>
+
                 </div>
                 <!-- /.row -->
             </div>
@@ -354,7 +369,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <?php echo form_open() ?>
+                        <?php echo form_open('Penjualan/SimpanTransaksi') ?>
 
                         <div class="form-group">
                             <label for="">Grand Total</label>
@@ -371,7 +386,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Rp</span>
                                 </div>
-                                <input autofocus name="dibayar" id="dibayar" class="form-control form-control-lg text-right text-success" type="text" autocomplete="false">
+                                <input name="dibayar" autocomplete="off" autofocus name="dibayar" id="dibayar" class="form-control form-control-lg text-right text-success" type="text" autocomplete="false">
                             </div>
                         </div>
                         <div class="form-group">
@@ -383,12 +398,12 @@
                                 <input id="kembalian" name="kembalian" class="form-control form-control-lg text-right text-primary" type="text" readonly value="">
                             </div>
                         </div>
-                        <?php echo form_close() ?>
                     </div>
                     <div class="modal-footer justify-content-between">
-                        <button class="btn btn-default" data-dismiss="modal">Batal</button>
-                        <button class="btn btn-primary"><i class="fas fa-save"></i> Bayar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Bayar</button>
                     </div>
+                    <?php echo form_close() ?>
                 </div>
                 <!-- /.modal-content -->
             </div>
@@ -422,7 +437,7 @@
             <?php if ($grand_total == 0) { ?>
                 document.getElementById('terbilang').innerHTML = 'Nol Rupiah';
             <?php } else { ?>
-                document.getElementById('terbilang').innerHTML = terbilang(<?= $grand_total; ?>);
+                document.getElementById('terbilang').innerHTML = terbilang(<?= $grand_total; ?>) + ' Rupiah';
             <?php } ?>
 
             $('#kode_produk').keydown(function(e) {

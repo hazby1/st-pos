@@ -19,7 +19,6 @@ class Jual extends Migration
             'no_faktur' => [
                 'type' => 'VARCHAR',
                 'constraint' => '250',
-                'unique' => true
             ],
             'tgl_jual' => [
                 'type' => 'DATE'

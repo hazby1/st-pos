@@ -46,4 +46,16 @@ class PenjualanModel extends Model
             ->get()
             ->getResultArray();
     }
+
+    public function InsertJual($data)
+    {
+        # code...
+        $this->db->table('t_jual')->insert($data);
+    }
+
+    public function InsertRinciJual($data)
+    {
+        # code...
+        $this->db->table('t_rinci')->insert($data);
+    }
 }

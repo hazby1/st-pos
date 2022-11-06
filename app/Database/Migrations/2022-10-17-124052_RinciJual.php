@@ -19,7 +19,6 @@ class RinciJual extends Migration
             'no_faktur' => [
                 'type' => 'VARCHAR',
                 'constraint' => '50',
-                'unique' => true
             ],
             'kode_produk' => [
                 'type' => 'VARCHAR',
