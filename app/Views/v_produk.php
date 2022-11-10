@@ -53,7 +53,7 @@
                 <tbody>
                     <?php $no = 1;
                     foreach ($produk as $key => $nilai) { ?>
-                        <tr>
+                        <tr class="<?= $nilai['stok'] == 0 ? 'bg-danger' : ''; ?>">
                             <td class="text-center"><b><?= $no++; ?></b></td>
                             <td class="text-center"><?= $nilai['kode_produk']; ?></td>
                             <td><?= $nilai['nama_produk']; ?></td>
@@ -64,7 +64,7 @@
                             <td class="text-center"><?= number_format($nilai['stok']); ?></td>
                             <td class="text-center">
                                 <button class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#edit-data<?= $nilai['id_produk'] ?>"></i></button>
-                                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-data<?= $nilai['id_produk'] ?>"><i class="fas fa-trash"></i></button>
+                                <button class="btn btn-sm btn-danger <?= $nilai['stok'] == 0 ? 'btn-outline-light' : ''; ?>" data-toggle="modal" data-target="#delete-data<?= $nilai['id_produk'] ?>"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
                     <?php } ?>
@@ -282,7 +282,7 @@ foreach ($produk as $key => $nilai) { ?>
             "paging": true,
             "info": true,
             "ordering": false,
-            "buttons": ["excel", "pdf", "print", "colvis"]
+            "buttons": ["excel", "pdf", "print", ]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         // $("#example2").DataTable({
         //     "paging": true,
