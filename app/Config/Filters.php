@@ -70,6 +70,7 @@ class Filters extends BaseConfig
                     'Satuan', 'Satuan/*',
                     'Jasa', 'Jasa/*',
                     'Servis', 'Servis/*',
+                    'Laporan', 'Laporan/*',
                     '/',
                 ]
             ],

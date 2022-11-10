@@ -3,7 +3,9 @@
         <div class="card-header">
             <h3 class="card-title"><?= $subjudul; ?></h3>
             <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-toggle="modal" data-target="#tambah-data"><i class="fas fa-plus"></i> <span>Tambah Data</span>
+                <button onclick="NewWin=window.open('<?= base_url('laporan/CetakProduk') ?>', 'NewWin', 'width=1500')" type="button" class="btn btn-tool"><i class="fas fa-print"></i> <span> Cetak</span>
+                </button>
+                <button type="button" class="btn btn-tool" data-toggle="modal" data-target="#tambah-data"><i class="fas fa-plus"></i> <span> Tambah Data</span>
                 </button>
             </div>
 

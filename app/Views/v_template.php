@@ -166,6 +166,35 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="nav-item <?= $menu == 'laporan' ? 'menu-open' : ''; ?>">
+                                <a href="#" class="nav-link <?= $menu == 'laporan' ? 'active' : ''; ?>">
+                                    <i class="nav-icon fas fa-file-alt"></i>
+                                    <p>
+                                        Laporan
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('laporan'); ?>" class="nav-link <?= $submenu == 'harian' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Laporan Harian</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('laporan'); ?>" class="nav-link <?= $submenu == 'bulanan' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Laporan Bulanan</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('laporan'); ?>" class="nav-link <?= $submenu == 'tahunan' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Laporan Tahunan</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="nav-item">
                                 <a href="<?= base_url('admin/setting'); ?>" class="nav-link <?= $menu == 'setting' ? 'active' : ''; ?>">
                                     <i class="nav-icon fas fa-cog"></i>
