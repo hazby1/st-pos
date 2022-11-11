@@ -231,6 +231,7 @@
                                             </div>
                                             <div class="col-1">
                                                 <input readonly type="text" class="form-control" name="harga_jual" placeholder="Harga">
+                                                <input readonly type="hidden" name="harga_beli">
                                             </div>
                                             <div class="col-1">
                                                 <input id="qty" type="number" value="1" min="1" class="form-control text-center" name="qty" placeholder="QTY">
@@ -474,6 +475,7 @@
                         $('[name="nama_kategori"]').val(response.nama_kategori);
                         $('[name="nama_satuan"]').val(response.nama_satuan);
                         $('[name="harga_jual"]').val(response.harga_jual);
+                        $('[name="harga_beli"]').val(response.harga_beli);
                         $('#qty').focus();
                     }
                 }

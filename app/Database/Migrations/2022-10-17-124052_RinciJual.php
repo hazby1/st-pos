@@ -24,7 +24,11 @@ class RinciJual extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '25'
             ],
-            'harga_jual' => [
+            'harga' => [
+                'type' => 'INT',
+                'constraint' => '11'
+            ],
+            'modal' => [
                 'type' => 'INT',
                 'constraint' => '11'
             ],
@@ -33,6 +37,10 @@ class RinciJual extends Migration
                 'constraint' => '11'
             ],
             'total_harga' => [
+                'type' => 'INT',
+                'constraint' => '11'
+            ],
+            'untung' => [
                 'type' => 'INT',
                 'constraint' => '11'
             ],
