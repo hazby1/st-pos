@@ -284,7 +284,7 @@ foreach ($produk as $key => $nilai) { ?>
             "paging": true,
             "info": true,
             "ordering": false,
-            "buttons": ["excel", "pdf", "print", ]
+            "buttons": ["excel", ]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         // $("#example2").DataTable({
         //     "paging": true,

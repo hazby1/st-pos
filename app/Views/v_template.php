@@ -176,7 +176,7 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="<?= base_url('laporan'); ?>" class="nav-link <?= $submenu == 'harian' ? 'active' : ''; ?>">
+                                        <a href="<?= base_url('laporan/LaporanHarian'); ?>" class="nav-link <?= $submenu == 'harian' ? 'active' : ''; ?>">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Laporan Harian</p>
                                         </a>
