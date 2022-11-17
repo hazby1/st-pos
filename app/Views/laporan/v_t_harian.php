@@ -44,8 +44,8 @@
                     <td class="text-right">Rp<?= number_format($nilai['untung']); ?></td>
                 </tr>
             <?php } ?>
-            <tr class="">
-                <td class="text-right bg-gray" colspan="6">
+            <tr class="bg-gray">
+                <td class="text-right " colspan="6">
                     <h5>Grand Total</h5>
                 </td>
                 <th class="text-right">Rp<?= $dataharian == null ? '' : number_format(array_sum($grandtotal)); ?></th>

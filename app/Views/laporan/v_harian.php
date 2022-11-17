@@ -18,7 +18,7 @@
                                 <button onclick="ViewTabelLaporan()" class="btn btn-primary ">
                                     <i class="fas fa-file-alt"></i> Lihat
                                 </button>
-                                <button class="btn btn-success">
+                                <button onclick="CetakLaporan()" class="btn btn-success">
                                     <i class="fas fa-print"></i> Cetak
                                 </button>
                             </span>
@@ -41,18 +41,31 @@
 <script>
     function ViewTabelLaporan() {
         let tgl = $('#tgl').val();
-        $.ajax({
-            type: "POST",
-            url: "<?= base_url('Laporan/ViewLaporanHarian') ?>",
-            data: {
-                tgl: tgl,
-            },
-            dataType: "JSON",
-            success: function(response) {
-                if (response.data) {
-                    $('.Tabel').html(response.data)
-                }
-            },
-        });
+        if (tgl == '') {
+            Swal.fire('Tanggal belum dipilih!');
+        } else {
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('Laporan/ViewLaporanHarian') ?>",
+                data: {
+                    tgl: tgl,
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    if (response.data) {
+                        $('.Tabel').html(response.data)
+                    }
+                },
+            });
+        }
+    }
+
+    function CetakLaporan() {
+        let tgl = $('#tgl').val();
+        if (tgl == '') {
+            Swal.fire('Tanggal belum dipilih!');
+        } else {
+            NewWin = window.open("<?= base_url('Laporan/CetakLaporanHarian'); ?>/" + tgl, "NewWin", "width=1500")
+        }
     }
 </script>

@@ -1,4 +1,14 @@
 <div class="col-12">
+    <table>
+        <tr>
+            <th width="100">Dicetak oleh</th>
+            <th> : <?= session('nama_user'); ?></th>
+        </tr>
+        <tr>
+            <th>Tanggal</th>
+            <th> : <?= date('d M Y H:i:s'); ?></th>
+        </tr>
+    </table>
     <table id="example1" class="table table-striped table-bordered table-hover">
         <thead class="text-center">
             <tr>
@@ -27,6 +37,5 @@
                 </tr>
             <?php } ?>
         </tbody>
-        <b>Tanggal : </b><?= date('d M Y H:i:s'); ?>
     </table>
 </div>

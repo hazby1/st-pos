@@ -18,7 +18,12 @@
     <!-- end DataTables -->
 
     <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/dist/css/adminlte.min.css?v=3.2.0">
-
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <!-- End SweetAlert2 -->
+    <!-- SweetAlert2 -->
+    <script src="<?= base_url('adminlte') ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- End SweetAlert2 -->
     <script src="<?= base_url('adminlte'); ?>/plugins/jquery/jquery.min.js"></script>
 
     <script src="<?= base_url('adminlte'); ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

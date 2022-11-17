@@ -64,4 +64,17 @@ class Laporan extends BaseController
 
         // echo dd($this->LaporanModel->DataHarian($tgl));
     }
+
+    public function CetakLaporanHarian($tgl)
+    {
+        # code...
+        $data = [
+            'judul' => 'Laporan Penjualan Harian',
+            'page' => 'laporan/v_cetak_lap_harian',
+            'dataharian' => $this->LaporanModel->DataHarian($tgl),
+            'web' => $this->AdminModel->DetailData(),
+            'tgl' => $tgl,
+        ];
+        return view('laporan/v_template_cetak_laporan', $data);
+    }
 }
