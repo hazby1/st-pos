@@ -187,7 +187,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="<?= base_url('laporan'); ?>" class="nav-link <?= $submenu == 'bulanan' ? 'active' : ''; ?>">
+                                        <a href="<?= base_url('laporan/LaporanBulanan'); ?>" class="nav-link <?= $submenu == 'bulanan' ? 'active' : ''; ?>">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Laporan Bulanan</p>
                                         </a>

@@ -77,4 +77,55 @@ class Laporan extends BaseController
         ];
         return view('laporan/v_template_cetak_laporan', $data);
     }
+
+    public function LaporanBulanan()
+    {
+        # code...
+        $data = [
+            'judul' => 'Laporan',
+            'subjudul' => 'Laporan Bulanan',
+            'menu' => 'laporan',
+            'submenu' => 'bulanan',
+            'page' => 'laporan/v_bulanan',
+            'web' => $this->AdminModel->DetailData(),
+        ];
+        return view('v_template', $data);
+    }
+
+    public function ViewLaporanBulanan()
+    {
+        $bulan = $this->request->getPost('bulan');
+        $tahun = $this->request->getPost('tahun');
+
+        $data = [
+            'judul' => 'Laporan',
+            'subjudul' => 'Laporan Penjualan Bulanan',
+            'databulanan' => $this->LaporanModel->Databulanan($bulan, $tahun),
+            'web' => $this->AdminModel->DetailData(),
+            'bulan' => $bulan,
+            'tahun' => $tahun,
+        ];
+
+        $response = [
+            'data' => view('laporan/v_t_bulanan', $data)
+        ];
+
+        echo json_encode($response);
+
+        // echo dd($this->LaporanModel->DataBulanan($bulan, $tahun));
+    }
+
+    public function CetakLaporanBulanan($bulan, $tahun)
+    {
+        # code...
+        $data = [
+            'judul' => 'Laporan Penjualan Bulanan',
+            'page' => 'laporan/v_cetak_lap_bulanan',
+            'databulanan' => $this->LaporanModel->DataBulanan($bulan, $tahun),
+            'web' => $this->AdminModel->DetailData(),
+            'bulan' => $bulan,
+            'tahun' => $tahun,
+        ];
+        return view('laporan/v_template_cetak_laporan', $data);
+    }
 }
