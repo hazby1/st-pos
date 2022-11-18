@@ -22,6 +22,7 @@ class Admin extends BaseController
             'menu' => 'dashboard',
             'submenu' => '',
             'page' => 'v_admin',
+            'grafik' => $this->AdminModel->Grafik(),
         ];
         return view('v_template', $data);
     }
