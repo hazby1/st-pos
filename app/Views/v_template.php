@@ -193,7 +193,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="<?= base_url('laporan'); ?>" class="nav-link <?= $submenu == 'tahunan' ? 'active' : ''; ?>">
+                                        <a href="<?= base_url('laporan/LaporanTahunan'); ?>" class="nav-link <?= $submenu == 'tahunan' ? 'active' : ''; ?>">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Laporan Tahunan</p>
                                         </a>

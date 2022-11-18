@@ -128,4 +128,53 @@ class Laporan extends BaseController
         ];
         return view('laporan/v_template_cetak_laporan', $data);
     }
+
+    public function LaporanTahunan()
+    {
+        # code...
+        $data = [
+            'judul' => 'Laporan',
+            'subjudul' => 'Laporan Tahunan',
+            'menu' => 'laporan',
+            'submenu' => 'tahunan',
+            'page' => 'laporan/v_tahunan',
+            'web' => $this->AdminModel->DetailData(),
+        ];
+        return view('v_template', $data);
+    }
+
+    public function ViewLaporanTahunan()
+    {
+        $tahun = $this->request->getPost('tahun');
+        // $tahun = 2022;
+
+        $data = [
+            'judul' => 'Laporan',
+            'subjudul' => 'Laporan Penjualan Tahunan',
+            'datatahunan' => $this->LaporanModel->DataTahunan($tahun),
+            'web' => $this->AdminModel->DetailData(),
+            'tahun' => $tahun,
+        ];
+
+        $response = [
+            'data' => view('laporan/v_t_tahunan', $data)
+        ];
+
+        echo json_encode($response);
+
+        // echo dd($this->LaporanModel->DataTahunan($tahun));
+    }
+
+    public function CetakLaporanTahunan($tahun)
+    {
+        # code...
+        $data = [
+            'judul' => 'Laporan Penjualan Tahunan',
+            'page' => 'laporan/v_cetak_lap_tahunan',
+            'datatahunan' => $this->LaporanModel->DataTahunan($tahun),
+            'web' => $this->AdminModel->DetailData(),
+            'tahun' => $tahun,
+        ];
+        return view('laporan/v_template_cetak_laporan', $data);
+    }
 }

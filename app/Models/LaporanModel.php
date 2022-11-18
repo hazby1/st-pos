@@ -37,4 +37,17 @@ class LaporanModel extends Model
             ->selectSum('t_rinci.untung')
             ->get()->getResultArray();
     }
+
+    public function DataTahunan($tahun)
+    {
+        # code...
+        return $this->db->table('t_rinci')
+            ->join('t_jual', 't_jual.no_faktur=t_rinci.no_faktur')
+            ->where('year(t_jual.tgl_jual)', $tahun)
+            ->select('month(t_jual.tgl_jual) as bulan')
+            ->groupBy('month(t_jual.tgl_jual)')
+            ->selectSum('t_rinci.total_harga')
+            ->selectSum('t_rinci.untung')
+            ->get()->getResultArray();
+    }
 }
