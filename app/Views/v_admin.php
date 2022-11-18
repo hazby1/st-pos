@@ -3,7 +3,7 @@
 
     <div class="small-box bg-info">
         <div class="inner">
-            <h3>150</h3>
+            <h3><?= $produk; ?></h3>
             <p>Produk</p>
         </div>
         <div class="icon">
@@ -15,9 +15,23 @@
 
 <div class="col-lg-3 col-6">
 
+    <div class="small-box bg-success">
+        <div class="inner">
+            <h3><?= $jasa; ?></h3>
+            <p>Jasa</p>
+        </div>
+        <div class="icon">
+            <i class="fas fa-clipboard-list"></i>
+        </div>
+        <a href="<?= base_url('jasa'); ?>" class="small-box-footer">Lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+
+<div class="col-lg-2 col-6">
+
     <div class="small-box bg-teal">
         <div class="inner">
-            <h3>53<sup style="font-size: 50%">%</sup></h3>
+            <h3><?= $kategori; ?></h3>
             <p>Kategori</p>
         </div>
         <div class="icon">
@@ -27,11 +41,11 @@
     </div>
 </div>
 
-<div class="col-lg-3 col-6">
+<div class="col-lg-2 col-6">
 
-    <div class="small-box bg-olive">
+    <div class="small-box bg-primary">
         <div class="inner">
-            <h3>44</h3>
+            <h3><?= $satuan; ?></h3>
             <p>Satuan</p>
         </div>
         <div class="icon">
@@ -41,11 +55,11 @@
     </div>
 </div>
 
-<div class="col-lg-3 col-6">
+<div class="col-lg-2 col-6">
 
     <div class="small-box bg-pink">
         <div class="inner">
-            <h3>65</h3>
+            <h3><?= $user; ?></h3>
             <p>User</p>
         </div>
         <div class="icon">
@@ -63,8 +77,8 @@
         <span class="info-box-icon"><i class="fas fa-money-bill-wave"></i></span>
 
         <div class="info-box-content">
-            <span class="info-box-text">Pendapatan hari ini</span>
-            <span class="info-box-number">Rp5,200</span>
+            <span class="info-box-text">Pendapatan Hari Ini</span>
+            <span class="info-box-number">Rp<?= $pendapatanhari == null ? 0 : number_format($pendapatanhari['total_harga']); ?></span>
         </div>
         <!-- /.info-box-content -->
     </div>
@@ -75,8 +89,8 @@
         <span class="info-box-icon"><i class="fas fa-money-bill-alt"></i></span>
 
         <div class="info-box-content">
-            <span class="info-box-text">Pendapatan bulan ini</span>
-            <span class="info-box-number">Rp5,200</span>
+            <span class="info-box-text">Pendapatan Bulan Ini</span>
+            <span class="info-box-number">Rp<?= $pendapatanbulan == null ? 0 : number_format($pendapatanbulan['total_harga']); ?></span>
         </div>
         <!-- /.info-box-content -->
     </div>
@@ -87,8 +101,8 @@
         <span class="info-box-icon"><i class="fas fa-money-bill"></i></span>
 
         <div class="info-box-content">
-            <span class="info-box-text">Pendapatan tahun ini</span>
-            <span class="info-box-number">Rp5,200</span>
+            <span class="info-box-text">Pendapatan Tahun Ini</span>
+            <span class="info-box-number">Rp<?= $pendapatantahun == null ? 0 : number_format($pendapatantahun['total_harga']); ?></span>
         </div>
         <!-- /.info-box-content -->
     </div>
@@ -109,11 +123,21 @@
 </div>
 <!-- /.card -->
 
-<?php foreach ($grafik as $key => $nilai) {
-    $tgl[] = $nilai['tgl_jual'];
-    $total[] = $nilai['total_harga'];
-    $untung[] = $nilai['untung'];
-} ?>
+<?php
+
+if ($grafik == null) {
+    $tgl[] = 0;
+    $total[] = 0;
+    $untung[] = 0;
+} else {
+    foreach ($grafik as $key => $nilai) {
+        $tgl[] = $nilai['tgl_jual'];
+        $total[] = $nilai['total_harga'];
+        $untung[] = $nilai['untung'];
+    }
+}
+
+?>
 
 <script>
     const ctx = document.getElementById('myChart');

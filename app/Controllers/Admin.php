@@ -23,6 +23,14 @@ class Admin extends BaseController
             'submenu' => '',
             'page' => 'v_admin',
             'grafik' => $this->AdminModel->Grafik(),
+            'pendapatanhari' => $this->AdminModel->PendapatanHariIni(),
+            'pendapatanbulan' => $this->AdminModel->PendapatanBulanIni(),
+            'pendapatantahun' => $this->AdminModel->PendapatanTahunIni(),
+            'produk' => $this->AdminModel->TotalProduk(),
+            'satuan' => $this->AdminModel->TotalSatuan(),
+            'kategori' => $this->AdminModel->TotalKategori(),
+            'jasa' => $this->AdminModel->TotalJasa(),
+            'user' => $this->AdminModel->TotalUser(),
         ];
         return view('v_template', $data);
     }
@@ -54,5 +62,12 @@ class Admin extends BaseController
         $this->AdminModel->UpdateData($data);
         session()->setFlashdata('pesan', 'Data berhasil diubah!');
         return redirect()->to('admin/setting');
+    }
+
+    public function Cek()
+    {
+        # code...
+
+        echo dd($this->AdminModel->PendapatanhariIni());
     }
 }
