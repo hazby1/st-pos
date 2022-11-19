@@ -31,6 +31,7 @@ class Admin extends BaseController
             'kategori' => $this->AdminModel->TotalKategori(),
             'jasa' => $this->AdminModel->TotalJasa(),
             'user' => $this->AdminModel->TotalUser(),
+            'supplier' => $this->AdminModel->TotalSupplier(),
         ];
         return view('v_template', $data);
     }

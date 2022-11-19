@@ -164,6 +164,12 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a href="<?= base_url('supplier'); ?>" class="nav-link <?= $submenu == 'supplier' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Supplier</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a href="<?= base_url('user'); ?>" class="nav-link <?= $submenu == 'user' ? 'active' : ''; ?>">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>User</p>

@@ -98,4 +98,10 @@ class AdminModel extends Model
         # code...
         return $this->db->table('t_jasa')->countAll();
     }
+
+    public function TotalSupplier()
+    {
+        # code...
+        return $this->db->table('t_supplier')->countAll();
+    }
 }

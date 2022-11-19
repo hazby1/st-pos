@@ -71,6 +71,7 @@ class Filters extends BaseConfig
                     'Jasa', 'Jasa/*',
                     'Servis', 'Servis/*',
                     'Laporan', 'Laporan/*',
+                    'Supplier', 'Supplier/*',
                     '/',
                 ]
             ],
