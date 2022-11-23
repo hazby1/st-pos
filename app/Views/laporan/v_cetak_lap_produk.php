@@ -19,6 +19,8 @@
                 <th>Satuan</th>
                 <th>Harga Beli</th>
                 <th>Harga Jual</th>
+                <th>Harga Reseller A</th>
+                <th>Harga Reseller B</th>
                 <th width="100px">Stok</th>
             </tr>
         </thead>
@@ -33,6 +35,8 @@
                     <td class="text-center"><?= $nilai['nama_satuan']; ?></td>
                     <td class="text-right">Rp<?= number_format($nilai['harga_beli'], 0); ?></td>
                     <td class="text-right">Rp<?= number_format($nilai['harga_jual'], 0); ?></td>
+                    <td class="text-right">Rp<?= number_format($nilai['harga_jual_a'], 0); ?></td>
+                    <td class="text-right">Rp<?= number_format($nilai['harga_jual_b'], 0); ?></td>
                     <td class="text-center"><?= number_format($nilai['stok']); ?></td>
                 </tr>
             <?php } ?>
