@@ -30,6 +30,31 @@ class Laporan extends BaseController
         return view('laporan/v_template_cetak_laporan', $data);
     }
 
+    public function tgl_indo($tgl)
+    {
+        $bulan = array(
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $pecahkan = explode('-', $tgl);
+
+        // variabel pecahkan 0 = tanggal
+        // variabel pecahkan 1 = bulan
+        // variabel pecahkan 2 = tahun
+
+        return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+    }
+
     public function LaporanHarian()
     {
         # code...
@@ -47,13 +72,14 @@ class Laporan extends BaseController
     public function ViewLaporanHarian()
     {
         $tgl = $this->request->getPost('tgl');
+
         # code...
         $data = [
             'subjudul' => 'Laporan Penjualan Harian',
             'judul' => 'Laporan',
             'dataharian' => $this->LaporanModel->DataHarian($tgl),
             'web' => $this->AdminModel->DetailData(),
-            'tgl' => $tgl,
+            'tgl' => $this->tgl_indo($tgl),
         ];
 
         $response = [
@@ -73,7 +99,7 @@ class Laporan extends BaseController
             'page' => 'laporan/v_cetak_lap_harian',
             'dataharian' => $this->LaporanModel->DataHarian($tgl),
             'web' => $this->AdminModel->DetailData(),
-            'tgl' => $tgl,
+            'tgl' => $this->tgl_indo($tgl),
         ];
         return view('laporan/v_template_cetak_laporan', $data);
     }
