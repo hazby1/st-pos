@@ -241,7 +241,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12">
-                                        <?php echo form_open('penjualan/insertcart') ?>
+                                        <?php echo form_open('penjualan/insertcartB') ?>
                                         <div class="row">
                                             <div class="col-2 input-group">
                                                 <input autofocus id="kode_produk" autocomplete="off" name="kode_produk" placeholder="Kode Produk" class="form-control">
@@ -260,7 +260,7 @@
                                                 <input readonly type="text" class="form-control" name="nama_satuan" placeholder="Satuan">
                                             </div>
                                             <div class="col-1">
-                                                <input readonly type="text" class="form-control" name="harga_jual" placeholder="Harga">
+                                                <input readonly type="text" class="form-control" name="harga_jual_b" placeholder="Harga">
                                                 <input readonly type="hidden" name="harga_beli">
                                             </div>
                                             <div class="col-1">
@@ -268,7 +268,7 @@
                                             </div>
                                             <div class="col-3">
                                                 <button type="submit" class="btn  btn-primary"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                                <a href="<?= base_url('penjualan/ResetCart'); ?>" class="btn  btn-warning"><i class="fas fa-sync"></i> Bersihkan</a>
+                                                <a href="<?= base_url('penjualan/ResetCartB'); ?>" class="btn  btn-warning"><i class="fas fa-sync"></i> Bersihkan</a>
                                                 <a data-target="#pembayaran" data-toggle="modal" class="btn  btn-success" onclick="Pembayaran()"><i class="fas fa-cash-register"></i> Bayar</a>
                                             </div>
                                         </div>
@@ -300,7 +300,7 @@
                                                         <td class="text-center"><?= $nilai['qty']; ?> <?= $nilai['option']['nama_satuan']; ?></td>
                                                         <td class="text-right">Rp<?= number_format($nilai['subtotal'], 0); ?>.-</td>
                                                         <td class="text-center">
-                                                            <a href="<?= base_url('Penjualan/RemoveItemCart/' . $nilai['rowid']); ?>" class="btn btn-danger btn-xs"><i class="fas fa-times"></i></a>
+                                                            <a href="<?= base_url('Penjualan/RemoveItemCartB/' . $nilai['rowid']); ?>" class="btn btn-danger btn-xs"><i class="fas fa-times"></i></a>
                                                         </td>
                                                     </tr>
                                                 <?php } ?>
@@ -372,7 +372,7 @@
                                         <td class="text-center"><?= $no++; ?></td>
                                         <td><?= $nilai['kode_produk']; ?></td>
                                         <td><?= $nilai['nama_produk']; ?></td>
-                                        <td class="text-right">Rp<?= number_format($nilai['harga_jual']); ?>.-</td>
+                                        <td class="text-right">Rp<?= number_format($nilai['harga_jual_b']); ?>.-</td>
                                         <td><?= $nilai['stok']; ?></td>
                                         <td class="text-center">
                                             <button onclick="PilihProduk(<?= $nilai['kode_produk']; ?>)" href="" class="btn btn-success btn-xs">Pilih</button>
@@ -400,7 +400,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <?php echo form_open('Penjualan/SimpanTransaksi') ?>
+                        <?php echo form_open('Penjualan/SimpanTransaksiB') ?>
 
                         <div class="form-group">
                             <label for="">Grand Total</label>
@@ -492,7 +492,7 @@
         function CekProduk() {
             $.ajax({
                 type: "POST",
-                url: "<?= base_url('Penjualan/CekProduk') ?>",
+                url: "<?= base_url('Penjualan/CekProdukB') ?>",
                 data: {
                     kode_produk: $('#kode_produk').val(),
                 },
@@ -504,7 +504,7 @@
                         $('[name="nama_produk"]').val(response.nama_produk);
                         $('[name="nama_kategori"]').val(response.nama_kategori);
                         $('[name="nama_satuan"]').val(response.nama_satuan);
-                        $('[name="harga_jual"]').val(response.harga_jual);
+                        $('[name="harga_jual_b"]').val(response.harga_jual_b);
                         $('[name="harga_beli"]').val(response.harga_beli);
                         $('#qty').focus();
                     }

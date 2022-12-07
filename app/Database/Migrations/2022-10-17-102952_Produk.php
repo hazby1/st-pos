@@ -40,6 +40,14 @@ class Produk extends Migration
                 'type' => 'INT',
                 'constraint' => '11'
             ],
+            'harga_jual_a' => [
+                'type' => 'INT',
+                'constraint' => '11'
+            ],
+            'harga_jual_b' => [
+                'type' => 'INT',
+                'constraint' => '11'
+            ],
             'stok' => [
                 'type' => 'INT',
                 'constraint' => '11'

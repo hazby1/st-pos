@@ -23,8 +23,6 @@
                 <th>#</th>
                 <th>Kode Produk</th>
                 <th>Nama Produk</th>
-                <th>Harga Beli</th>
-                <th>Harga Jual</th>
                 <th>QTY</th>
                 <th>Total Harga</th>
                 <th>Total Untung</th>
@@ -37,15 +35,13 @@
                     <td class="text-center"><?= $no++; ?></td>
                     <td class="text-center"><?= $nilai['kode_produk']; ?></td>
                     <td><?= $nilai['nama_produk']; ?></td>
-                    <td class="text-right">Rp<?= number_format($nilai['modal']); ?></td>
-                    <td class="text-right">Rp<?= number_format($nilai['harga']); ?></td>
                     <td class="text-center"><?= $nilai['qty']; ?></td>
                     <td class="text-right">Rp<?= number_format($nilai['total_harga']); ?></td>
                     <td class="text-right">Rp<?= number_format($nilai['untung']); ?></td>
                 </tr>
             <?php } ?>
             <tr class="bg-gray">
-                <td class="text-right " colspan="6">
+                <td class="text-right " colspan="4">
                     <h5>Grand Total</h5>
                 </td>
                 <th class="text-right">Rp<?= $dataharian == null ? '' : number_format(array_sum($grandtotal)); ?></th>

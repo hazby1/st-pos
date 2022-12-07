@@ -22,6 +22,22 @@ class LaporanModel extends Model
             ->selectSum('t_rinci.total_harga')
             ->selectSum('t_rinci.untung')
             ->get()->getResultArray();
+
+        // $db = db_connect();
+        // $query = $db->query('
+        // SELECT t_rinci.kode_produk,
+        // t_produk.nama_produk,
+        // t_rinci.harga,
+        // t_rinci.untung,
+        // t_rinci.modal,
+        // sum(t_rinci.qty) as qty,
+        // sum(t_rinci.qty*t_rinci.harga) as jumlah
+        // FROM t_rinci
+        // LEFT JOIN t_produk on
+        // t_produk.kode_produk=t_rinci.kode_produk
+        // GROUP BY t_rinci.kode_produk
+        // ');
+        // return $query->getResultArray();
     }
 
     public function DataBulanan($bulan, $tahun)

@@ -17,6 +17,8 @@ class Produk extends Seeder
                 'id_satuan' => '1',
                 'harga_beli' => '4500000',
                 'harga_jual' => '5100000',
+                'harga_jual_a' => '4800000',
+                'harga_jual_b' => '4950000',
                 'stok' => '100',
             ],
             [
@@ -26,6 +28,8 @@ class Produk extends Seeder
                 'id_satuan' => '1',
                 'harga_beli' => '3500000',
                 'harga_jual' => '5200000',
+                'harga_jual_a' => '4800000',
+                'harga_jual_b' => '4950000',
                 'stok' => '100',
             ],
             [
@@ -35,6 +39,8 @@ class Produk extends Seeder
                 'id_satuan' => '1',
                 'harga_beli' => '4500000',
                 'harga_jual' => '5100000',
+                'harga_jual_a' => '4800000',
+                'harga_jual_b' => '4950000',
                 'stok' => '100',
             ],
             [
@@ -44,6 +50,8 @@ class Produk extends Seeder
                 'id_satuan' => '3',
                 'harga_beli' => '4500000',
                 'harga_jual' => '5100000',
+                'harga_jual_a' => '4800000',
+                'harga_jual_b' => '4950000',
                 'stok' => '100',
             ],
             [
@@ -53,6 +61,8 @@ class Produk extends Seeder
                 'id_satuan' => '2',
                 'harga_beli' => '4500000',
                 'harga_jual' => '5100000',
+                'harga_jual_a' => '4800000',
+                'harga_jual_b' => '4950000',
                 'stok' => '100',
             ],
             [
@@ -62,6 +72,8 @@ class Produk extends Seeder
                 'id_satuan' => '1',
                 'harga_beli' => '2500000',
                 'harga_jual' => '3100000',
+                'harga_jual_a' => '2800000',
+                'harga_jual_b' => '2950000',
                 'stok' => '100',
             ],
             [
@@ -71,6 +83,8 @@ class Produk extends Seeder
                 'id_satuan' => '1',
                 'harga_beli' => '4500000',
                 'harga_jual' => '5100000',
+                'harga_jual_a' => '4800000',
+                'harga_jual_b' => '4950000',
                 'stok' => '100',
             ],
             [
@@ -80,6 +94,8 @@ class Produk extends Seeder
                 'id_satuan' => '1',
                 'harga_beli' => '4500000',
                 'harga_jual' => '5100000',
+                'harga_jual_a' => '4800000',
+                'harga_jual_b' => '4950000',
                 'stok' => '100',
             ],
             [
@@ -89,6 +105,8 @@ class Produk extends Seeder
                 'id_satuan' => '1',
                 'harga_beli' => '4500000',
                 'harga_jual' => '5100000',
+                'harga_jual_a' => '4800000',
+                'harga_jual_b' => '4950000',
                 'stok' => '100',
             ],
             [
@@ -98,6 +116,8 @@ class Produk extends Seeder
                 'id_satuan' => '1',
                 'harga_beli' => '4500000',
                 'harga_jual' => '5100000',
+                'harga_jual_a' => '4800000',
+                'harga_jual_b' => '4950000',
                 'stok' => '100',
             ],
             [
@@ -107,6 +127,8 @@ class Produk extends Seeder
                 'id_satuan' => '1',
                 'harga_beli' => '4500000',
                 'harga_jual' => '5100000',
+                'harga_jual_a' => '4800000',
+                'harga_jual_b' => '4950000',
                 'stok' => '100',
             ],
         ];

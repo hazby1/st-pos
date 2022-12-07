@@ -11,10 +11,10 @@ class Setting extends Seeder
         // Membuat data
         $satuan_data = [
             [
-                'nama_toko' => 'SENTRAL TEK',
-                'slogan' => 'Sparepart dan Servis',
-                'alamat' => 'Jalan Raya 2 Pagongan No. 60 Dukuhturi',
-                'no_telepon' => '0857 4236 4222',
+                'nama_toko' => 'Nama Toko',
+                'slogan' => 'Tagline',
+                'alamat' => 'Alamat',
+                'no_telepon' => 'No HP',
                 'deskripsi' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
             ],
         ];

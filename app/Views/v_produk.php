@@ -47,7 +47,9 @@
                         <th>Kategori</th>
                         <th>Satuan</th>
                         <th>Harga Beli</th>
-                        <th>Harga Jual</th>
+                        <th>Harga Pokok</th>
+                        <th>Harga Reseller A</th>
+                        <th>Harga Reseller B</th>
                         <th width="100px">Stok</th>
                         <th width="100px">Opsi</th>
                     </tr>
@@ -63,6 +65,8 @@
                             <td class="text-center"><?= $nilai['nama_satuan']; ?></td>
                             <td class="text-right">Rp<?= number_format($nilai['harga_beli'], 0); ?></td>
                             <td class="text-right">Rp<?= number_format($nilai['harga_jual'], 0); ?></td>
+                            <td class="text-right">Rp<?= number_format($nilai['harga_jual_a'], 0); ?></td>
+                            <td class="text-right">Rp<?= number_format($nilai['harga_jual_b'], 0); ?></td>
                             <td class="text-center"><?= number_format($nilai['stok']); ?></td>
                             <td class="text-center">
                                 <button class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#edit-data<?= $nilai['id_produk'] ?>"></i></button>
@@ -130,12 +134,30 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="">Harga Jual</label>
+                    <label for="">Harga Pokok</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Rp</span>
                         </div>
-                        <input id="harga_jual" name="harga_jual" type="text" class="form-control" placeholder="Harga Jual" required value="<?= old('harga_jual'); ?>">
+                        <input id="harga_jual" name="harga_jual" type="text" class="form-control" placeholder="Harga Pokok" required value="<?= old('harga_jual'); ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Harga Reseller A</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rp</span>
+                        </div>
+                        <input id="harga_jual_a" name="harga_jual_a" type="text" class="form-control" placeholder="Harga Reseller A" required value="<?= old('harga_jual_a'); ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Harga Reseller B</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rp</span>
+                        </div>
+                        <input id="harga_jual_b" name="harga_jual_b" type="text" class="form-control" placeholder="Harga Reseller B" required value="<?= old('harga_jual_b'); ?>">
                     </div>
                 </div>
                 <div class="form-group">
@@ -212,12 +234,30 @@ foreach ($produk as $key => $nilai) { ?>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="">Harga Jual</label>
+                        <label for="">Harga Pokok</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Rp</span>
                             </div>
-                            <input id="harga_jual<?= $nilai['id_produk']; ?>" name="harga_jual" type="text" class="form-control" placeholder="Harga Jual" required value="<?= $nilai['harga_jual']; ?>">
+                            <input id="harga_jual<?= $nilai['id_produk']; ?>" name="harga_jual" type="text" class="form-control" placeholder="Harga Pokok" required value="<?= $nilai['harga_jual']; ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Harga Reseller A</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rp</span>
+                            </div>
+                            <input id="harga_jual_a<?= $nilai['id_produk']; ?>" name="harga_jual_a" type="text" class="form-control" placeholder="Harga Reseller A" required value="<?= $nilai['harga_jual_a']; ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Harga Reseller B</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rp</span>
+                            </div>
+                            <input id="harga_jual_b<?= $nilai['id_produk']; ?>" name="harga_jual_b" type="text" class="form-control" placeholder="Harga Reseller B" required value="<?= $nilai['harga_jual_b']; ?>">
                         </div>
                     </div>
                     <div class="form-group">
@@ -308,6 +348,16 @@ foreach ($produk as $key => $nilai) { ?>
         digitalGroupSeparator: ',',
         decimalPlaces: 0,
     });
+    new AutoNumeric('#harga_jual_a', {
+        currencySymbol: '',
+        digitalGroupSeparator: ',',
+        decimalPlaces: 0,
+    });
+    new AutoNumeric('#harga_jual_b', {
+        currencySymbol: '',
+        digitalGroupSeparator: ',',
+        decimalPlaces: 0,
+    });
     new AutoNumeric('#stok', {
         currencySymbol: '',
         digitalGroupSeparator: ',',
@@ -322,6 +372,16 @@ foreach ($produk as $key => $nilai) { ?>
             decimalPlaces: 0,
         });
         new AutoNumeric('#harga_jual<?= $nilai['id_produk'] ?>', {
+            currencySymbol: '',
+            digitalGroupSeparator: ',',
+            decimalPlaces: 0,
+        });
+        new AutoNumeric('#harga_jual_a<?= $nilai['id_produk'] ?>', {
+            currencySymbol: '',
+            digitalGroupSeparator: ',',
+            decimalPlaces: 0,
+        });
+        new AutoNumeric('#harga_jual_b<?= $nilai['id_produk'] ?>', {
             currencySymbol: '',
             digitalGroupSeparator: ',',
             decimalPlaces: 0,

@@ -45,6 +45,8 @@ class Produk extends BaseController
         ])) {
             $hargabeli = str_replace(",", "", $this->request->getPost('harga_beli'));
             $hargajual = str_replace(",", "", $this->request->getPost('harga_jual'));
+            $hargajuala = str_replace(",", "", $this->request->getPost('harga_jual_a'));
+            $hargajualb = str_replace(",", "", $this->request->getPost('harga_jual_b'));
             $stok = str_replace(",", "", $this->request->getPost('stok'));
             $data = [
                 'kode_produk' => $this->request->getPost('kode_produk'),
@@ -53,6 +55,8 @@ class Produk extends BaseController
                 'id_satuan' => $this->request->getPost('id_satuan'),
                 'harga_beli' => $hargabeli,
                 'harga_jual' => $hargajual,
+                'harga_jual_a' => $hargajuala,
+                'harga_jual_b' => $hargajualb,
                 'stok' => $stok,
             ];
             $this->ProdukModel->InsertData($data);
@@ -77,6 +81,8 @@ class Produk extends BaseController
         ])) {
             $hargabeli = str_replace(",", "", $this->request->getPost('harga_beli'));
             $hargajual = str_replace(",", "", $this->request->getPost('harga_jual'));
+            $hargajuala = str_replace(",", "", $this->request->getPost('harga_jual_a'));
+            $hargajualb = str_replace(",", "", $this->request->getPost('harga_jual_b'));
             $stok = str_replace(",", "", $this->request->getPost('stok'));
             $data = [
                 'id_produk' => $id_produk,
@@ -85,6 +91,8 @@ class Produk extends BaseController
                 'id_satuan' => $this->request->getPost('id_satuan'),
                 'harga_beli' => $hargabeli,
                 'harga_jual' => $hargajual,
+                'harga_jual_a' => $hargajuala,
+                'harga_jual_b' => $hargajualb,
                 'stok' => $stok,
             ];
             $this->ProdukModel->UpdateData($data);
