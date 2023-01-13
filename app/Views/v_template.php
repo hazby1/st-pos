@@ -121,13 +121,43 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="<?= base_url('servis'); ?>" class="nav-link">
                                     <i class="nav-icon fas fa-cash-register"></i>
                                     <p>
                                         Servis
                                     </p>
                                 </a>
+                            </li> -->
+
+                            <li class="nav-item <?= $menu == 'servis' ? 'menu-open' : ''; ?>">
+                                <a href="#" class="nav-link <?= $menu == 'servis' ? 'active' : ''; ?>">
+                                    <i class="nav-icon fas fa-server"></i>
+                                    <p>
+                                        Data Servis
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('servis'); ?>" class="nav-link <?= $submenu == 'proses' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Proses</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('servis/bisadiambil'); ?>" class="nav-link <?= $submenu == 'bisa diambil' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Bisa Diambil</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('servis/sudahdiambil'); ?>" class="nav-link <?= $submenu == 'sudah diambil' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Sudah Diambil</p>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
 
                             <li class="nav-item <?= $menu == 'masterdata' ? 'menu-open' : ''; ?>">
@@ -167,6 +197,12 @@
                                         <a href="<?= base_url('supplier'); ?>" class="nav-link <?= $submenu == 'supplier' ? 'active' : ''; ?>">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Supplier</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('pelanggan'); ?>" class="nav-link <?= $submenu == 'pelanggan' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Pelanggan</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">

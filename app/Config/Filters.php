@@ -72,6 +72,7 @@ class Filters extends BaseConfig
                     'Servis', 'Servis/*',
                     'Laporan', 'Laporan/*',
                     'Supplier', 'Supplier/*',
+                    'Pelanggan', 'Pelanggan/*',
                     '/',
                 ]
             ],
@@ -84,6 +85,9 @@ class Filters extends BaseConfig
                     'Satuan', 'Satuan/*',
                     'Produk', 'Produk/*',
                     'Admin', 'Admin/*',
+                    'Supplier', 'Supplier/*',
+                    'Pelanggan', 'Pelanggan/*',
+                    'Servis', 'Servis/*',
                 ]
             ],
             'teknisifilter' => [
@@ -96,6 +100,8 @@ class Filters extends BaseConfig
                     'Kategori', 'Kategori/*',
                     'Satuan', 'Satuan/*',
                     'Produk', 'Produk/*',
+                    'Supplier', 'Supplier/*',
+                    'Pelanggan', 'Pelanggan/*',
                 ]
             ],
         ],
