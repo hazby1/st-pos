@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\ProdukModel;
 use App\Models\AdminModel;
 use App\Models\LaporanModel;
+use App\Models\PenjualanModel;
 
 class Laporan extends BaseController
 {
@@ -15,6 +16,7 @@ class Laporan extends BaseController
         $this->ProdukModel = new ProdukModel();
         $this->AdminModel = new AdminModel();
         $this->LaporanModel = new LaporanModel();
+        $this->PenjualanModel = new PenjualanModel();
     }
 
     public function CetakProduk()
@@ -53,6 +55,54 @@ class Laporan extends BaseController
         // variabel pecahkan 2 = tahun
 
         return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+    }
+
+    public function Transaksi()
+    {
+        # code...
+        $data = [
+            'judul' => 'Laporan',
+            'subjudul' => 'Transaksi',
+            'menu' => 'laporan',
+            'submenu' => 'transaksi',
+            'page' => 'laporan/v_transaksi',
+            'web' => $this->AdminModel->DetailData(),
+        ];
+        return view('v_template', $data);
+    }
+
+    public function ViewTransaksi()
+    {
+        # code...
+        $no_faktur = $this->request->getPost('no_faktur');
+
+        $data = [
+            'judul' => 'Laporan',
+            'subjudul' => 'Transaksi',
+            'datatransaksi' =>
+            $this->LaporanModel->DataTransaksi($no_faktur),
+            'web' => $this->AdminModel->DetailData(),
+            'no_faktur' => $no_faktur
+        ];
+
+        $response = [
+            'data' => view('laporan/v_t_transaksi', $data)
+        ];
+
+        echo json_encode($response);
+    }
+
+    public function CetakTransaksi($no_faktur)
+    {
+        # code...
+        $data = [
+            'judul' => 'Transaksi',
+            'page' => 'laporan/v_cetak_transaksi',
+            'datatransaksi' => $this->LaporanModel->DataTransaksi($no_faktur),
+            'web' => $this->AdminModel->DetailData(),
+            'no_faktur' => $no_faktur,
+        ];
+        return view('laporan/v_template_cetak_laporan', $data);
     }
 
     public function LaporanHarian()
