@@ -72,6 +72,7 @@ class Filters extends BaseConfig
                     'Servis', 'Servis/*',
                     'Laporan', 'Laporan/*',
                     'Supplier', 'Supplier/*',
+                    'Pelanggan', 'Pelanggan/*',
                     '/',
                 ]
             ],

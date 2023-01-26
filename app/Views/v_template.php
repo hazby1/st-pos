@@ -170,6 +170,12 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a href="<?= base_url('pelanggan'); ?>" class="nav-link <?= $submenu == 'pelanggan' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Pelanggan</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a href="<?= base_url('user'); ?>" class="nav-link <?= $submenu == 'user' ? 'active' : ''; ?>">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>User</p>
