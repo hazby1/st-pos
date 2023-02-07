@@ -195,6 +195,12 @@
                                     <li class="nav-item">
                                         <a href="<?= base_url('laporan/Transaksi'); ?>" class="nav-link <?= $submenu == 'transaksi' ? 'active' : ''; ?>">
                                             <i class="far fa-circle nav-icon"></i>
+                                            <p>Cari Transaksi</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('laporan/AllTransaksi'); ?>" class="nav-link <?= $submenu == 'alltransaksi' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
                                             <p>Transaksi</p>
                                         </a>
                                     </li>

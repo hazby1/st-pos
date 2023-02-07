@@ -325,12 +325,16 @@
                     <div class="col-12">
                         <!-- Alert -->
                         <?php
+                        $faktursimpan = $no_faktur - 1;
                         if (session()->getFlashdata('pesan')) {
                             echo '<div class="alert alert-success alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                             <i class="icon fas fa-check"></i>';
                             echo session()->getFlashdata('pesan');
-                            echo '</div>';
+                            echo '
+                            <input hidden id="faktursimpan" name="faktursimpan" value="' . $faktursimpan . '">
+                            <button class="btn btn-sm btn-primary float-right" onclick="CetakTransaksi()">Cetak Nota</button>
+                            </div>';
                         }
                         ?>
                         <!-- end Alert -->
@@ -391,7 +395,7 @@
 
         <!-- Modal Bayar -->
         <div class="modal fade" id="pembayaran">
-            <div class="modal-dialog modal-sm">
+            <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Pembayaran</h4>
@@ -417,7 +421,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Rp</span>
                                 </div>
-                                <input name="dibayar" autocomplete="off" autofocus name="dibayar" id="dibayar" class="form-control form-control-lg text-right text-success" type="text" autocomplete="false">
+                                <input name="dibayar" autocomplete="off" required autofocus name="dibayar" id="dibayar" class="form-control form-control-lg text-right text-success" type="text" autocomplete="false">
                             </div>
                         </div>
                         <div class="form-group">
@@ -427,6 +431,20 @@
                                     <span class="input-group-text">Rp</span>
                                 </div>
                                 <input id="kembalian" name="kembalian" class="form-control form-control-lg text-right text-primary" type="text" readonly value="">
+                            </div>
+                        </div>
+                        <div class="form-group col-8">
+                            <label for="">Pelanggan</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Tn/Ny</span>
+                                </div>
+                                <select required id="pelanggan" name="pelanggan" class="form-control form-control-lg text-center" type="text" value="">
+                                    <option value="">-- Pilih Pelanggan --</option>
+                                    <?php foreach ($pelanggan as $key => $pel) { ?>
+                                        <option value="<?= $pel['id_pelanggan']; ?>"><?= $pel['nama_pelanggan']; ?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -585,6 +603,16 @@
                 i = "0" + 1;
             }
             return i;
+        }
+
+        //Cetak Nota
+        function CetakTransaksi() {
+            let faktursimpan = $('#faktursimpan').val();
+            if (faktursimpan == '') {
+                Swal.fire('Nomor Faktur tidak valid!');
+            } else {
+                NewWin = window.open("<?= base_url('Laporan/CetakTransaksi'); ?>/" + faktursimpan, "NewWin", "width=1500")
+            }
         }
     </script>
 </body>

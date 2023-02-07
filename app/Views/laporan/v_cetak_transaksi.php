@@ -7,6 +7,13 @@
         <tr>
             <th>Nomor Faktur</th>
             <th> : <?= $no_faktur; ?></th>
+
+        </tr>
+        <tr>
+            <th>Nama Pelanggan</th>
+            <?php foreach ($pelanggan as $key => $nilai) { ?>
+                <th> : <?= $nilai['nama_pelanggan']; ?></th>
+            <?php } ?>
         </tr>
     </table>
     <hr>

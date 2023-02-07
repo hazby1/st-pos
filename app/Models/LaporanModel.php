@@ -6,6 +6,17 @@ use CodeIgniter\Model;
 
 class LaporanModel extends Model
 {
+    public function Pelanggan($no_faktur)
+    {
+        # code...
+        return $this->db->table('t_rinci')
+            ->join('t_pelanggan', 't_pelanggan.id_pelanggan=t_rinci.id_pelanggan')
+            ->where('no_faktur', $no_faktur)
+            ->groupBy('t_rinci.id_pelanggan')
+            ->select('t_pelanggan.nama_pelanggan')
+            ->get()->getResultArray();
+    }
+
     public function DataTransaksi($no_faktur)
     {
         # code...
@@ -18,8 +29,22 @@ class LaporanModel extends Model
             ->select('t_rinci.modal')
             ->select('t_rinci.harga')
             ->groupBy('t_rinci.kode_produk')
-            ->selectSum('t_rinci.qty')
-            ->selectSum('t_rinci.total_harga')
+            ->select('t_rinci.qty')
+            ->select('t_rinci.total_harga')
+            ->get()->getResultArray();
+    }
+
+    public function AllTransaksi()
+    {
+        # code...
+        return $this->db->table('t_rinci')
+            ->join('t_produk', 't_produk.kode_produk=t_rinci.kode_produk')
+            ->join('t_pelanggan', 't_pelanggan.id_pelanggan=t_rinci.id_pelanggan')
+            ->groupBy('t_rinci.no_faktur')
+            ->join('t_jual', 't_jual.no_faktur=t_rinci.no_faktur')
+            ->select('t_rinci.no_faktur')
+            ->select('t_pelanggan.nama_pelanggan')
+            ->select('t_rinci.total_harga')
             ->get()->getResultArray();
     }
 

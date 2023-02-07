@@ -7,9 +7,20 @@ use App\Models\ProdukModel;
 use App\Models\AdminModel;
 use App\Models\LaporanModel;
 use App\Models\PenjualanModel;
+use App\Models\PelangganModel;
 
 class Laporan extends BaseController
 {
+
+    public function Coba()
+    {
+        # code...
+        $no_faktur = 202301310001;
+        $data = [
+            'pelanggan' => $this->LaporanModel->Pelanggan($no_faktur)
+        ];
+        echo dd($data);
+    }
 
     public function __construct()
     {
@@ -17,6 +28,7 @@ class Laporan extends BaseController
         $this->AdminModel = new AdminModel();
         $this->LaporanModel = new LaporanModel();
         $this->PenjualanModel = new PenjualanModel();
+        $this->PelangganModel = new PelangganModel();
     }
 
     public function CetakProduk()
@@ -57,12 +69,40 @@ class Laporan extends BaseController
         return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
     }
 
+    public function AllTransaksi()
+    {
+        # code...
+        $data = [
+            'judul' => 'Laporan',
+            'subjudul' => 'Semua Transaksi',
+            'menu' => 'laporan',
+            'submenu' => 'semua transaksi',
+            'page' => 'laporan/v_all_transaksi',
+            'alltransaksi' => $this->LaporanModel->AllTransaksi(),
+        ];
+
+        return view('v_template', $data);
+
+        // echo dd($data);
+
+        // $data = [
+        //     'judul' => 'Master Data',
+        //     'subjudul' => 'Satuan',
+        //     'menu' => 'masterdata',
+        //     'submenu' => 'satuan',
+        //     'page' => 'v_satuan',
+        //     'satuan' => $this->SatuanModel->AllData()
+        // ];
+
+        // return view('v_template', $data);
+    }
+
     public function Transaksi()
     {
         # code...
         $data = [
             'judul' => 'Laporan',
-            'subjudul' => 'Transaksi',
+            'subjudul' => 'Cari Transaksi',
             'menu' => 'laporan',
             'submenu' => 'transaksi',
             'page' => 'laporan/v_transaksi',
@@ -75,14 +115,13 @@ class Laporan extends BaseController
     {
         # code...
         $no_faktur = $this->request->getPost('no_faktur');
-
         $data = [
             'judul' => 'Laporan',
             'subjudul' => 'Transaksi',
-            'datatransaksi' =>
-            $this->LaporanModel->DataTransaksi($no_faktur),
+            'datatransaksi' => $this->LaporanModel->DataTransaksi($no_faktur),
             'web' => $this->AdminModel->DetailData(),
-            'no_faktur' => $no_faktur
+            'no_faktur' => $no_faktur,
+            'pelanggan' => $this->LaporanModel->Pelanggan($no_faktur)
         ];
 
         $response = [
@@ -101,6 +140,7 @@ class Laporan extends BaseController
             'datatransaksi' => $this->LaporanModel->DataTransaksi($no_faktur),
             'web' => $this->AdminModel->DetailData(),
             'no_faktur' => $no_faktur,
+            'pelanggan' => $this->LaporanModel->Pelanggan($no_faktur)
         ];
         return view('laporan/v_template_cetak_laporan', $data);
     }

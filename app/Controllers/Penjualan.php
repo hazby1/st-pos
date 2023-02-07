@@ -4,12 +4,18 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\PenjualanModel;
+use App\Models\LaporanModel;
+use App\Models\AdminModel;
+use App\Models\PelangganModel;
 
 class Penjualan extends BaseController
 {
     public function __construct()
     {
         $this->PenjualanModel = new PenjualanModel();
+        $this->LaporanModel = new LaporanModel();
+        $this->AdminModel = new AdminModel();
+        $this->PelangganModel = new PelangganModel();
     }
 
     // User
@@ -23,7 +29,8 @@ class Penjualan extends BaseController
             'no_faktur' => $this->PenjualanModel->NoFaktur(),
             'cart' => $cart->contents(),
             'grand_total' => $cart->total(),
-            'produk' => $this->PenjualanModel->AllProduk()
+            'produk' => $this->PenjualanModel->AllProduk(),
+            'pelanggan' => $this->PelangganModel->AllData()
         ];
         return view('v_penjualan', $data);
     }
@@ -118,6 +125,7 @@ class Penjualan extends BaseController
                 'qty' => $nilai['qty'],
                 'total_harga' => $nilai['subtotal'],
                 'untung' => ($nilai['price'] - $nilai['option']['modal']) * $nilai['qty'],
+                'id_pelanggan' => $this->request->getPost('pelanggan'),
             ];
             $this->PenjualanModel->InsertRinciJual($data);
         }
@@ -135,6 +143,17 @@ class Penjualan extends BaseController
                 'id_kasir' => session()->get('id_user'),
             ];
             $this->PenjualanModel->InsertJual($data);
+        }
+
+        // Bismillah
+        foreach ($produk as $key => $nilai) {
+            $data = [
+                'judul' => 'Transaksi',
+                'page' => 'laporan/v_cetak_transaksi',
+                'datatransaksi' => $this->LaporanModel->DataTransaksi($no_faktur),
+                'web' => $this->AdminModel->DetailData(),
+                'no_faktur' => $no_faktur,
+            ];
 
             $cart->destroy();
             session()->setFlashdata('pesan', 'Transaksi berhasil!');
