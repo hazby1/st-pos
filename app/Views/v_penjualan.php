@@ -405,7 +405,15 @@
                     </div>
                     <div class="modal-body">
                         <?php echo form_open('Penjualan/SimpanTransaksi') ?>
-
+                        <div class="form-group">
+                            <label for="">Kembalian</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Rp</span>
+                                </div>
+                                <input id="kembalian" name="kembalian" class="form-control form-control-lg text-right bg-gray" type="text" readonly value="">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="">Grand Total</label>
                             <div class="input-group mb-3">
@@ -422,15 +430,6 @@
                                     <span class="input-group-text">Rp</span>
                                 </div>
                                 <input name="dibayar" autocomplete="off" required autofocus name="dibayar" id="dibayar" class="form-control form-control-lg text-right text-success" type="text" autocomplete="false">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Kembalian</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Rp</span>
-                                </div>
-                                <input id="kembalian" name="kembalian" class="form-control form-control-lg text-right text-primary" type="text" readonly value="">
                             </div>
                         </div>
                         <div class="form-group col-8">

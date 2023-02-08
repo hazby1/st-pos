@@ -173,7 +173,8 @@ class Penjualan extends BaseController
             'no_faktur' => $this->PenjualanModel->NoFaktur(),
             'cart' => $cart->contents(),
             'grand_total' => $cart->total(),
-            'produk' => $this->PenjualanModel->AllProduk()
+            'produk' => $this->PenjualanModel->AllProduk(),
+            'pelanggan' => $this->PelangganModel->AllData()
         ];
         return view('v_penjualan_a', $data);
     }
@@ -268,6 +269,7 @@ class Penjualan extends BaseController
                 'qty' => $nilai['qty'],
                 'total_harga' => $nilai['subtotal'],
                 'untung' => ($nilai['price'] - $nilai['option']['modal']) * $nilai['qty'],
+                'id_pelanggan' => $this->request->getPost('pelanggan'),
             ];
             $this->PenjualanModel->InsertRinciJual($data);
         }
@@ -304,7 +306,8 @@ class Penjualan extends BaseController
             'no_faktur' => $this->PenjualanModel->NoFaktur(),
             'cart' => $cart->contents(),
             'grand_total' => $cart->total(),
-            'produk' => $this->PenjualanModel->AllProduk()
+            'produk' => $this->PenjualanModel->AllProduk(),
+            'pelanggan' => $this->PelangganModel->AllData()
         ];
         return view('v_penjualan_b', $data);
     }
@@ -399,6 +402,7 @@ class Penjualan extends BaseController
                 'qty' => $nilai['qty'],
                 'total_harga' => $nilai['subtotal'],
                 'untung' => ($nilai['price'] - $nilai['option']['modal']) * $nilai['qty'],
+                'id_pelanggan' => $this->request->getPost('pelanggan'),
             ];
             $this->PenjualanModel->InsertRinciJual($data);
         }
