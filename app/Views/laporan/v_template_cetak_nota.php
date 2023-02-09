@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-12 text-center">
                     <b>
-                        <h4><?= $judul; ?></h4>
+                        <h4>Nota Transaksi</h4>
                     </b>
                 </div>
                 <!-- /.col -->

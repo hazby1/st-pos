@@ -5,7 +5,7 @@
     </div>
 
     <div class="col-12">
-        <b>Nomor Faktur : </b><?= $no_faktur; ?>
+        <b>Nomor : </b><?= $no_faktur; ?>
         <?php foreach ($pelanggan as $key => $nilai) { ?>
             <b>Nama Pelanggan : </b><?= $nilai['nama_pelanggan']; ?>
         <?php } ?>

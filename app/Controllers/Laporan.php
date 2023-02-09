@@ -142,7 +142,7 @@ class Laporan extends BaseController
             'no_faktur' => $no_faktur,
             'pelanggan' => $this->LaporanModel->Pelanggan($no_faktur)
         ];
-        return view('laporan/v_template_cetak_laporan', $data);
+        return view('laporan/v_template_cetak_nota', $data);
     }
 
     public function LaporanHarian()
