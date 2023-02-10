@@ -27,6 +27,8 @@ class LaporanModel extends Model
             ->select('t_rinci.kode_produk')
             ->select('t_produk.nama_produk')
             ->select('t_rinci.modal')
+            ->select('t_rinci.diskon')
+            ->select('t_rinci.pajak')
             ->select('t_rinci.harga')
             ->groupBy('t_rinci.kode_produk')
             ->select('t_rinci.qty')

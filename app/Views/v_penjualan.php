@@ -250,14 +250,14 @@
                                                     <button type="reset" class="btn btn-danger "><i class="fas fa-times"></i></button>
                                                 </span>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-2">
                                                 <input readonly type="text" class="form-control" name="nama_produk" placeholder="Nama Produk">
                                             </div>
                                             <div class="col-1">
                                                 <input readonly type="text" class="form-control" name="nama_kategori" placeholder="Kategori">
                                             </div>
-                                            <div class="col-1">
-                                                <input readonly type="text" class="form-control" name="nama_satuan" placeholder="Satuan">
+                                            <div class="">
+                                                <input readonly type="text" class="form-control" name="nama_satuan" hidden placeholder="Satuan">
                                             </div>
                                             <div class="col-1">
                                                 <input readonly type="text" class="form-control" name="harga_jual" placeholder="Harga">
@@ -265,6 +265,18 @@
                                             </div>
                                             <div class="col-1">
                                                 <input id="qty" type="number" value="1" min="1" class="form-control text-center" name="qty" placeholder="QTY">
+                                            </div>
+                                            <div class="col-1 input-group">
+                                                <input type="number" id="diskon" name="diskon" class="form-control text-center" value="" min="0" placeholder="Diskon">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">%</span>
+                                                </div>
+                                            </div>
+                                            <div class="col input-group">
+                                                <input type="number" id="pajak" name="pajak" class="form-control text-center" value="" min="0" placeholder="Pajak">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">%</span>
+                                                </div>
                                             </div>
                                             <div class="col-3">
                                                 <button type="submit" class="btn  btn-primary"><i class="fas fa-cart-plus"></i> Tambah</button>
@@ -283,8 +295,9 @@
                                                 <tr class="text-center">
                                                     <th>Kode Produk</th>
                                                     <th>Nama Produk</th>
-                                                    <th>Kategori</th>
                                                     <th>Harga</th>
+                                                    <th>Diskon</th>
+                                                    <th>Pajak</th>
                                                     <th width="125px">Qty</th>
                                                     <th>Total</th>
                                                     <th width="50px"></th>
@@ -294,9 +307,10 @@
                                                 <?php foreach ($cart as $key => $nilai) { ?>
                                                     <tr>
                                                         <td><?= $nilai['id']; ?></td>
-                                                        <td><?= $nilai['name']; ?></td>
-                                                        <td><?= $nilai['option']['nama_kategori']; ?></td>
-                                                        <td class="text-right">Rp<?= number_format($nilai['price'], 0); ?>.-</td>
+                                                        <td><?= $nilai['option']['nama_kategori'] . ' ' . $nilai['name']; ?></td>
+                                                        <td class="text-right">Rp<?= number_format($nilai['price'] + $nilai['option']['diskon'] - $nilai['option']['pajak'], 0); ?>.-</td>
+                                                        <td class="text-right">Rp<?= number_format($nilai['option']['diskon'] * $nilai['qty'], 0); ?>.-</td>
+                                                        <td class="text-right">Rp<?= number_format($nilai['option']['pajak'] * $nilai['qty'], 0); ?>.-</td>
                                                         <td class="text-center"><?= $nilai['qty']; ?> <?= $nilai['option']['nama_satuan']; ?></td>
                                                         <td class="text-right">Rp<?= number_format($nilai['subtotal'], 0); ?>.-</td>
                                                         <td class="text-center">
@@ -411,7 +425,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Rp</span>
                                 </div>
-                                <input id="kembalian" name="kembalian" class="form-control form-control-lg text-right bg-gray" type="text" readonly value="">
+                                <input id="kembalian" name="kembalian" class="form-control form-control-lg text-right disabled" type="text" readonly value="">
                             </div>
                         </div>
                         <div class="form-group">
@@ -425,14 +439,14 @@
                         </div>
                         <div class="form-group">
                             <label for="">Dibayar</label>
-                            <div class="input-group mb-3">
+                            <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Rp</span>
                                 </div>
-                                <input name="dibayar" autocomplete="off" required autofocus name="dibayar" id="dibayar" class="form-control form-control-lg text-right text-success" type="text" autocomplete="false">
+                                <input name="dibayar" autocomplete="off" required autofocus name="dibayar" id="dibayar" class="form-control form-control-lg text-right text-success" type="text">
                             </div>
                         </div>
-                        <div class="form-group col-8">
+                        <div class="form-group">
                             <label for="">Pelanggan</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">

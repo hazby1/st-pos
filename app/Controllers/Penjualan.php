@@ -63,17 +63,22 @@ class Penjualan extends BaseController
     {
         # code...
         $cart = \Config\Services::cart();
+        $harga = $this->request->getPost('harga_jual');
+        $diskon = $this->request->getPost('diskon') / 100 * $harga;
+        $pajak = $this->request->getPost('pajak') / 100 * $harga;
 
         // Insert an array of values
         $cart->insert(array(
             'id' => $this->request->getPost('kode_produk'),
             'qty' => $this->request->getPost('qty'),
-            'price' => $this->request->getPost('harga_jual'),
+            'price' => $harga - $diskon + $pajak,
             'name' => $this->request->getPost('nama_produk'),
             'option' => array(
                 'nama_kategori' => $this->request->getPost('nama_kategori'),
                 'nama_satuan' => $this->request->getPost('nama_satuan'),
                 'modal' => $this->request->getPost('harga_beli'),
+                'diskon' => $diskon,
+                'pajak' => $pajak,
             ),
         ));
         return redirect()->to(base_url('penjualan'));
@@ -125,6 +130,8 @@ class Penjualan extends BaseController
                 'qty' => $nilai['qty'],
                 'total_harga' => $nilai['subtotal'],
                 'untung' => ($nilai['price'] - $nilai['option']['modal']) * $nilai['qty'],
+                'pajak' => $nilai['option']['pajak'],
+                'diskon' => $nilai['option']['diskon'],
                 'id_pelanggan' => $this->request->getPost('pelanggan'),
             ];
             $this->PenjualanModel->InsertRinciJual($data);

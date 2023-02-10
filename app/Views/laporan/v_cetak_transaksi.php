@@ -38,6 +38,8 @@
             <th>Kode Produk</th>
             <th>Nama Produk</th>
             <th>QTY</th>
+            <th>Disc</th>
+            <th>Pajak</th>
             <th>Sub Total</th>
         </tr>
         <?php $no = 1;
@@ -48,11 +50,13 @@
                 <td class="text-center"><?= $nilai['kode_produk']; ?></td>
                 <td><?= $nilai['nama_produk']; ?></td>
                 <td class="text-center"><?= $nilai['qty']; ?></td>
+                <td class="text-center">Rp<?= number_format($nilai['diskon']); ?></td>
+                <td class="text-center">Rp<?= number_format($nilai['pajak']); ?></td>
                 <td class="text-right">Rp<?= number_format($nilai['total_harga']); ?></td>
             </tr>
         <?php } ?>
         <tr class="">
-            <th class="text-right" colspan="4">
+            <th class="text-right" colspan="6">
                 Total
             </th>
             <th class="text-right">Rp<?= $datatransaksi == null ? '' : number_format(array_sum($grandtotal)); ?></th>
