@@ -28,6 +28,14 @@ class RinciJual extends Migration
                 'type' => 'INT',
                 'constraint' => '11'
             ],
+            'harga_a' => [
+                'type' => 'INT',
+                'constraint' => '11'
+            ],
+            'harga_b' => [
+                'type' => 'INT',
+                'constraint' => '11'
+            ],
             'modal' => [
                 'type' => 'INT',
                 'constraint' => '11'
@@ -41,6 +49,18 @@ class RinciJual extends Migration
                 'constraint' => '11'
             ],
             'untung' => [
+                'type' => 'INT',
+                'constraint' => '11'
+            ],
+            'id_pelanggan' => [
+                'type' => 'INT',
+                'constraint' => '11'
+            ],
+            'diskon' => [
+                'type' => 'INT',
+                'constraint' => '11'
+            ],
+            'pajak' => [
                 'type' => 'INT',
                 'constraint' => '11'
             ],
