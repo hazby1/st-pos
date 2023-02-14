@@ -168,6 +168,22 @@ class Penjualan extends BaseController
         }
     }
 
+    // Batal Transaksi
+    public function BatalTransaksi($no_faktur)
+    {
+        # code... ubah status transaksi
+        $data = [
+            'no_faktur' => $no_faktur,
+            'status' => 'batal'
+        ];
+
+        $this->PenjualanModel->BatalTransaksi($data);
+
+        session()->setFlashdata('pesan', 'Faktur berhasil dibatalkan!');
+
+        return redirect()->to('Laporan/AllTransaksi');
+    }
+
     // Reseller A
 
 

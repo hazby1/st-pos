@@ -58,4 +58,12 @@ class PenjualanModel extends Model
         # code...
         $this->db->table('t_rinci')->insert($data);
     }
+
+    public function BatalTransaksi($data)
+    {
+        # code...
+        $this->db->table('t_rinci')
+            ->where('no_faktur', $data['no_faktur'])
+            ->update($data);
+    }
 }

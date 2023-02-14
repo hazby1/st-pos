@@ -76,7 +76,7 @@ class Laporan extends BaseController
             'judul' => 'Laporan',
             'subjudul' => 'Semua Transaksi',
             'menu' => 'laporan',
-            'submenu' => 'semua transaksi',
+            'submenu' => 'alltransaksi',
             'page' => 'laporan/v_all_transaksi',
             'alltransaksi' => $this->LaporanModel->AllTransaksi(),
         ];

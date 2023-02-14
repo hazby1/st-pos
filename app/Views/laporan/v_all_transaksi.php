@@ -30,7 +30,7 @@
                         <th>Nomor Faktur</th>
                         <th>Nama Pelanggan</th>
                         <th>Total Harga</th>
-                        <th width="200px">Opsi</th>
+                        <th width="300px">Opsi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,14 +38,22 @@
                     foreach ($alltransaksi as $key => $nilai) { ?>
                         <tr>
                             <td class="text-center"><b><?= $no++; ?></b></td>
-                            <td><?= $nilai['no_faktur']; ?><input id="no_faktur" type="text" hidden value="<?= $nilai['no_faktur']; ?>"></td>
-                            <td><?= $nilai['nama_pelanggan']; ?></td>
-                            <td class="text-right">Rp<?= number_format($nilai['total_harga']); ?></td>
-                            <td class="text-center">
-                                <button onclick="CetakTransaksi()" class="btn btn-sm btn-success">
-                                    <i class="fas fa-print"></i> Cetak
+                            <td><?= $nilai['no_faktur']; ?><input id="no_faktur" type="text" hidden value="<?= $nilai['no_faktur']; ?>">
+                                <button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#detail<?= $nilai['no_faktur'] ?>">
+                                    <i class="fas fa-info"></i>
                                 </button>
-                                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-data"><i class="fas fa-exclamation-circle"></i> Batalkan</button>
+                            </td>
+                            <td><?= $nilai['nama_pelanggan']; ?></td>
+                            <td class="text-right">Rp<?= number_format($nilai['grand_total']); ?></td>
+                            <td class="text-center">
+                                <?php if ($nilai['status'] == 'batal') {
+                                    echo '<b class="text-danger">Transaksi Dibatalkan</b>';
+                                } else { ?>
+                                    <button onclick="CetakTransaksi()" class="btn btn-sm btn-success">
+                                        <i class="fas fa-print"></i> Cetak
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-data<?= $nilai['no_faktur'] ?>"><i class="fas fa-exclamation-circle"></i> <?= $nilai['status'] == 'batal' ? 'Transaksi Batal' : 'Batalkan'; ?></button>
+                                <?php } ?>
                             </td>
                         </tr>
                     <?php } ?>
@@ -56,6 +64,72 @@
     </div>
 
 </div>
+
+<!-- Modal Batalkan Transaksi -->
+<?php foreach ($alltransaksi as $key => $nilai) { ?>
+    <div class="modal fade" id="delete-data<?= $nilai['no_faktur'] ?>">
+        <!-- Modal Dialog -->
+        <div class="modal-dialog">
+            <!-- Modal Content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Batalkan Transaksi</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- Form -->
+                <div class="modal-body">
+                    <h5>Yakin akan Membatalkan Transaksi <b><?= $nilai['no_faktur']; ?></b>?</h5>
+                </div>
+
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Tutup</button>
+                    <a href="<?= base_url('penjualan/BatalTransaksi/' . $nilai['no_faktur']) ?>" class="btn btn-danger btn-flat">Batalkan</a>
+                </div>
+                <!-- end Form -->
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+<?php } ?>
+<!-- /.modal -->
+
+<!-- Modal Detail -->
+<?php foreach ($alltransaksi as $key => $nilai) { ?>
+    <div class="modal fade" id="detail<?= $nilai['no_faktur'] ?>">
+        <!-- Modal Dialog -->
+        <div class="modal-dialog">
+            <!-- Modal Content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Detail Transaksi</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- Form -->
+                <div class="modal-body">
+                    <h5>Yakin akan Membatalkan Transaksi <b><?= $nilai['nama_pelanggan'][2]; ?></b>?</h5>
+
+                </div>
+
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Tutup</button>
+                </div>
+                <!-- end Form -->
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+<?php } ?>
+<!-- /.modal -->
 <script>
     function CetakTransaksi() {
         let no_faktur = $('#no_faktur').val();

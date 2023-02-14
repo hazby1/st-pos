@@ -64,6 +64,11 @@ class RinciJual extends Migration
                 'type' => 'INT',
                 'constraint' => '11'
             ],
+            'status' => [
+                'type' => 'ENUM',
+                'constraint' => ['berhasil', 'batal'],
+                'default' => 'berhasil'
+            ],
             'created_at DATETIME DEFAULT CURRENT_TIMESTAMP',
             'updated_at DATETIME'
         ]);
