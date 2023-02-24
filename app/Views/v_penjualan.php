@@ -107,7 +107,7 @@
 
                 <!-- Right navbar links -->
                 <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                    <?php if (session()->get('level') == 'admin') { ?>
+                    <?php if (session()->get('level') == 'kasir') { ?>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= base_url('admin'); ?>">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
@@ -264,16 +264,16 @@
                                                 <input readonly type="hidden" name="harga_beli">
                                             </div>
                                             <div class="col-1">
-                                                <input id="qty" type="number" value="1" min="1" class="form-control text-center" name="qty" placeholder="QTY">
+                                                <input id="qty" type="number" value="1" min="1" class="form-control text-center" name="qty" title="QTY" required>
                                             </div>
                                             <div class="col-1 input-group">
-                                                <input type="number" id="diskon" name="diskon" class="form-control text-center" value="" min="0" placeholder="Diskon">
+                                                <input type="number" id="diskon" name="diskon" class="form-control text-center" value="0" min="0" title="Diskon" required>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">%</span>
                                                 </div>
                                             </div>
                                             <div class="col input-group">
-                                                <input type="number" id="pajak" name="pajak" class="form-control text-center" value="" min="0" placeholder="Pajak">
+                                                <input type="number" id="pajak" name="pajak" class="form-control text-center" value="0" min="0" title="Pajak" required>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">%</span>
                                                 </div>

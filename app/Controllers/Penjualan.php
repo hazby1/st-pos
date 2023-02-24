@@ -30,9 +30,10 @@ class Penjualan extends BaseController
             'cart' => $cart->contents(),
             'grand_total' => $cart->total(),
             'produk' => $this->PenjualanModel->AllProduk(),
-            'pelanggan' => $this->PelangganModel->AllData()
+            'pelanggan' => $this->PelangganModel->AllData(),
+            'page' => 'v_penjualan_tes'
         ];
-        return view('v_penjualan', $data);
+        return view('v_template_penjualan', $data);
     }
 
     public function CekProduk()
@@ -197,7 +198,7 @@ class Penjualan extends BaseController
             'cart' => $cart->contents(),
             'grand_total' => $cart->total(),
             'produk' => $this->PenjualanModel->AllProduk(),
-            'pelanggan' => $this->PelangganModel->AllData()
+            'pelanggan' => $this->PelangganModel->PelangganA()
         ];
         return view('v_penjualan_a', $data);
     }
@@ -230,17 +231,23 @@ class Penjualan extends BaseController
     {
         # code...
         $cart = \Config\Services::cart();
+        $harga = $this->request->getPost('harga_jual_a');
+        $diskon = $this->request->getPost('diskon') / 100 * $harga;
+        $pajak = $this->request->getPost('pajak') / 100 * $harga;
 
         // Insert an array of values
         $cart->insert(array(
             'id' => $this->request->getPost('kode_produk'),
             'qty' => $this->request->getPost('qty'),
             'price' => $this->request->getPost('harga_jual_a'),
+            'price' => $harga - $diskon + $pajak,
             'name' => $this->request->getPost('nama_produk'),
             'option' => array(
                 'nama_kategori' => $this->request->getPost('nama_kategori'),
                 'nama_satuan' => $this->request->getPost('nama_satuan'),
                 'modal' => $this->request->getPost('harga_beli'),
+                'diskon' => $diskon,
+                'pajak' => $pajak,
             ),
         ));
         return redirect()->to(base_url('penjualan/ResellerA'));
@@ -292,6 +299,8 @@ class Penjualan extends BaseController
                 'qty' => $nilai['qty'],
                 'total_harga' => $nilai['subtotal'],
                 'untung' => ($nilai['price'] - $nilai['option']['modal']) * $nilai['qty'],
+                'pajak' => $nilai['option']['pajak'],
+                'diskon' => $nilai['option']['diskon'],
                 'id_pelanggan' => $this->request->getPost('pelanggan'),
             ];
             $this->PenjualanModel->InsertRinciJual($data);
@@ -330,7 +339,7 @@ class Penjualan extends BaseController
             'cart' => $cart->contents(),
             'grand_total' => $cart->total(),
             'produk' => $this->PenjualanModel->AllProduk(),
-            'pelanggan' => $this->PelangganModel->AllData()
+            'pelanggan' => $this->PelangganModel->PelangganB()
         ];
         return view('v_penjualan_b', $data);
     }
@@ -363,17 +372,23 @@ class Penjualan extends BaseController
     {
         # code...
         $cart = \Config\Services::cart();
+        $harga = $this->request->getPost('harga_jual_b');
+        $diskon = $this->request->getPost('diskon') / 100 * $harga;
+        $pajak = $this->request->getPost('pajak') / 100 * $harga;
 
         // Insert an array of values
         $cart->insert(array(
             'id' => $this->request->getPost('kode_produk'),
             'qty' => $this->request->getPost('qty'),
             'price' => $this->request->getPost('harga_jual_b'),
+            'price' => $harga - $diskon + $pajak,
             'name' => $this->request->getPost('nama_produk'),
             'option' => array(
                 'nama_kategori' => $this->request->getPost('nama_kategori'),
                 'nama_satuan' => $this->request->getPost('nama_satuan'),
                 'modal' => $this->request->getPost('harga_beli'),
+                'diskon' => $diskon,
+                'pajak' => $pajak,
             ),
         ));
         return redirect()->to(base_url('penjualan/ResellerB'));
@@ -425,6 +440,8 @@ class Penjualan extends BaseController
                 'qty' => $nilai['qty'],
                 'total_harga' => $nilai['subtotal'],
                 'untung' => ($nilai['price'] - $nilai['option']['modal']) * $nilai['qty'],
+                'pajak' => $nilai['option']['pajak'],
+                'diskon' => $nilai['option']['diskon'],
                 'id_pelanggan' => $this->request->getPost('pelanggan'),
             ];
             $this->PenjualanModel->InsertRinciJual($data);

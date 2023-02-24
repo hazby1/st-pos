@@ -56,17 +56,6 @@ class Produk extends Seeder
             ],
             [
                 'kode_produk' => '555',
-                'nama_produk' => 'Canon X455',
-                'id_kategori' => '1',
-                'id_satuan' => '2',
-                'harga_beli' => '4500000',
-                'harga_jual' => '5100000',
-                'harga_jual_a' => '4800000',
-                'harga_jual_b' => '4950000',
-                'stok' => '100',
-            ],
-            [
-                'kode_produk' => '555',
                 'nama_produk' => 'Brother X455',
                 'id_kategori' => '2',
                 'id_satuan' => '1',

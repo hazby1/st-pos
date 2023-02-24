@@ -17,13 +17,13 @@
 
     <div class="small-box bg-success">
         <div class="inner">
-            <h3><?= $jasa; ?></h3>
-            <p>Jasa</p>
+            <h3><?= $user; ?></h3>
+            <p>User</p>
         </div>
         <div class="icon">
-            <i class="fas fa-clipboard-list"></i>
+            <i class="fas fa-user"></i>
         </div>
-        <a href="<?= base_url('jasa'); ?>" class="small-box-footer">Lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="<?= base_url('user'); ?>" class="small-box-footer">Lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
     </div>
 </div>
 
@@ -73,13 +73,13 @@
 
     <div class="small-box bg-pink">
         <div class="inner">
-            <h3><?= $user; ?></h3>
-            <p>User</p>
+            <h3><?= $pelanggan; ?></h3>
+            <p>Pelanggan</p>
         </div>
         <div class="icon">
             <i class="fas fa-users"></i>
         </div>
-        <a href="<?= base_url('user'); ?>" class="small-box-footer">Lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="<?= base_url('pelanggan'); ?>" class="small-box-footer">Lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
     </div>
 </div>
 

@@ -21,6 +21,7 @@
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <!-- End SweetAlert2 -->
+
     <!-- SweetAlert2 -->
     <script src="<?= base_url('adminlte') ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
     <!-- End SweetAlert2 -->
@@ -122,10 +123,10 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="<?= base_url('servis'); ?>" class="nav-link">
+                                <a href="<?= base_url('pembelian'); ?>" class="nav-link <?= $menu == 'pembelian' ? 'active' : ''; ?>">
                                     <i class="nav-icon fas fa-cash-register"></i>
                                     <p>
-                                        Servis
+                                        Pembelian
                                     </p>
                                 </a>
                             </li>
@@ -143,12 +144,6 @@
                                         <a href="<?= base_url('produk'); ?>" class="nav-link <?= $submenu == 'produk' ? 'active' : ''; ?>">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Produk</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('jasa'); ?>" class="nav-link <?= $submenu == 'jasa' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Jasa</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -205,6 +200,12 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a href="<?= base_url('laporan/Pembelian'); ?>" class="nav-link <?= $submenu == 'pembelian' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Pembelian</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a href="<?= base_url('laporan/LaporanHarian'); ?>" class="nav-link <?= $submenu == 'harian' ? 'active' : ''; ?>">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Laporan Harian</p>
@@ -235,6 +236,7 @@
                         </ul>
                     <?php } elseif (session()->get('level') == 'kasir') { ?>
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
                             <li class="nav-item">
                                 <a href="<?= base_url('admin'); ?>" class="nav-link <?= $menu == 'dashboard' ? 'active' : ''; ?>">
                                     <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -252,6 +254,16 @@
                                     </p>
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a href="<?= base_url('pembelian'); ?>" class="nav-link <?= $menu == 'pembelian' ? 'active' : ''; ?>">
+                                    <i class="nav-icon fas fa-cash-register"></i>
+                                    <p>
+                                        Pembelian
+                                    </p>
+                                </a>
+                            </li>
+
                             <li class="nav-item <?= $menu == 'masterdata' ? 'menu-open' : ''; ?>">
                                 <a href="#" class="nav-link <?= $menu == 'masterdata' ? 'active' : ''; ?>">
                                     <i class="nav-icon fas fa-server"></i>
@@ -277,6 +289,65 @@
                                         <a href="<?= base_url('satuan'); ?>" class="nav-link <?= $submenu == 'satuan' ? 'active' : ''; ?>">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Satuan</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('supplier'); ?>" class="nav-link <?= $submenu == 'supplier' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Supplier</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('pelanggan'); ?>" class="nav-link <?= $submenu == 'pelanggan' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Pelanggan</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item <?= $menu == 'laporan' ? 'menu-open' : ''; ?>">
+                                <a href="#" class="nav-link <?= $menu == 'laporan' ? 'active' : ''; ?>">
+                                    <i class="nav-icon fas fa-file-alt"></i>
+                                    <p>
+                                        Laporan
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('laporan/Transaksi'); ?>" class="nav-link <?= $submenu == 'transaksi' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Cari Transaksi</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('laporan/AllTransaksi'); ?>" class="nav-link <?= $submenu == 'alltransaksi' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Transaksi</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('laporan/Pembelian'); ?>" class="nav-link <?= $submenu == 'pembelian' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Pembelian</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('laporan/LaporanHarian'); ?>" class="nav-link <?= $submenu == 'harian' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Laporan Harian</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('laporan/LaporanBulanan'); ?>" class="nav-link <?= $submenu == 'bulanan' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Laporan Bulanan</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('laporan/LaporanTahunan'); ?>" class="nav-link <?= $submenu == 'tahunan' ? 'active' : ''; ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Laporan Tahunan</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -310,12 +381,6 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('jasa'); ?>" class="nav-link <?= $submenu == 'produk' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Jasa</p>
-                                        </a>
-                                    </li>
                                     <li class="nav-item">
                                         <a href="<?= base_url('kategori'); ?>" class="nav-link <?= $submenu == 'kategori' ? 'active' : ''; ?>">
                                             <i class="far fa-circle nav-icon"></i>

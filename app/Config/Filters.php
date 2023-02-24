@@ -73,18 +73,23 @@ class Filters extends BaseConfig
                     'Laporan', 'Laporan/*',
                     'Supplier', 'Supplier/*',
                     'Pelanggan', 'Pelanggan/*',
+                    'Pembelian', 'Pembelian/*',
                     '/',
                 ]
             ],
             'kasirfilter' => [
                 'except' => [
                     'Home', 'Home/*',
-                    '/',
-                    'Penjualan', 'Penjulan/*',
+                    'Admin', 'Admin/*',
+                    'Penjualan', 'Penjualan/*',
+                    'Produk', 'Produk/*',
                     'Kategori', 'Kategori/*',
                     'Satuan', 'Satuan/*',
-                    'Produk', 'Produk/*',
-                    'Admin', 'Admin/*',
+                    'Laporan', 'Laporan/*',
+                    'Supplier', 'Supplier/*',
+                    'Pelanggan', 'Pelanggan/*',
+                    'Pembelian', 'Pembelian/*',
+                    '/',
                 ]
             ],
             'teknisifilter' => [

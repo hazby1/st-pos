@@ -1,96 +1,3 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ST-POS | <?= $judul; ?></title>
-    <link rel="icon" href="<?= base_url() ?>/favicon.ico" type="image/gif">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/fontawesome-free/css/all.min.css">
-
-    <!-- DataTables -->
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <!-- end DataTables -->
-
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/dist/css/adminlte.min.css?v=3.2.0">
-
-    <!-- SweetAlert2 -->
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
-    <!-- End SweetAlert2 -->
-
-    <!-- DataTables -->
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
-    <script src="<?= base_url('adminlte'); ?>/plugins/jquery/jquery.min.js"></script>
-
-    <script src="<?= base_url('adminlte'); ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- DataTables -->
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/jszip/jszip.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <!-- end DataTables -->
-
-    <script src="<?= base_url('adminlte'); ?>/dist/js/adminlte.min.js?v=3.2.0"></script>
-
-    <!-- ChartJS -->
-    <script src="<?= base_url('adminlte'); ?>/plugins/chart.js/Chart.min.js"></script>
-    <!-- end ChartJS -->
-
-    <!-- AutoNumeric -->
-    <script src="<?= base_url('autoNumeric'); ?>/src/AutoNumeric.js"></script>
-    <!-- end AutoNumeric -->
-
-    <!-- Terbilang -->
-    <script src="<?= base_url('terbilang'); ?>/terbilang.js"></script>
-    <!-- end Terbilang -->
-
-    <script src="<?= base_url('adminlte'); ?>/dist/js/adminlte.min.js?v=3.2.0"></script>
-
-    <!-- REQUIRED SCRIPTS -->
-
-    <!-- jQuery -->
-    <script src="<?= base_url('adminlte') ?>/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?= base_url('adminlte') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- SweetAlert2 -->
-    <script src="<?= base_url('adminlte') ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
-    <!-- DataTables  & Plugins -->
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/jszip/jszip.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="<?= base_url('adminlte') ?>/dist/js/adminlte.min.js"></script>
-
-
-</head>
-
 <body class="hold-transition layout-top-nav">
     <div class="wrapper">
 
@@ -98,7 +5,7 @@
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
             <div class="container">
                 <a href="<?= base_url('admin') ?>" class="navbar-brand">
-                    <span class="brand-text font-weight-light"><i class="fas fa-shopping-cart text-danger"></i><b> Transaksi Penjualan Reseller B</b></span>
+                    <span class="brand-text font-weight-light"><i class="fas fa-shopping-cart text-danger"></i><b> Transaksi Penjualan</b></span>
                 </a>
 
                 <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -241,7 +148,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12">
-                                        <?php echo form_open('penjualan/insertcartB') ?>
+                                        <?php echo form_open('penjualan/insertcart') ?>
                                         <div class="row">
                                             <div class="col-2 input-group">
                                                 <input autofocus id="kode_produk" autocomplete="off" name="kode_produk" placeholder="Kode Produk" class="form-control">
@@ -260,7 +167,7 @@
                                                 <input readonly type="text" class="form-control" name="nama_satuan" hidden placeholder="Satuan">
                                             </div>
                                             <div class="col-1">
-                                                <input readonly type="text" class="form-control" name="harga_jual_b" placeholder="Harga">
+                                                <input readonly type="text" class="form-control" name="harga_jual" placeholder="Harga">
                                                 <input readonly type="hidden" name="harga_beli">
                                             </div>
                                             <div class="col-1">
@@ -280,7 +187,7 @@
                                             </div>
                                             <div class="col-3">
                                                 <button type="submit" class="btn  btn-primary"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                                <a href="<?= base_url('penjualan/ResetCartB'); ?>" class="btn  btn-warning"><i class="fas fa-sync"></i> Bersihkan</a>
+                                                <a href="<?= base_url('penjualan/ResetCart'); ?>" class="btn  btn-warning"><i class="fas fa-sync"></i> Bersihkan</a>
                                                 <a data-target="#pembayaran" data-toggle="modal" class="btn  btn-success" onclick="Pembayaran()"><i class="fas fa-cash-register"></i> Bayar</a>
                                             </div>
                                         </div>
@@ -390,7 +297,7 @@
                                         <td class="text-center"><?= $no++; ?></td>
                                         <td><?= $nilai['kode_produk']; ?></td>
                                         <td><?= $nilai['nama_produk']; ?></td>
-                                        <td class="text-right">Rp<?= number_format($nilai['harga_jual_b']); ?>.-</td>
+                                        <td class="text-right">Rp<?= number_format($nilai['harga_jual']); ?>.-</td>
                                         <td><?= $nilai['stok']; ?></td>
                                         <td class="text-center">
                                             <button onclick="PilihProduk(<?= $nilai['kode_produk']; ?>)" href="" class="btn btn-success btn-xs">Pilih</button>
@@ -418,14 +325,14 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <?php echo form_open('Penjualan/SimpanTransaksiB') ?>
+                        <?php echo form_open('Penjualan/SimpanTransaksi') ?>
                         <div class="form-group">
                             <label for="">Kembalian</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Rp</span>
                                 </div>
-                                <input id="kembalian" name="kembalian" class="form-control form-control-lg text-right" type="text" readonly value="">
+                                <input id="kembalian" name="kembalian" class="form-control form-control-lg text-right disabled" type="text" readonly value="">
                             </div>
                         </div>
                         <div class="form-group">
@@ -439,11 +346,11 @@
                         </div>
                         <div class="form-group">
                             <label for="">Dibayar</label>
-                            <div class="input-group mb-3">
+                            <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Rp</span>
                                 </div>
-                                <input name="dibayar" autocomplete="off" autofocus name="dibayar" id="dibayar" class="form-control form-control-lg text-right text-success" type="text" autocomplete="false">
+                                <input name="dibayar" autocomplete="off" required autofocus name="dibayar" id="dibayar" class="form-control form-control-lg text-right text-success" type="text">
                             </div>
                         </div>
                         <div class="form-group">
@@ -460,7 +367,6 @@
                                 </select>
                             </div>
                         </div>
-
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
@@ -524,7 +430,7 @@
         function CekProduk() {
             $.ajax({
                 type: "POST",
-                url: "<?= base_url('Penjualan/CekProdukB') ?>",
+                url: "<?= base_url('Penjualan/CekProduk') ?>",
                 data: {
                     kode_produk: $('#kode_produk').val(),
                 },
@@ -536,7 +442,7 @@
                         $('[name="nama_produk"]').val(response.nama_produk);
                         $('[name="nama_kategori"]').val(response.nama_kategori);
                         $('[name="nama_satuan"]').val(response.nama_satuan);
-                        $('[name="harga_jual_b"]').val(response.harga_jual_b);
+                        $('[name="harga_jual"]').val(response.harga_jual);
                         $('[name="harga_beli"]').val(response.harga_beli);
                         $('#qty').focus();
                     }
@@ -618,6 +524,7 @@
             }
             return i;
         }
+
         //Cetak Nota
         function CetakTransaksi() {
             let faktursimpan = $('#faktursimpan').val();
@@ -629,5 +536,3 @@
         }
     </script>
 </body>
-
-</html>

@@ -2,17 +2,15 @@
 
 namespace App\Models;
 
-use CodeIgniter\Database\SQLite3\Table;
 use CodeIgniter\Model;
 
-use function PHPSTORM_META\elementType;
-
-class PenjualanModel extends Model
+class PembelianModel extends Model
 {
-    public function NoFaktur()
+    public function NotaBeli()
     {
+        # code...
         $tgl = date('Ymd');
-        $query = $this->db->query("SELECT MAX(RIGHT(no_faktur,4)) as no_urut FROM t_jual WHERE DATE(tgl_jual)='$tgl'");
+        $query = $this->db->query("SELECT MAX(RIGHT(nota_beli,4)) as no_urut FROM t_beli WHERE DATE(tgl_beli)='$tgl'");
         $hasil = $query->getRowArray();
 
         if ($hasil['no_urut'] > 0) {
@@ -22,8 +20,8 @@ class PenjualanModel extends Model
             $kd = "0001";
         }
 
-        $no_faktur = date('Ymd') . $kd;
-        return $no_faktur;
+        $nota_beli = 1 . date('Ymd') . $kd;
+        return $nota_beli;
     }
 
     public function CekProduk($kode_produk)
@@ -31,7 +29,6 @@ class PenjualanModel extends Model
         return $this->db->table('t_produk')
             ->join('t_kategori', 't_kategori.id_kategori=t_produk.id_kategori')
             ->join('t_satuan', 't_satuan.id_satuan=t_produk.id_satuan')
-            ->where('t_produk.hapus', 'tidak')
             ->where('kode_produk', $kode_produk)
             ->get()
             ->getRowArray();
@@ -43,29 +40,27 @@ class PenjualanModel extends Model
             ->join('t_kategori', 't_kategori.id_kategori=t_produk.id_kategori')
             ->join('t_satuan', 't_satuan.id_satuan=t_produk.id_satuan')
             ->orderBy('id_produk')
-            ->where('stok > 0')
-            ->where('t_produk.hapus', 'tidak')
             ->get()
             ->getResultArray();
     }
 
-    public function InsertJual($data)
+    public function InsertBeli($data)
     {
         # code...
-        $this->db->table('t_jual')->insert($data);
+        $this->db->table('t_beli')->insert($data);
     }
 
-    public function InsertRinciJual($data)
+    public function InsertRinciBeli($data)
     {
         # code...
-        $this->db->table('t_rinci')->insert($data);
+        $this->db->table('t_rinci_beli')->insert($data);
     }
 
-    public function BatalTransaksi($data)
+    public function BatalPembelian($data)
     {
         # code...
-        $this->db->table('t_rinci')
-            ->where('no_faktur', $data['no_faktur'])
+        $this->db->table('t_rinci_beli')
+            ->where('nota_beli', $data['nota_beli'])
             ->update($data);
     }
 }

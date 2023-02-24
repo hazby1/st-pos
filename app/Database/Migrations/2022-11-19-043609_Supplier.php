@@ -29,6 +29,11 @@ class Supplier extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '15'
             ],
+            'hapus' => [
+                'type' => 'ENUM',
+                'constraint' => ['tidak', 'hapus'],
+                'default' => 'tidak'
+            ],
             'created_at DATETIME DEFAULT CURRENT_TIMESTAMP',
             'updated_at DATETIME',
         ]);

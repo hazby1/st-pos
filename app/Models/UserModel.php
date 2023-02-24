@@ -9,6 +9,7 @@ class UserModel extends Model
     public function AllData()
     {
         return $this->db->table('t_user')
+            ->where('hapus', 'tidak')
             ->get()
             ->getResultArray();
     }
@@ -29,7 +30,7 @@ class UserModel extends Model
     {
         $this->db->table('t_user')
             ->where('id_user', $data['id_user'])
-            ->delete($data);
+            ->update($data);
     }
 
     public function LoginUser($email, $password)

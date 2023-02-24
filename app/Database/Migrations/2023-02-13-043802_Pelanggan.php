@@ -29,6 +29,16 @@ class Pelanggan extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '15'
             ],
+            'level' => [
+                'type' => 'ENUM',
+                'constraint' => ['user', 'a', 'b'],
+                'default' => 'user'
+            ],
+            'hapus' => [
+                'type' => 'ENUM',
+                'constraint' => ['tidak', 'hapus'],
+                'default' => 'tidak'
+            ],
             'created_at DATETIME DEFAULT CURRENT_TIMESTAMP',
             'updated_at DATETIME',
         ]);

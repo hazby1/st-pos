@@ -33,6 +33,11 @@ class User extends Migration
                 'type' => 'ENUM',
                 'constraint' => ['admin', 'kasir', 'teknisi']
             ],
+            'hapus' => [
+                'type' => 'ENUM',
+                'constraint' => ['tidak', 'hapus'],
+                'default' => 'tidak'
+            ],
             'created_at DATETIME DEFAULT CURRENT_TIMESTAMP',
             'updated_at DATETIME'
         ]);

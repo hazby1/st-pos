@@ -108,7 +108,8 @@ class Produk extends BaseController
     {
         // Menghapus data satuan
         $data = [
-            'id_produk' => $id_produk
+            'id_produk' => $id_produk,
+            'hapus' => 'hapus',
         ];
         $this->ProdukModel->DeleteData($data);
 

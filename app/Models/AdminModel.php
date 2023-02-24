@@ -72,36 +72,48 @@ class AdminModel extends Model
     public function TotalProduk()
     {
         # code...
-        return $this->db->table('t_produk')->countAll();
+        return $this->db->table('t_produk')
+            ->where('hapus', 'tidak')
+            ->countAllResults();
     }
 
     public function TotalSatuan()
     {
         # code...
-        return $this->db->table('t_satuan')->countAll();
+        return $this->db->table('t_satuan')
+            ->where('hapus', 'tidak')
+            ->countAllResults();
     }
 
     public function TotalKategori()
     {
         # code...
-        return $this->db->table('t_kategori')->countAll();
+        return $this->db->table('t_kategori')
+            ->where('hapus', 'tidak')
+            ->countAllResults();
+    }
+
+    public function TotalPelanggan()
+    {
+        # code...
+        return $this->db->table('t_pelanggan')
+            ->where('hapus', 'tidak')
+            ->countAllResults();
     }
 
     public function TotalUser()
     {
         # code...
-        return $this->db->table('t_user')->countAll();
-    }
-
-    public function TotalJasa()
-    {
-        # code...
-        return $this->db->table('t_jasa')->countAll();
+        return $this->db->table('t_user')
+            ->where('hapus', 'tidak')
+            ->countAllResults();
     }
 
     public function TotalSupplier()
     {
         # code...
-        return $this->db->table('t_supplier')->countAll();
+        return $this->db->table('t_supplier')
+            ->where('hapus', 'tidak')
+            ->countAllResults();
     }
 }

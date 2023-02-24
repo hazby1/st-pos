@@ -64,6 +64,7 @@ class User extends BaseController
     {
         // Menghapus data user
         $data = [
+            'hapus' => 'hapus',
             'id_user' => $id_user
         ];
         $this->UserModel->DeleteData($data);
