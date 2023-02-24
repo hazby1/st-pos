@@ -198,9 +198,10 @@ class Penjualan extends BaseController
             'cart' => $cart->contents(),
             'grand_total' => $cart->total(),
             'produk' => $this->PenjualanModel->AllProduk(),
-            'pelanggan' => $this->PelangganModel->PelangganA()
+            'pelanggan' => $this->PelangganModel->PelangganA(),
+            'page' => 'v_penjualan_a'
         ];
-        return view('v_penjualan_a', $data);
+        return view('v_template_penjualan', $data);
     }
 
     public function CekProdukA()
@@ -339,9 +340,10 @@ class Penjualan extends BaseController
             'cart' => $cart->contents(),
             'grand_total' => $cart->total(),
             'produk' => $this->PenjualanModel->AllProduk(),
-            'pelanggan' => $this->PelangganModel->PelangganB()
+            'pelanggan' => $this->PelangganModel->PelangganB(),
+            'page' => 'v_penjualan_b'
         ];
-        return view('v_penjualan_b', $data);
+        return view('v_template_penjualan', $data);
     }
 
     public function CekProdukB()
