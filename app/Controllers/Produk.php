@@ -39,7 +39,7 @@ class Produk extends BaseController
                 'label' => 'Kode Produk',
                 'rules' => 'is_unique[t_produk.kode_produk]',
                 'errors' => [
-                    'is_unique' => '{field} sudah ada, masukkan kode lain!',
+                    'is_unique' => '{field} sudah ada atau {field} sudah pernah dihapus, masukkan kode lain!',
                 ]
             ],
         ])) {

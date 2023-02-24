@@ -29,6 +29,7 @@ class PembelianModel extends Model
         return $this->db->table('t_produk')
             ->join('t_kategori', 't_kategori.id_kategori=t_produk.id_kategori')
             ->join('t_satuan', 't_satuan.id_satuan=t_produk.id_satuan')
+            ->where('t_produk.hapus', 'tidak')
             ->where('kode_produk', $kode_produk)
             ->get()
             ->getRowArray();
@@ -40,6 +41,7 @@ class PembelianModel extends Model
             ->join('t_kategori', 't_kategori.id_kategori=t_produk.id_kategori')
             ->join('t_satuan', 't_satuan.id_satuan=t_produk.id_satuan')
             ->orderBy('id_produk')
+            ->where('t_produk.hapus', 'tidak')
             ->get()
             ->getResultArray();
     }
