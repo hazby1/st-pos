@@ -5,133 +5,138 @@
 
         </div>
 
-        <!-- Card Body -->
-        <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Card Body -->
+                <div class="card-body">
 
-            <?php
-            $errors = session()->getFlashdata('errors');
-            if (!empty($errors)) { ?>
-                <div class="alert alert-danger alert-dismissible">
-                    <h4>Periksa lagi data yang anda masukkan!</h4>
-                    <ul>
-                        <?php foreach ($errors as $key => $error) { ?>
-                            <li><?= esc($error) ?></li>
-                        <?php } ?>
-                    </ul>
-                </div>
-            <?php } ?>
-            <!-- end Alert -->
+                    <?php
+                    $errors = session()->getFlashdata('errors');
+                    if (!empty($errors)) { ?>
+                        <div class="alert alert-danger alert-dismissible">
+                            <h4>Periksa lagi data yang anda masukkan!</h4>
+                            <ul>
+                                <?php foreach ($errors as $key => $error) { ?>
+                                    <li><?= esc($error) ?></li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    <?php } ?>
+                    <!-- end Alert -->
 
-            <div class="row">
-                <div class="col-8"></div>
-                <div class="col-2">
-                    <div class="form-group">
-                        <label for="">Nota Beli</label>
-                        <label for="" class="form-control"><?= $nota_beli; ?></label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-group">
-                        <label for="">Tanggal</label>
-                        <label for="" class="form-control"><?= date('d M Y'); ?></label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-group">
-                        <label for="">Kasir</label>
-                        <label class="form-control"><?= session()->get('nama_user'); ?></label>
-                    </div>
-                </div>
-            </div>
-            <?php echo form_open('pembelian/insertcart') ?>
-            <div class="row">
-                <div class="col-3">
-                    <div class="input-group">
-                        <input name="kode_produk" id="kode_produk" class="form-control" autofocus placeholder="Kode Produk">
-                        <span class="input-group-append">
-                            <a data-toggle="modal" data-target="#cari-produk" class="btn btn-sm btn-primary "><i class="fas fa-search"></i></a>
-                            <button type="reset" class="btn btn-sm btn-danger "><i class="fas fa-times"></i></button>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="form-group">
-                        <input name="nama_produk" id="nama_produk" class="form-control" readonly placeholder="Nama Produk">
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Rp</span>
+                    <div class="row">
+                        <div class="col-7"></div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="">Nota Beli</label>
+                                <label for="" class="form-control"><?= $nota_beli; ?></label>
                             </div>
-                            <input name="harga" id="harga" class="form-control text-right" placeholder="0">
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="">Tanggal</label>
+                                <label for="" class="form-control"><?= date('d M Y'); ?></label>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <div class="form-group">
+                                <label for="">Kasir</label>
+                                <label class="form-control"><?= session()->get('nama_user'); ?></label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-group">
-                        <input name="qty" id="qty" class="text-center form-control text-right" type="number" min="1" value="1">
+                    <?php echo form_open('pembelian/insertcart') ?>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="input-group">
+                                <input name="kode_produk" id="kode_produk" class="form-control" autofocus placeholder="Kode Produk">
+                                <span class="input-group-append">
+                                    <a data-toggle="modal" data-target="#cari-produk" class="btn btn-sm btn-primary "><i class="fas fa-search"></i></a>
+                                    <button type="reset" class="btn btn-sm btn-danger "><i class="fas fa-times"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <input name="nama_produk" id="nama_produk" class="form-control" readonly placeholder="Nama Produk">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Rp</span>
+                                    </div>
+                                    <input name="harga" id="harga" class="form-control text-right" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <div class="form-group">
+                                <input name="qty" id="qty" class="text-center form-control text-right" type="number" min="1" value="1">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-sm text-xs btn-primary"><i class="fas fa-cart-plus"></i> Tambah</button>
+                                <a href="<?= base_url('pembelian/ResetCart'); ?>" class="btn btn-sm text-xs btn-warning"><i class="fas fa-sync"></i> Bersihkan</a>
+                                <a data-target="#simpan" data-toggle="modal" class="btn btn-sm text-xs btn-success" onclick="Simpan()"><i class="fas fa-cash-register"></i> Simpan</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-3">
-                    <div class="form-group">
-                        <button type="submit" class="btn  btn-primary"><i class="fas fa-cart-plus"></i> Tambah</button>
-                        <a href="<?= base_url('pembelian/ResetCart'); ?>" class="btn  btn-warning"><i class="fas fa-sync"></i> Bersihkan</a>
-                        <a data-target="#simpan" data-toggle="modal" class="btn  btn-success" onclick="Simpan()"><i class="fas fa-cash-register"></i> Simpan</a>
+                    <?php echo form_close() ?>
+                    <hr>
+                    <div class="row">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>Kode Produk</th>
+                                    <th>Nama Produk</th>
+                                    <th>Harga</th>
+                                    <th>QTY</th>
+                                    <th>Sub Total</th>
+                                    <th width="50px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($cart as $key => $nilai) { ?>
+                                    <tr>
+                                        <td><?= $nilai['id']; ?></td>
+                                        <td><?= $nilai['option']['nama_kategori'] . ' ' . $nilai['name']; ?></td>
+                                        <td>Rp<?= number_format($nilai['price'], 0); ?></td>
+                                        <td><?= $nilai['qty'] . $nilai['option']['nama_satuan']; ?></td>
+                                        <td><?= number_format($nilai['subtotal'], 0); ?></td>
+                                        <td>
+                                            <a href="<?= base_url('Pembelian/RemoveItemCart/' . $nilai['rowid']); ?>" class="btn btn-danger btn-xs"><i class="fas fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-            </div>
-            <?php echo form_close() ?>
-            <hr>
-            <div class="row">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="text-center">
-                            <th>Kode Produk</th>
-                            <th>Nama Produk</th>
-                            <th>Harga</th>
-                            <th>QTY</th>
-                            <th>Sub Total</th>
-                            <th width="50px"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($cart as $key => $nilai) { ?>
-                            <tr>
-                                <td><?= $nilai['id']; ?></td>
-                                <td><?= $nilai['option']['nama_kategori'] . ' ' . $nilai['name']; ?></td>
-                                <td>Rp<?= number_format($nilai['price'], 0); ?></td>
-                                <td><?= $nilai['qty'] . $nilai['option']['nama_satuan']; ?></td>
-                                <td><?= number_format($nilai['subtotal'], 0); ?></td>
-                                <td>
-                                    <a href="<?= base_url('Pembelian/RemoveItemCart/' . $nilai['rowid']); ?>" class="btn btn-danger btn-xs"><i class="fas fa-times"></i></a>
-                                </td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-            <!-- Alert -->
-            <div class="row">
-                <div class="col-12">
-                    <?php
-                    $faktursimpan = $nota_beli - 1;
-                    if (session()->getFlashdata('pesan')) {
-                        echo  '<div class="alert alert-success alert-dismissible">
+                    <!-- Alert -->
+                    <div class="row">
+                        <div class="col-12">
+                            <?php
+                            $faktursimpan = $nota_beli - 1;
+                            if (session()->getFlashdata('pesan')) {
+                                echo  '<div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     <i class="icon fas fa-check"></i>';
-                        echo session()->getFlashdata('pesan');
-                        echo '
+                                echo session()->getFlashdata('pesan');
+                                echo '
                     <input hidden id="faktursimpan" name="faktursimpan" value="' . $faktursimpan . '">
                     <button class="btn btn-sm btn-primary float-right" onclick="CetakPembelian()">Cetak Nota</button>
                     </div>';
-                    } ?>
+                            } ?>
+                        </div>
+                    </div>
+                    <!-- end Alert -->
                 </div>
+                <!-- Card Body -->
             </div>
-            <!-- end Alert -->
         </div>
-        <!-- Card Body -->
+
 
         <!-- Modal Cari Produk -->
         <div class="modal fade" id="cari-produk">
