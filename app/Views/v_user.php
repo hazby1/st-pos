@@ -99,7 +99,6 @@
                         <option value="">-- Pilih Level --</option>
                         <option value="admin">Admin</option>
                         <option value="kasir">Kasir</option>
-                        <option value="teknisi">Teknisi</option>
                     </select>
                 </div>
             </div>
@@ -153,7 +152,6 @@
                             <option value="">-- Pilih Level --</option>
                             <option <?= $nilai['level'] == 'admin' ? 'selected' : ''; ?> value="admin">Admin</option>
                             <option <?= $nilai['level'] == 'kasir' ? 'selected' : ''; ?> value="kasir">Kasir</option>
-                            <option <?= $nilai['level'] == 'teknisi' ? 'selected' : ''; ?> value="teknisi">Teknisi</option>
                         </select>
                     </div>
                 </div>
