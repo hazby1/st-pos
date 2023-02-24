@@ -14,12 +14,12 @@
 
                 <!-- Right navbar links -->
                 <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('admin'); ?>">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
                     <?php if (session()->get('level') == 'kasir') { ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url('admin'); ?>">
-                                <i class="fas fa-tachometer-alt"></i> Dashboard
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link <?= $subjudul == 'Reseller A' ? 'active' : '' ?>" href="<?= base_url('Penjualan/ResellerA'); ?>">
                                 <i class="fas fa-power-off"></i> Reseller A
