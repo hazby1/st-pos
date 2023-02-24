@@ -5,7 +5,7 @@
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
             <div class="container">
                 <a href="<?= base_url('admin') ?>" class="navbar-brand">
-                    <span class="brand-text font-weight-light"><i class="fas fa-shopping-cart text-danger"></i><b> Transaksi Penjualan Reseller B</b></span>
+                    <span class="brand-text font-weight-light"><i class="fas fa-shopping-cart text-danger"></i><b> Transaksi Penjualan</b></span>
                 </a>
 
                 <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -148,7 +148,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12">
-                                        <?php echo form_open('penjualan/insertcartB') ?>
+                                        <?php echo form_open('penjualan/insertcart') ?>
                                         <div class="row">
                                             <div class="col-2 input-group">
                                                 <input autofocus id="kode_produk" autocomplete="off" name="kode_produk" placeholder="Kode Produk" class="form-control">
@@ -167,7 +167,7 @@
                                                 <input readonly type="text" class="form-control" name="nama_satuan" hidden placeholder="Satuan">
                                             </div>
                                             <div class="col-1">
-                                                <input readonly type="text" class="form-control" name="harga_jual_b" placeholder="Harga">
+                                                <input readonly type="text" class="form-control" name="harga_jual" placeholder="Harga">
                                                 <input readonly type="hidden" name="harga_beli">
                                             </div>
                                             <div class="col-1">
@@ -187,7 +187,7 @@
                                             </div>
                                             <div class="col-3">
                                                 <button type="submit" class="btn  btn-primary"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                                <a href="<?= base_url('penjualan/ResetCartB'); ?>" class="btn  btn-warning"><i class="fas fa-sync"></i> Bersihkan</a>
+                                                <a href="<?= base_url('penjualan/ResetCart'); ?>" class="btn  btn-warning"><i class="fas fa-sync"></i> Bersihkan</a>
                                                 <a data-target="#pembayaran" data-toggle="modal" class="btn  btn-success" onclick="Pembayaran()"><i class="fas fa-cash-register"></i> Bayar</a>
                                             </div>
                                         </div>
@@ -297,7 +297,7 @@
                                         <td class="text-center"><?= $no++; ?></td>
                                         <td><?= $nilai['kode_produk']; ?></td>
                                         <td><?= $nilai['nama_produk']; ?></td>
-                                        <td class="text-right">Rp<?= number_format($nilai['harga_jual_b']); ?>.-</td>
+                                        <td class="text-right">Rp<?= number_format($nilai['harga_jual']); ?>.-</td>
                                         <td><?= $nilai['stok']; ?></td>
                                         <td class="text-center">
                                             <button onclick="PilihProduk(<?= $nilai['kode_produk']; ?>)" href="" class="btn btn-success btn-xs">Pilih</button>
@@ -325,14 +325,14 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <?php echo form_open('Penjualan/SimpanTransaksiB') ?>
+                        <?php echo form_open('Penjualan/SimpanTransaksi') ?>
                         <div class="form-group">
                             <label for="">Kembalian</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Rp</span>
                                 </div>
-                                <input id="kembalian" name="kembalian" class="form-control form-control-lg text-right" type="text" readonly value="">
+                                <input id="kembalian" name="kembalian" class="form-control form-control-lg text-right disabled" type="text" readonly value="">
                             </div>
                         </div>
                         <div class="form-group">
@@ -346,11 +346,11 @@
                         </div>
                         <div class="form-group">
                             <label for="">Dibayar</label>
-                            <div class="input-group mb-3">
+                            <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Rp</span>
                                 </div>
-                                <input name="dibayar" autocomplete="off" autofocus name="dibayar" id="dibayar" class="form-control form-control-lg text-right text-success" type="text" autocomplete="false">
+                                <input name="dibayar" autocomplete="off" required autofocus name="dibayar" id="dibayar" class="form-control form-control-lg text-right text-success" type="text">
                             </div>
                         </div>
                         <div class="form-group">
@@ -367,7 +367,6 @@
                                 </select>
                             </div>
                         </div>
-
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
@@ -431,7 +430,7 @@
         function CekProduk() {
             $.ajax({
                 type: "POST",
-                url: "<?= base_url('Penjualan/CekProdukB') ?>",
+                url: "<?= base_url('Penjualan/CekProduk') ?>",
                 data: {
                     kode_produk: $('#kode_produk').val(),
                 },
@@ -443,7 +442,7 @@
                         $('[name="nama_produk"]').val(response.nama_produk);
                         $('[name="nama_kategori"]').val(response.nama_kategori);
                         $('[name="nama_satuan"]').val(response.nama_satuan);
-                        $('[name="harga_jual_b"]').val(response.harga_jual_b);
+                        $('[name="harga_jual"]').val(response.harga_jual);
                         $('[name="harga_beli"]').val(response.harga_beli);
                         $('#qty').focus();
                     }
@@ -525,6 +524,7 @@
             }
             return i;
         }
+
         //Cetak Nota
         function CetakTransaksi() {
             let faktursimpan = $('#faktursimpan').val();

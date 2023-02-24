@@ -17,6 +17,17 @@ class LaporanModel extends Model
             ->get()->getResultArray();
     }
 
+    public function Supplier($nota_beli)
+    {
+        # code...
+        return $this->db->table('t_rinci_beli')
+            ->join('t_supplier', 't_supplier.id_supplier=t_rinci_beli.id_supplier')
+            ->where('nota_beli', $nota_beli)
+            ->groupBy('t_rinci_beli.id_supplier')
+            ->select('t_supplier.nama_supplier')
+            ->get()->getResultArray();
+    }
+
     public function DataTransaksi($no_faktur)
     {
         # code...
@@ -34,6 +45,39 @@ class LaporanModel extends Model
             ->groupBy('t_rinci.kode_produk')
             ->select('t_rinci.qty')
             ->select('t_rinci.total_harga')
+            ->get()->getResultArray();
+    }
+
+    public function DataPembelian($nota_beli)
+    {
+        # code...
+        return $this->db->table('t_rinci_beli')
+            ->join('t_produk', 't_produk.kode_produk=t_rinci_beli.kode_produk')
+            ->join('t_beli', 't_beli.nota_beli=t_rinci_beli.nota_beli')
+            ->where('t_beli.nota_beli', $nota_beli)
+            ->where('t_rinci_beli.status', 'berhasil')
+            ->select('t_rinci_beli.kode_produk')
+            ->select('t_produk.nama_produk')
+            ->select('t_rinci_beli.harga')
+            ->groupBy('t_rinci_beli.kode_produk')
+            ->select('t_rinci_beli.qty')
+            ->select('t_rinci_beli.total_harga')
+            ->get()->getResultArray();
+    }
+
+    public function Pembelian()
+    {
+        # code...
+        return $this->db->table('t_rinci_beli')
+            ->join('t_produk', 't_produk.kode_produk=t_rinci_beli.kode_produk')
+            ->join('t_supplier', 't_supplier.id_supplier=t_rinci_beli.id_supplier')
+            ->groupBy('t_rinci_beli.nota_beli')
+            ->join('t_beli', 't_beli.nota_beli=t_rinci_beli.nota_beli')
+            ->select('t_rinci_beli.nota_beli')
+            ->select('t_supplier.nama_supplier')
+            ->select('t_beli.grand_total')
+            ->select('t_rinci_beli.status')
+            ->orderBy('nota_beli', 'DESC')
             ->get()->getResultArray();
     }
 
@@ -59,7 +103,7 @@ class LaporanModel extends Model
         return $this->db->table('t_rinci')
             ->join('t_produk', 't_produk.kode_produk=t_rinci.kode_produk')
             ->join('t_jual', 't_jual.no_faktur=t_rinci.no_faktur')
-            ->where('t_jual.tgl_jual', $tgl)
+            ->select('t_jual.tgl_jual')
             ->select('t_rinci.kode_produk')
             ->select('t_produk.nama_produk')
             ->select('t_rinci.diskon')

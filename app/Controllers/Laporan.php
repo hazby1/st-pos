@@ -111,6 +111,21 @@ class Laporan extends BaseController
         return view('v_template', $data);
     }
 
+    public function Pembelian()
+    {
+        # code...
+        $data = [
+            'judul' => 'Laporan',
+            'subjudul' => 'Pembelian',
+            'menu' => 'laporan',
+            'submenu' => 'pembelian',
+            'page' => 'laporan/v_pembelian',
+            'web' => $this->AdminModel->DetailData(),
+            'pembelian' => $this->LaporanModel->Pembelian(),
+        ];
+        return view('v_template', $data);
+    }
+
     public function ViewTransaksi()
     {
         # code...
@@ -131,6 +146,26 @@ class Laporan extends BaseController
         echo json_encode($response);
     }
 
+    public function ViewPembelian()
+    {
+        # code...
+        $nota_beli = $this->request->getPost('nota_beli');
+        $data = [
+            'judul' => 'Laporan',
+            'subjudul' => 'Pembelian',
+            'datapembelian' => $this->LaporanModel->DataPembelian($nota_beli),
+            'web' => $this->AdminModel->DetailData(),
+            'nota_beli' => $nota_beli,
+            'pelanggan' => $this->LaporanModel->Supplier($nota_beli)
+        ];
+
+        $response = [
+            'data' => view('laporan/v_t_pembelian', $data)
+        ];
+
+        echo json_encode($response);
+    }
+
     public function CetakTransaksi($no_faktur)
     {
         # code...
@@ -143,6 +178,20 @@ class Laporan extends BaseController
             'pelanggan' => $this->LaporanModel->Pelanggan($no_faktur)
         ];
         return view('laporan/v_template_cetak_nota', $data);
+    }
+
+    public function CetakPembelian($nota_beli)
+    {
+        # code...
+        $data = [
+            'judul' => 'Pembelian',
+            'page' => 'laporan/v_cetak_pembelian',
+            'datatransaksi' => $this->LaporanModel->DataPembelian($nota_beli),
+            'web' => $this->AdminModel->DetailData(),
+            'nota_beli' => $nota_beli,
+            'supplier' => $this->LaporanModel->Supplier($nota_beli)
+        ];
+        return view('laporan/v_template_cetak_pembelian', $data);
     }
 
     public function LaporanHarian()

@@ -63,7 +63,8 @@ class Supplier extends BaseController
     {
         // Menghapus data supplier
         $data = [
-            'id_supplier' => $id_supplier
+            'id_supplier' => $id_supplier,
+            'hapus' => 'hapus',
         ];
         $this->SupplierModel->DeleteData($data);
 

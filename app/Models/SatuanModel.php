@@ -11,6 +11,7 @@ class SatuanModel extends Model
     public function AllData()
     {
         return $this->db->table('t_satuan')
+            ->where('hapus', 'tidak')
             ->get()
             ->getResultArray();
     }
@@ -31,6 +32,6 @@ class SatuanModel extends Model
     {
         $this->db->table('t_satuan')
             ->where('id_satuan', $data['id_satuan'])
-            ->delete($data);
+            ->update($data);
     }
 }

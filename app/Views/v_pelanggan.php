@@ -30,6 +30,7 @@
                         <th>Nama</th>
                         <th>Alamat</th>
                         <th>No Handphone</th>
+                        <th>Level</th>
                         <th width="100px">Opsi</th>
                     </tr>
                 </thead>
@@ -41,6 +42,16 @@
                             <td><?= $nilai['nama_pelanggan']; ?></td>
                             <td><?= $nilai['alamat']; ?></td>
                             <td><?= $nilai['no_hp']; ?></td>
+                            <td>
+                                <?php
+                                if ($nilai['level'] == 'user') {
+                                    echo 'User';
+                                } elseif ($nilai['level'] == 'a') {
+                                    echo 'Reseller A';
+                                } else {
+                                    echo 'Reseller B';
+                                } ?>
+                            </td>
                             <td class="text-center">
                                 <button class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#edit-data<?= $nilai['id_pelanggan'] ?>"></i></button>
                                 <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-data<?= $nilai['id_pelanggan'] ?>"><i class="fas fa-trash"></i></button>
@@ -82,6 +93,15 @@
                 <div class="form-group">
                     <label for="no_hp">No Handphone</label>
                     <input type="no_hp" name="no_hp" class="form-control" placeholder="No Handphone" required>
+                </div>
+                <div class="form-group">
+                    <label for="level">Level</label>
+                    <select name="level" class="form-control" placeholder="No Handphone" required>
+                        <option value="">--Pilih Level--</option>
+                        <option value="user">User</option>
+                        <option value="a">Reseller A</option>
+                        <option value="b">Reseller B</option>
+                    </select>
                 </div>
             </div>
 
@@ -127,6 +147,15 @@
                     <div class="form-group">
                         <label for="no_hp">No Handphone</label>
                         <input value="<?= $nilai['no_hp'] ?>" type="text" name="no_hp" class="form-control" placeholder="No Handphone">
+                    </div>
+                    <div class="form-group">
+                        <label for="level">Level</label>
+                        <selectname="status" class="form-control" placeholder="No Handphone" required>
+                            <option value="">--Pilih Level--</option>
+                            <option <?= $nilai['level'] == 'user' ? 'selected' : ''; ?> value="user">User</option>
+                            <option <?= $nilai['level'] == 'a' ? 'selected' : ''; ?> value="a">Reseller A</option>
+                            <option <?= $nilai['level'] == 'b' ? 'selected' : ''; ?> value="b">Reseller B</option>
+                            </select>
                     </div>
                 </div>
 

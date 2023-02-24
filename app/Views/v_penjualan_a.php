@@ -1,96 +1,3 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ST-POS | <?= $judul; ?></title>
-    <link rel="icon" href="<?= base_url() ?>/favicon.ico" type="image/gif">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/fontawesome-free/css/all.min.css">
-
-    <!-- DataTables -->
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <!-- end DataTables -->
-
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/dist/css/adminlte.min.css?v=3.2.0">
-
-    <!-- SweetAlert2 -->
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
-    <!-- End SweetAlert2 -->
-
-    <!-- DataTables -->
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
-    <script src="<?= base_url('adminlte'); ?>/plugins/jquery/jquery.min.js"></script>
-
-    <script src="<?= base_url('adminlte'); ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- DataTables -->
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/jszip/jszip.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <!-- end DataTables -->
-
-    <script src="<?= base_url('adminlte'); ?>/dist/js/adminlte.min.js?v=3.2.0"></script>
-
-    <!-- ChartJS -->
-    <script src="<?= base_url('adminlte'); ?>/plugins/chart.js/Chart.min.js"></script>
-    <!-- end ChartJS -->
-
-    <!-- AutoNumeric -->
-    <script src="<?= base_url('autoNumeric'); ?>/src/AutoNumeric.js"></script>
-    <!-- end AutoNumeric -->
-
-    <!-- Terbilang -->
-    <script src="<?= base_url('terbilang'); ?>/terbilang.js"></script>
-    <!-- end Terbilang -->
-
-    <script src="<?= base_url('adminlte'); ?>/dist/js/adminlte.min.js?v=3.2.0"></script>
-
-    <!-- REQUIRED SCRIPTS -->
-
-    <!-- jQuery -->
-    <script src="<?= base_url('adminlte') ?>/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?= base_url('adminlte') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- SweetAlert2 -->
-    <script src="<?= base_url('adminlte') ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
-    <!-- DataTables  & Plugins -->
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/jszip/jszip.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="<?= base_url('adminlte'); ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="<?= base_url('adminlte') ?>/dist/js/adminlte.min.js"></script>
-
-
-</head>
-
 <body class="hold-transition layout-top-nav">
     <div class="wrapper">
 
@@ -107,7 +14,7 @@
 
                 <!-- Right navbar links -->
                 <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                    <?php if (session()->get('level') == 'admin') { ?>
+                    <?php if (session()->get('level') == 'kasir') { ?>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= base_url('admin'); ?>">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
@@ -250,21 +157,33 @@
                                                     <button type="reset" class="btn btn-danger "><i class="fas fa-times"></i></button>
                                                 </span>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-2">
                                                 <input readonly type="text" class="form-control" name="nama_produk" placeholder="Nama Produk">
                                             </div>
                                             <div class="col-1">
                                                 <input readonly type="text" class="form-control" name="nama_kategori" placeholder="Kategori">
                                             </div>
-                                            <div class="col-1">
-                                                <input readonly type="text" class="form-control" name="nama_satuan" placeholder="Satuan">
+                                            <div class="">
+                                                <input readonly type="text" class="form-control" name="nama_satuan" hidden placeholder="Satuan">
                                             </div>
                                             <div class="col-1">
                                                 <input readonly type="text" class="form-control" name="harga_jual_a" placeholder="Harga">
                                                 <input readonly type="hidden" name="harga_beli">
                                             </div>
                                             <div class="col-1">
-                                                <input id="qty" type="number" value="1" min="1" class="form-control text-center" name="qty" placeholder="QTY">
+                                                <input id="qty" type="number" value="1" min="1" class="form-control text-center" name="qty" placeholder="QTY" required>
+                                            </div>
+                                            <div class="col-1 input-group">
+                                                <input type="number" id="diskon" name="diskon" class="form-control text-center" value="0" min="0" title="Diskon" required>
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">%</span>
+                                                </div>
+                                            </div>
+                                            <div class="col input-group">
+                                                <input type="number" id="pajak" name="pajak" class="form-control text-center" value="0" min="0" title="Pajak" required>
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">%</span>
+                                                </div>
                                             </div>
                                             <div class="col-3">
                                                 <button type="submit" class="btn  btn-primary"><i class="fas fa-cart-plus"></i> Tambah</button>
@@ -283,8 +202,9 @@
                                                 <tr class="text-center">
                                                     <th>Kode Produk</th>
                                                     <th>Nama Produk</th>
-                                                    <th>Kategori</th>
                                                     <th>Harga</th>
+                                                    <th>Diskon</th>
+                                                    <th>Pajak</th>
                                                     <th width="125px">Qty</th>
                                                     <th>Total</th>
                                                     <th width="50px"></th>
@@ -295,8 +215,9 @@
                                                     <tr>
                                                         <td><?= $nilai['id']; ?></td>
                                                         <td><?= $nilai['name']; ?></td>
-                                                        <td><?= $nilai['option']['nama_kategori']; ?></td>
-                                                        <td class="text-right">Rp<?= number_format($nilai['price'], 0); ?>.-</td>
+                                                        <td class="text-right">Rp<?= number_format($nilai['price'] + $nilai['option']['diskon'] - $nilai['option']['pajak'], 0); ?>.-</td>
+                                                        <td class="text-right">Rp<?= number_format($nilai['option']['diskon'] * $nilai['qty'], 0); ?>.-</td>
+                                                        <td class="text-right">Rp<?= number_format($nilai['option']['pajak'] * $nilai['qty'], 0); ?>.-</td>
                                                         <td class="text-center"><?= $nilai['qty']; ?> <?= $nilai['option']['nama_satuan']; ?></td>
                                                         <td class="text-right">Rp<?= number_format($nilai['subtotal'], 0); ?>.-</td>
                                                         <td class="text-center">
@@ -410,7 +331,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Rp</span>
                                 </div>
-                                <input id="kembalian" name="kembalian" class="form-control form-control-lg text-right bg-gray" type="text" readonly value="">
+                                <input id="kembalian" name="kembalian" class="form-control form-control-lg text-right" type="text" readonly value="">
                             </div>
                         </div>
                         <div class="form-group">
@@ -615,5 +536,3 @@
         }
     </script>
 </body>
-
-</html>

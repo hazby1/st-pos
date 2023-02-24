@@ -27,7 +27,7 @@
             <?php
             $errors = session()->getFlashdata('errors');
             if (!empty($errors)) { ?>
-                <div class="alert alert-danger alert-dismissible">
+                <div class="alert alert-warning alert-dismissible">
                     <h4>Periksa lagi data yang anda masukkan!</h4>
                     <ul>
                         <?php foreach ($errors as $key => $error) { ?>

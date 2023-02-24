@@ -9,6 +9,8 @@ class SupplierModel extends Model
     public function AllData()
     {
         return $this->db->table('t_supplier')
+            ->where('hapus', 'tidak')
+            ->orderBy('nama_supplier', 'ASC')
             ->get()->getResultArray();
     }
 
@@ -31,6 +33,6 @@ class SupplierModel extends Model
         # code...
         $this->db->table('t_supplier')
             ->where('id_supplier', $data['id_supplier'])
-            ->delete($data);
+            ->update($data);
     }
 }

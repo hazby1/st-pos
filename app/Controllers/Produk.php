@@ -39,7 +39,7 @@ class Produk extends BaseController
                 'label' => 'Kode Produk',
                 'rules' => 'is_unique[t_produk.kode_produk]',
                 'errors' => [
-                    'is_unique' => '{field} sudah ada, masukkan kode lain!',
+                    'is_unique' => '{field} sudah ada atau {field} sudah pernah dihapus, masukkan kode lain!',
                 ]
             ],
         ])) {
@@ -108,7 +108,8 @@ class Produk extends BaseController
     {
         // Menghapus data satuan
         $data = [
-            'id_produk' => $id_produk
+            'id_produk' => $id_produk,
+            'hapus' => 'hapus',
         ];
         $this->ProdukModel->DeleteData($data);
 

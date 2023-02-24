@@ -21,7 +21,7 @@ class Pelanggan extends BaseController
             'menu' => 'masterdata',
             'submenu' => 'pelanggan',
             'page' => 'v_pelanggan',
-            'pelanggan' => $this->PelangganModel->AllData()
+            'pelanggan' => $this->PelangganModel->AllPelanggan()
         ];
         return view('v_template', $data);
     }
@@ -33,6 +33,7 @@ class Pelanggan extends BaseController
             'nama_pelanggan' => $this->request->getPost('nama_pelanggan'),
             'alamat' => $this->request->getPost('alamat'),
             'no_hp' => $this->request->getPost('no_hp'),
+            'level' => $this->request->getPost('level'),
         ];
 
         $this->PelangganModel->InsertData($data);
@@ -49,7 +50,8 @@ class Pelanggan extends BaseController
             'id_pelanggan' => $id_pelanggan,
             'nama_pelanggan' => $this->request->getPost('nama_pelanggan'),
             'alamat' => $this->request->getPost('alamat'),
-            'no_hp' => $this->request->getPost('no_hp')
+            'no_hp' => $this->request->getPost('no_hp'),
+            'level' => $this->request->getPost('level'),
         ];
 
         $this->PelangganModel->UpdateData($data);
@@ -63,7 +65,8 @@ class Pelanggan extends BaseController
     {
         // Menghapus data pelanggan
         $data = [
-            'id_pelanggan' => $id_pelanggan
+            'id_pelanggan' => $id_pelanggan,
+            'hapus' => 'hapus'
         ];
         $this->PelangganModel->DeleteData($data);
 

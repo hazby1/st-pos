@@ -56,6 +56,7 @@ class Kategori extends BaseController
     {
         // Menghapus data kategori
         $data = [
+            'hapus' => 'hapus',
             'id_kategori' => $id_kategori
         ];
         $this->KategoriModel->DeleteData($data);

@@ -11,6 +11,7 @@ class KategoriModel extends Model
     public function AllData()
     {
         return $this->db->table('t_kategori')
+            ->where('hapus', 'tidak')
             ->get()
             ->getResultArray();
     }
@@ -31,6 +32,6 @@ class KategoriModel extends Model
     {
         $this->db->table('t_kategori')
             ->where('id_kategori', $data['id_kategori'])
-            ->delete($data);
+            ->update($data);
     }
 }

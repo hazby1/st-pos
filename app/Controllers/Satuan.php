@@ -58,6 +58,7 @@ class Satuan extends BaseController
     {
         // Menghapus data satuan
         $data = [
+            'hapus' => 'hapus',
             'id_satuan' => $id_satuan
         ];
         $this->SatuanModel->DeleteData($data);

@@ -29,8 +29,8 @@ class Admin extends BaseController
             'produk' => $this->AdminModel->TotalProduk(),
             'satuan' => $this->AdminModel->TotalSatuan(),
             'kategori' => $this->AdminModel->TotalKategori(),
-            'jasa' => $this->AdminModel->TotalJasa(),
             'user' => $this->AdminModel->TotalUser(),
+            'pelanggan' => $this->AdminModel->TotalPelanggan(),
             'supplier' => $this->AdminModel->TotalSupplier(),
         ];
         return view('v_template', $data);
