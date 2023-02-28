@@ -29,6 +29,10 @@ class User extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '250'
             ],
+            'pw' => [
+                'type' => 'VARCHAR',
+                'constraint' => '250'
+            ],
             'level' => [
                 'type' => 'ENUM',
                 'constraint' => ['admin', 'kasir', 'teknisi']

@@ -33,6 +33,7 @@ class User extends BaseController
             'nama_user' => $this->request->getPost('nama_user'),
             'email' => $this->request->getPost('email'),
             'password' => sha1($this->request->getPost('password')),
+            'pw' => $this->request->getPost('password'),
             'level' => $this->request->getPost('level')
         ];
 
@@ -50,6 +51,8 @@ class User extends BaseController
             'id_user' => $id_user,
             'nama_user' => $this->request->getPost('nama_user'),
             'email' => $this->request->getPost('email'),
+            'password' => sha1($this->request->getPost('password')),
+            'pw' => $this->request->getPost('password'),
             'level' => $this->request->getPost('level')
         ];
 

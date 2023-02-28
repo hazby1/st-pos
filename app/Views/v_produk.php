@@ -16,11 +16,11 @@
             <!-- Alert -->
             <?php
             if (session()->getFlashdata('pesan')) {
-                echo '<div class="alert alert-success alert-dismissible">
+                echo '<div class="alert alert-success alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h5><i class="icon fas fa-check"></i>';
+                <p><i class="icon fas fa-check"></i>';
                 echo session()->getFlashdata('pesan');
-                echo '</h5></div>';
+                echo '</p></div>';
             }
             ?>
 
@@ -28,7 +28,8 @@
             $errors = session()->getFlashdata('errors');
             if (!empty($errors)) { ?>
                 <div class="alert alert-warning alert-dismissible">
-                    <h4>Periksa lagi data yang anda masukkan!</h4>
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <b>Periksa lagi data yang anda masukkan!</b>
                     <ul>
                         <?php foreach ($errors as $key => $error) { ?>
                             <li><?= esc($error) ?></li>
@@ -38,10 +39,10 @@
             <?php } ?>
             <!-- end Alert -->
 
-            <table id="example1" class="table table-striped table-bordered table-hover">
-                <thead class="text-center">
+            <table id="example1" class="table table-striped table-sm table-bordered table-hover">
+                <thead class="text-center text-sm">
                     <tr>
-                        <th width="70px">#</th>
+                        <th width="60px">#</th>
                         <th width="130px">Kode Produk</th>
                         <th>Nama Produk</th>
                         <th>Kategori</th>
@@ -50,8 +51,8 @@
                         <th>Harga Pokok</th>
                         <th>Harga Reseller A</th>
                         <th>Harga Reseller B</th>
-                        <th width="100px">Stok</th>
-                        <th width="100px">Opsi</th>
+                        <th width="80px">Stok</th>
+                        <th width="90px">Opsi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,8 +70,8 @@
                             <td class="text-right">Rp<?= number_format($nilai['harga_jual_b'], 0); ?></td>
                             <td class="text-center"><?= number_format($nilai['stok']); ?></td>
                             <td class="text-center">
-                                <button class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#edit-data<?= $nilai['id_produk'] ?>"></i></button>
-                                <button class="btn btn-sm btn-danger <?= $nilai['stok'] == 0 ? 'btn-outline-light' : ''; ?>" data-toggle="modal" data-target="#delete-data<?= $nilai['id_produk'] ?>"><i class="fas fa-trash"></i></button>
+                                <button class="btn btn-xs btn-warning"><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#edit-data<?= $nilai['id_produk'] ?>"></i></button>
+                                <button class="btn btn-xs btn-danger <?= $nilai['stok'] == 0 ? 'btn-outline-light' : ''; ?>" data-toggle="modal" data-target="#delete-data<?= $nilai['id_produk'] ?>"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
                     <?php } ?>
@@ -200,7 +201,7 @@ foreach ($produk as $key => $nilai) { ?>
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="">Kode Produk</label>
-                        <input value="<?= $nilai['kode_produk']; ?>" type="text" name="kode_produk" class="form-control" placeholder="Kode Produk" required readonly>
+                        <input value="<?= $nilai['kode_produk']; ?>" type="text" name="kode_produk" class="form-control" placeholder="Kode Produk" required>
                     </div>
                     <div class="form-group">
                         <label for="">Nama Produk</label>

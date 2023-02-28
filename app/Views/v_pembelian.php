@@ -87,7 +87,7 @@
                     <?php echo form_close() ?>
                     <hr>
                     <div class="row">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-sm">
                             <thead>
                                 <tr class="text-center">
                                     <th>Kode Produk</th>
@@ -104,7 +104,7 @@
                                         <td><?= $nilai['id']; ?></td>
                                         <td><?= $nilai['option']['nama_kategori'] . ' ' . $nilai['name']; ?></td>
                                         <td>Rp<?= number_format($nilai['price'], 0); ?></td>
-                                        <td><?= $nilai['qty'] . $nilai['option']['nama_satuan']; ?></td>
+                                        <td><?= $nilai['qty'] . ' ' . $nilai['option']['nama_satuan']; ?></td>
                                         <td><?= number_format($nilai['subtotal'], 0); ?></td>
                                         <td>
                                             <a href="<?= base_url('Pembelian/RemoveItemCart/' . $nilai['rowid']); ?>" class="btn btn-danger btn-xs"><i class="fas fa-times"></i></a>

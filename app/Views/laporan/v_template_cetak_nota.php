@@ -21,20 +21,21 @@
             <!-- title row -->
             <div class="row">
                 <div class="col-12 text-center">
-                    <address>
-                        <i class="fas fa-shopping-cart fa-3x text-danger"></i>
-                        <b>
-                            <font size=9> <?= $web['nama_toko']; ?></font>
-                            <br>
-                            <label class=""><?= $web['slogan']; ?></label><br>
-                        </b>
-                        <?= $web['alamat']; ?> <?= $web['no_telepon']; ?>
-                        <hr>
-                    </address>
+                    <div class="media">
+                        <img width="60px" height="60px" class="mr-1 mt-2" src="<?= base_url('logo.png'); ?>" alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-0">
+                                <font size=7> <b><?= $web['nama_toko']; ?></b></font>
+                            </h5>
+                            <label for="" class="mt-0 mb-0"><?= $web['slogan']; ?></label><br>
+                            <span class="mt-0"><?= $web['alamat']; ?> <?= $web['no_telepon']; ?></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12 text-center">
+                <div class="col-12 text-center mt-0">
+                    <hr>
                     <b>
-                        <h4>Nota Transaksi</h4>
+                        <h4 class="">Nota Penjualan</h4>
                     </b>
                 </div>
                 <!-- /.col -->
@@ -55,7 +56,7 @@
     <!-- ./wrapper -->
     <!-- Page specific script -->
     <script>
-        window.addEventListener("load", window.print());
+        // window.addEventListener("load", window.print());
     </script>
 </body>
 

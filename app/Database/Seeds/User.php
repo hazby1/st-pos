@@ -14,18 +14,21 @@ class User extends Seeder
                 'nama_user' => 'Admin',
                 'email' => 'admin@admin.com',
                 'password' => 'd033e22ae348aeb5660fc2140aec35850c4da997',
+                'pw' => 'admin',
                 'level' => 'admin'
             ],
             [
                 'nama_user' => 'Kasir',
                 'email' => 'kasir@admin.com',
                 'password' => 'd033e22ae348aeb5660fc2140aec35850c4da997',
+                'pw' => 'admin',
                 'level' => 'kasir'
             ],
             [
                 'nama_user' => 'Teknisi',
                 'email' => 'teknisi@admin.com',
                 'password' => 'd033e22ae348aeb5660fc2140aec35850c4da997',
+                'pw' => 'admin',
                 'level' => 'teknisi'
             ],
         ];

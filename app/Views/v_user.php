@@ -23,7 +23,7 @@
             ?>
             <!-- end Alert -->
 
-            <table class="table table-striped table-bordered table-hover">
+            <table class="table table-striped table-bordered table-hover table-sm">
                 <thead class="text-center">
                     <tr>
                         <th width="70px">#</th>
@@ -41,7 +41,7 @@
                             <td class="text-center"><b><?= $no++; ?></b></td>
                             <td><?= $nilai['nama_user']; ?></td>
                             <td><?= $nilai['email']; ?></td>
-                            <td><?= $nilai['password']; ?></td>
+                            <td>****</td>
                             <td class="text-center">
                                 <?php
                                 if ($nilai['level'] == 'admin') {
@@ -144,7 +144,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input value="<?= $nilai['password'] ?>" type="text" name="password" class="form-control" placeholder="Password" readonly>
+                        <input required type="text" name="password" class="form-control" placeholder="Password">
                     </div>
                     <div class="form-group">
                         <label for="level">Level</label>

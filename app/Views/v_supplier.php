@@ -23,7 +23,7 @@
             ?>
             <!-- end Alert -->
 
-            <table class="table table-striped table-bordered table-hover">
+            <table class="table table-striped table-bordered table-hover table-sm">
                 <thead class="text-center">
                     <tr>
                         <th width="70px">#</th>

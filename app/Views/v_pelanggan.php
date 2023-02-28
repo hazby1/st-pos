@@ -23,7 +23,7 @@
             ?>
             <!-- end Alert -->
 
-            <table class="table table-striped table-bordered table-hover">
+            <table class="table table-striped table-bordered table-hover table-sm">
                 <thead class="text-center">
                     <tr>
                         <th width="70px">#</th>
@@ -150,12 +150,12 @@
                     </div>
                     <div class="form-group">
                         <label for="level">Level</label>
-                        <selectname="status" class="form-control" placeholder="No Handphone" required>
+                        <select name="level" class="form-control" placeholder="No Handphone" required>
                             <option value="">--Pilih Level--</option>
                             <option <?= $nilai['level'] == 'user' ? 'selected' : ''; ?> value="user">User</option>
                             <option <?= $nilai['level'] == 'a' ? 'selected' : ''; ?> value="a">Reseller A</option>
                             <option <?= $nilai['level'] == 'b' ? 'selected' : ''; ?> value="b">Reseller B</option>
-                            </select>
+                        </select>
                     </div>
                 </div>
 

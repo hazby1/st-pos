@@ -65,7 +65,7 @@ class Penjualan extends BaseController
         # code...
         $cart = \Config\Services::cart();
         $harga = $this->request->getPost('harga_jual');
-        $diskon = $this->request->getPost('diskon') / 100 * $harga;
+        $diskon = $this->request->getPost('diskon');
         $pajak = $this->request->getPost('pajak') / 100 * $harga;
 
         // Insert an array of values
@@ -233,7 +233,7 @@ class Penjualan extends BaseController
         # code...
         $cart = \Config\Services::cart();
         $harga = $this->request->getPost('harga_jual_a');
-        $diskon = $this->request->getPost('diskon') / 100 * $harga;
+        $diskon = $this->request->getPost('diskon');
         $pajak = $this->request->getPost('pajak') / 100 * $harga;
 
         // Insert an array of values
@@ -375,7 +375,7 @@ class Penjualan extends BaseController
         # code...
         $cart = \Config\Services::cart();
         $harga = $this->request->getPost('harga_jual_b');
-        $diskon = $this->request->getPost('diskon') / 100 * $harga;
+        $diskon = $this->request->getPost('diskon');
         $pajak = $this->request->getPost('pajak') / 100 * $harga;
 
         // Insert an array of values

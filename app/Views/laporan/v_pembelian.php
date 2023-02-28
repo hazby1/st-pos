@@ -35,6 +35,7 @@
                         <tr>
                             <td class="text-center"><b><?= $no++; ?></b></td>
                             <td><?= $nilai['nota_beli']; ?>
+                                <input type="text" id="nota_beli<?= $nilai['nota_beli']; ?>" value="<?= $nilai['nota_beli']; ?>">
                             </td>
                             <td><?= $nilai['nama_supplier']; ?></td>
                             <td class="text-right">Rp<?= number_format($nilai['grand_total']); ?></td>
@@ -42,7 +43,7 @@
                                 <?php if ($nilai['status'] == 'batal') {
                                     echo '<b class="text-danger">Pembelian Dibatalkan</b>';
                                 } else { ?>
-                                    <button onclick="CetakPembelian()" class="btn btn-sm btn-success">
+                                    <button onclick="CetakPembelian<?= $nilai['nota_beli']; ?>()" class="btn btn-sm btn-success">
                                         <i class="fas fa-print"></i> Cetak
                                     </button>
                                     <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-data<?= $nilai['nota_beli'] ?>"><i class="fas fa-exclamation-circle"></i> <?= $nilai['status'] == 'batal' ? 'Pembelian Batal' : 'Batalkan'; ?></button>
@@ -123,13 +124,15 @@
     </div>
 <?php } ?>
 <!-- /.modal -->
-<script>
-    function CetakPembelian() {
-        let nota_beli = $('#nota_beli<?= $nilai['nota_beli']; ?>').val();
-        if (nota_beli == '') {
-            Swal.fire('Nota Pembelian belum diisi!');
-        } else {
-            NewWin = window.open("<?= base_url('Laporan/CetakPembelian'); ?>/" + nota_beli, "NewWin", "width=1500")
+<?php foreach ($pembelian as $key => $nilai) { ?>
+    <script>
+        function CetakPembelian<?= $nilai['nota_beli']; ?>() {
+            let nota_beli = $('#nota_beli<?= $nilai['nota_beli']; ?>').val();
+            if (nota_beli == '') {
+                Swal.fire('Nota Pembelian belum diisi!');
+            } else {
+                NewWin = window.open("<?= base_url('Laporan/CetakPembelian'); ?>/" + nota_beli, "NewWin", "width=1500")
+            }
         }
-    }
-</script>
+    </script>
+<?php } ?>

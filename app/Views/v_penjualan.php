@@ -265,11 +265,8 @@
                                             <div class="col-1">
                                                 <input id="qty" type="number" value="1" min="1" class="form-control text-center" name="qty" title="QTY" required>
                                             </div>
-                                            <div class="col-1 input-group">
+                                            <div class="col-1">
                                                 <input type="number" id="diskon" name="diskon" class="form-control text-center" value="0" min="0" title="Diskon" required>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text">%</span>
-                                                </div>
                                             </div>
                                             <div class="col input-group">
                                                 <input type="number" id="pajak" name="pajak" class="form-control text-center" value="0" min="0" title="Pajak" required>
@@ -289,7 +286,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-12">
-                                        <table class="table table-bordered">
+                                        <table class="table table-bordered table-sm">
                                             <thead>
                                                 <tr class="text-center">
                                                     <th>Kode Produk</th>
@@ -451,12 +448,13 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Tn/Ny</span>
                                 </div>
-                                <select required id="pelanggan" name="pelanggan" class="form-control form-control-lg text-center" type="text" value="">
+                                <select required id="pelanggan" name="pelanggan" class="form-control form-control-lg text-center col-10" type="text" value="">
                                     <option value="">-- Pilih Pelanggan --</option>
                                     <?php foreach ($pelanggan as $key => $pel) { ?>
                                         <option value="<?= $pel['id_pelanggan']; ?>"><?= $pel['nama_pelanggan']; ?></option>
                                     <?php } ?>
                                 </select>
+                                <a href="<?= base_url('pelanggan'); ?>" class="col-2 btn btn-secondary"><i class="fas fa-user-plus"></i></a>
                             </div>
                         </div>
                     </div>
