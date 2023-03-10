@@ -69,6 +69,22 @@ class Laporan extends BaseController
         return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
     }
 
+    // Return barang penjualan
+    public function AllReturn()
+    {
+        # code...
+        $data = [
+            'judul' => 'Laporan',
+            'subjudul' => 'Semua Return Produk Penjualan',
+            'menu' => 'laporan',
+            'submenu' => 'allreturn',
+            'page' => 'laporan/v_all_return',
+            'allreturn' => $this->LaporanModel->AllReturn(),
+        ];
+
+        return view('v_template', $data);
+    }
+
     public function AllTransaksi()
     {
         # code...

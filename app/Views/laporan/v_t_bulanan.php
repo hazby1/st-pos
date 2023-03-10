@@ -58,7 +58,7 @@
         ?>
         <b>Bulan : <?= $bulan . ' ' . $tahun; ?></b>
         <hr>
-        <table class="table table-striped table-bordered">
+        <table class="table table-sm table-striped table-bordered">
             <tr class="text-center bg-gray">
                 <th width="50">#</th>
                 <th>Tanggal</th>

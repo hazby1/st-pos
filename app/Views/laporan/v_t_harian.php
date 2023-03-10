@@ -18,7 +18,7 @@
     <div class="col-12">
         <b>Tanggal : </b><?= $tgl; ?>
         <hr>
-        <table class="table table-striped table-bordered">
+        <table class="table table-sm table-striped table-bordered">
             <tr class="text-center bg-gray">
                 <th>#</th>
                 <th>Kode Produk</th>

@@ -101,302 +101,161 @@
                 </div>
 
                 <nav class="mt-2">
-                    <?php if (session()->get('level') == 'admin') { ?>
-                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-                            <li class="nav-item">
-                                <a href="<?= base_url('admin'); ?>" class="nav-link <?= $menu == 'dashboard' ? 'active' : ''; ?>">
-                                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                                    <p>
-                                        Dashboard
-                                    </p>
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin'); ?>" class="nav-link <?= $menu == 'dashboard' ? 'active' : ''; ?>">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a href="<?= base_url('penjualan'); ?>" class="nav-link">
-                                    <i class="nav-icon fas fa-cash-register"></i>
-                                    <p>
-                                        Penjualan
-                                    </p>
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('penjualan'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-cash-register"></i>
+                                <p>
+                                    Penjualan
+                                </p>
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a href="<?= base_url('pembelian'); ?>" class="nav-link <?= $menu == 'pembelian' ? 'active' : ''; ?>">
-                                    <i class="nav-icon fas fa-cash-register"></i>
-                                    <p>
-                                        Pembelian
-                                    </p>
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('pembelian'); ?>" class="nav-link <?= $menu == 'pembelian' ? 'active' : ''; ?>">
+                                <i class="nav-icon fas fa-cash-register"></i>
+                                <p>
+                                    Pembelian
+                                </p>
+                            </a>
+                        </li>
 
-                            <li class="nav-item <?= $menu == 'masterdata' ? 'menu-open' : ''; ?>">
-                                <a href="#" class="nav-link <?= $menu == 'masterdata' ? 'active' : ''; ?>">
-                                    <i class="nav-icon fas fa-server"></i>
-                                    <p>
-                                        Master Data
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('produk'); ?>" class="nav-link <?= $submenu == 'produk' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Produk</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('kategori'); ?>" class="nav-link <?= $submenu == 'kategori' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Kategori</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('satuan'); ?>" class="nav-link <?= $submenu == 'satuan' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Satuan</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('supplier'); ?>" class="nav-link <?= $submenu == 'supplier' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Supplier</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('pelanggan'); ?>" class="nav-link <?= $submenu == 'pelanggan' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Pelanggan</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('user'); ?>" class="nav-link <?= $submenu == 'user' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>User</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item <?= $menu == 'laporan' ? 'menu-open' : ''; ?>">
-                                <a href="#" class="nav-link <?= $menu == 'laporan' ? 'active' : ''; ?>">
-                                    <i class="nav-icon fas fa-file-alt"></i>
-                                    <p>
-                                        Laporan
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('laporan/Transaksi'); ?>" class="nav-link <?= $submenu == 'transaksi' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Cari Transaksi</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('laporan/AllTransaksi'); ?>" class="nav-link <?= $submenu == 'alltransaksi' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Transaksi</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('laporan/Pembelian'); ?>" class="nav-link <?= $submenu == 'pembelian' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Pembelian</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('laporan/LaporanHarian'); ?>" class="nav-link <?= $submenu == 'harian' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Laporan Harian</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('laporan/LaporanBulanan'); ?>" class="nav-link <?= $submenu == 'bulanan' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Laporan Bulanan</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('laporan/LaporanTahunan'); ?>" class="nav-link <?= $submenu == 'tahunan' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Laporan Tahunan</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= base_url('admin/setting'); ?>" class="nav-link <?= $menu == 'setting' ? 'active' : ''; ?>">
-                                    <i class="nav-icon fas fa-cog"></i>
-                                    <p>
-                                        Setting
-                                    </p>
-                                </a>
-                            </li>
-                        </ul>
-                    <?php } elseif (session()->get('level') == 'kasir') { ?>
-                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-
-                            <li class="nav-item">
-                                <a href="<?= base_url('admin'); ?>" class="nav-link <?= $menu == 'dashboard' ? 'active' : ''; ?>">
-                                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                                    <p>
-                                        Dashboard
-                                    </p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="<?= base_url('penjualan'); ?>" class="nav-link">
-                                    <i class="nav-icon fas fa-cash-register"></i>
-                                    <p>
-                                        Penjualan
-                                    </p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="<?= base_url('pembelian'); ?>" class="nav-link <?= $menu == 'pembelian' ? 'active' : ''; ?>">
-                                    <i class="nav-icon fas fa-cash-register"></i>
-                                    <p>
-                                        Pembelian
-                                    </p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item <?= $menu == 'masterdata' ? 'menu-open' : ''; ?>">
-                                <a href="#" class="nav-link <?= $menu == 'masterdata' ? 'active' : ''; ?>">
-                                    <i class="nav-icon fas fa-server"></i>
-                                    <p>
-                                        Master Data
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('produk'); ?>" class="nav-link <?= $submenu == 'produk' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Produk</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('kategori'); ?>" class="nav-link <?= $submenu == 'kategori' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Kategori</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('satuan'); ?>" class="nav-link <?= $submenu == 'satuan' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Satuan</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('supplier'); ?>" class="nav-link <?= $submenu == 'supplier' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Supplier</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('pelanggan'); ?>" class="nav-link <?= $submenu == 'pelanggan' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Pelanggan</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item <?= $menu == 'laporan' ? 'menu-open' : ''; ?>">
-                                <a href="#" class="nav-link <?= $menu == 'laporan' ? 'active' : ''; ?>">
-                                    <i class="nav-icon fas fa-file-alt"></i>
-                                    <p>
-                                        Laporan
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('laporan/Transaksi'); ?>" class="nav-link <?= $submenu == 'transaksi' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Cari Transaksi</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('laporan/AllTransaksi'); ?>" class="nav-link <?= $submenu == 'alltransaksi' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Transaksi</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('laporan/Pembelian'); ?>" class="nav-link <?= $submenu == 'pembelian' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Pembelian</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('laporan/LaporanHarian'); ?>" class="nav-link <?= $submenu == 'harian' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Laporan Harian</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('laporan/LaporanBulanan'); ?>" class="nav-link <?= $submenu == 'bulanan' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Laporan Bulanan</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('laporan/LaporanTahunan'); ?>" class="nav-link <?= $submenu == 'tahunan' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Laporan Tahunan</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    <?php } else { ?>
-                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                            <li class="nav-item">
-                                <a href="<?= base_url('admin'); ?>" class="nav-link <?= $menu == 'dashboard' ? 'active' : ''; ?>">
-                                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                                    <p>
-                                        Dashboard
-                                    </p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="<?= base_url('servis'); ?>" class="nav-link">
-                                    <i class="nav-icon fas fa-cash-register"></i>
-                                    <p>
-                                        Servis
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item <?= $menu == 'masterdata' ? 'menu-open' : ''; ?>">
-                                <a href="#" class="nav-link <?= $menu == 'masterdata' ? 'active' : ''; ?>">
-                                    <i class="nav-icon fas fa-server"></i>
-                                    <p>
-                                        Master Data
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('kategori'); ?>" class="nav-link <?= $submenu == 'kategori' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Kategori</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('satuan'); ?>" class="nav-link <?= $submenu == 'satuan' ? 'active' : ''; ?>">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Satuan</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    <?php } ?>
+                        <li class="nav-item <?= $menu == 'masterdata' ? 'menu-open' : ''; ?>">
+                            <a href="#" class="nav-link <?= $menu == 'masterdata' ? 'active' : ''; ?>">
+                                <i class="nav-icon fas fa-server"></i>
+                                <p>
+                                    Master Data
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('produk'); ?>" class="nav-link <?= $submenu == 'produk' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>Produk</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('kategori'); ?>" class="nav-link <?= $submenu == 'kategori' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>Kategori</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('satuan'); ?>" class="nav-link <?= $submenu == 'satuan' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>Satuan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('supplier'); ?>" class="nav-link <?= $submenu == 'supplier' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>Supplier</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('pelanggan'); ?>" class="nav-link <?= $submenu == 'pelanggan' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>Pelanggan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('user'); ?>" class="nav-link <?= $submenu == 'user' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>User</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item <?= $menu == 'laporan' ? 'menu-open' : ''; ?>">
+                            <a href="#" class="nav-link <?= $menu == 'laporan' ? 'active' : ''; ?>">
+                                <i class="nav-icon fas fa-file-alt"></i>
+                                <p>
+                                    Laporan
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('laporan/Transaksi'); ?>" class="nav-link <?= $submenu == 'transaksi' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>Cari Transaksi</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('laporan/AllTransaksi'); ?>" class="nav-link <?= $submenu == 'alltransaksi' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>Transaksi</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('laporan/Pembelian'); ?>" class="nav-link <?= $submenu == 'pembelian' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>Pembelian</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('laporan/LaporanHarian'); ?>" class="nav-link <?= $submenu == 'harian' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>Laporan Harian</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('laporan/LaporanBulanan'); ?>" class="nav-link <?= $submenu == 'bulanan' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>Laporan Bulanan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('laporan/LaporanTahunan'); ?>" class="nav-link <?= $submenu == 'tahunan' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>Laporan Tahunan</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item <?= $menu == 'return barang' ? 'menu-open' : ''; ?>">
+                            <a href="#" class="nav-link <?= $menu == 'return barang' ? 'active' : ''; ?>">
+                                <i class="nav-icon fas fa-file-alt"></i>
+                                <p>
+                                    Return
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('returnbarang/penjualan'); ?>" class="nav-link <?= $submenu == 'penjualan' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>Return Penjualan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('returnbarang/pembelian'); ?>" class="nav-link <?= $submenu == 'pembelian' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>Return Pembelian</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/setting'); ?>" class="nav-link <?= $menu == 'setting' ? 'active' : ''; ?>">
+                                <i class="nav-icon fas fa-cog"></i>
+                                <p>
+                                    Setting
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </nav>
 
             </div>

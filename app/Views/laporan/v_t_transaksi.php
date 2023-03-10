@@ -10,7 +10,7 @@
             <b>Nama Pelanggan : </b><?= $nilai['nama_pelanggan']; ?>
         <?php } ?>
         <hr>
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped table-bordered table-sm">
             <tr class="text-center bg-gray">
                 <th>#</th>
                 <th>Kode Produk</th>

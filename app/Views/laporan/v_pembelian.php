@@ -19,7 +19,7 @@
             ?>
             <!-- end Alert -->
 
-            <table class="table table-striped table-bordered table-hover">
+            <table class="table table-sm table-striped table-bordered table-hover">
                 <thead class="text-center">
                     <tr>
                         <th width="70px">#</th>
@@ -35,7 +35,7 @@
                         <tr>
                             <td class="text-center"><b><?= $no++; ?></b></td>
                             <td><?= $nilai['nota_beli']; ?>
-                                <input type="text" id="nota_beli<?= $nilai['nota_beli']; ?>" value="<?= $nilai['nota_beli']; ?>">
+                                <input hidden type="text" id="nota_beli<?= $nilai['nota_beli']; ?>" value="<?= $nilai['nota_beli']; ?>">
                             </td>
                             <td><?= $nilai['nama_supplier']; ?></td>
                             <td class="text-right">Rp<?= number_format($nilai['grand_total']); ?></td>

@@ -42,7 +42,7 @@ class RinciBeli extends Migration
             ],
             'status' => [
                 'type' => 'ENUM',
-                'constraint' => ['berhasil', 'batal'],
+                'constraint' => ['berhasil', 'batal', 'return'],
                 'default' => 'berhasil'
             ],
             'created_at DATETIME DEFAULT CURRENT_TIMESTAMP',

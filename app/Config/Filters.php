@@ -74,6 +74,7 @@ class Filters extends BaseConfig
                     'Supplier', 'Supplier/*',
                     'Pelanggan', 'Pelanggan/*',
                     'Pembelian', 'Pembelian/*',
+                    'ReturnBarang', 'ReturnBarang/*',
                     '/',
                 ]
             ],
