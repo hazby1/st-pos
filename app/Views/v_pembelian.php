@@ -170,7 +170,7 @@
                                         <td class="text-right">Rp<?= number_format($nilai['harga_jual']); ?>.-</td>
                                         <td><?= $nilai['stok']; ?></td>
                                         <td class="text-center">
-                                            <button onclick="PilihProduk(<?= $nilai['kode_produk']; ?>)" href="" class="btn btn-success btn-xs">Pilih</button>
+                                            <button onclick="PilihProduk('<?= $nilai['kode_produk']; ?>')" href="" class="btn btn-success btn-xs">Pilih</button>
                                         </td>
                                     </tr>
                                 <?php } ?>

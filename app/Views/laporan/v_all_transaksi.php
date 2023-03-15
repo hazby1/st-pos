@@ -25,7 +25,7 @@
                         <th width="70px">#</th>
                         <th>Nomor Faktur</th>
                         <th>Nama Pelanggan</th>
-                        <th>Total Harga</th>
+                        <th colspan="2">Total Harga</th>
                         <th width="300px">Opsi</th>
                     </tr>
                 </thead>
@@ -36,7 +36,8 @@
                             <td class="text-center"><b><?= $no++; ?></b></td>
                             <td><?= $nilai['no_faktur']; ?><input hidden type="text" id="no_faktur<?= $nilai['no_faktur']; ?>" value="<?= $nilai['no_faktur']; ?>"></td>
                             <td><?= $nilai['nama_pelanggan']; ?></td>
-                            <td class="text-right">Rp<?= number_format($nilai['grand_total']); ?></td>
+                            <td style="border-right:0;">Rp</td>
+                            <td style="border-left:0;" class="text-right"><?= number_format($nilai['grand_total']); ?></td>
                             <td class="text-center">
                                 <?php if ($nilai['status'] == 'batal') {
                                     echo '<b class="text-danger">Transaksi Dibatalkan</b>';
