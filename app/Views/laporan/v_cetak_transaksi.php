@@ -1,54 +1,14 @@
 <div class="col-12">
-    <div class="row">
-        <div class="col-12">
-            <div class="row">
-                <div class="col-3">
-                    <table>
-                        <tr>
-                            <td>Nomor</td>
-                            <td> : <?= $no_faktur; ?></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="col-3">
-                    <table>
-                        <tr>
-                            <td>Kepada</td>
-                            <?php foreach ($pelanggan as $key => $nilai) { ?>
-                                <td> : <?= $nilai['nama_pelanggan']; ?></td>
-                            <?php } ?>
-                        </tr>
-                    </table>
-                </div>
-                <div class="col-3">
-                    <table>
-                        <tr>
-                            <td>Kasir</td>
-                            <td> : <?= session('nama_user'); ?></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="col-3">
-                    <table>
-                        <tr>
-                            <td>Tanggal</td>
-                            <td> : <?= date('d/m/Y'); ?></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <table class="table table-striped table-sm" style="font-size: 18px;">
-        <tr class="text-center">
+    <table class="table table- table-striped table-sm" style="font-size: 18px;">
+        <tr class="text-center table-bordered" style="border: 1px;">
             <th>#</th>
             <th>Kode Produk</th>
             <th>Nama Produk</th>
             <th>QTY</th>
-            <th>Harga</th>
-            <th>Disc</th>
-            <th>Pajak</th>
-            <th>Sub Total</th>
+            <th colspan="2">Harga</th>
+            <th colspan="2">Diskon</th>
+            <th colspan="2">Pajak</th>
+            <th colspan="2">Sub Total</th>
         </tr>
         <?php $no = 1;
         foreach ($datatransaksi as $key => $nilai) {
@@ -58,17 +18,26 @@
                 <td class="text-center"><?= $nilai['kode_produk']; ?></td>
                 <td><?= $nilai['nama_produk']; ?></td>
                 <td class="text-center"><?= $nilai['qty']; ?></td>
-                <td class="text-center">Rp<?= number_format($nilai['harga']); ?></td>
-                <td class="text-center">Rp<?= number_format($nilai['diskon']); ?></td>
-                <td class="text-center">Rp<?= number_format($nilai['pajak']); ?></td>
-                <td class="text-right">Rp<?= number_format($nilai['total_harga']); ?></td>
+
+                <td width="60px" class="text-center">Rp</td>
+                <td width="100px" class="text-right"><?= number_format($nilai['harga']); ?></td>
+
+                <td width="50px" class="text-center">Rp</td>
+                <td width="50px" class="text-right"><?= number_format($nilai['diskon']); ?></td>
+
+                <td width="50px" class="text-center">Rp</td>
+                <td width="50px" class="text-right"><?= number_format($nilai['pajak']); ?></td>
+
+                <td width="60px" class="text-center">Rp</td>
+                <td width="100px" class="text-right"><?= number_format($nilai['total_harga']); ?></td>
             </tr>
         <?php } ?>
         <tr class="">
-            <th class="text-right" colspan="7">
+            <th class="text-right" colspan="10">
                 Total
             </th>
-            <th class="text-right">Rp<?= $datatransaksi == null ? '' : number_format(array_sum($grandtotal)); ?></th>
+            <th width="50px" class="text-center">Rp</th>
+            <th class="text-right"><?= $datatransaksi == null ? '' : number_format(array_sum($grandtotal)); ?></th>
         </tr>
         </tbody>
     </table>
@@ -85,7 +54,7 @@
                 </p>
             </td>
             <td width="20%" height="65px">Pelanggan</td>
-            <td width="20%">Nama Toko</td>
+            <td width="20%">Hormat Kami</td>
         </tr>
         <tr class="text-center">
             <?php foreach ($pelanggan as $key => $nilai) { ?>

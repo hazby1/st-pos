@@ -85,15 +85,15 @@
         <aside class="main-sidebar sidebar-dark-red elevation-4">
 
             <a href="#" class="brand-link">
-                <img src="<?= base_url('adminlte'); ?>/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Nama Toko</span>
+                <img src="<?= base_url('adminlte'); ?>/dist/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">SentralTEK</span>
             </a>
 
             <div class="sidebar">
 
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url('adminlte'); ?>/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="<?= base_url('adminlte'); ?>/dist/img/25634.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block"><?= session()->get('nama_user'); ?></a>
@@ -186,16 +186,16 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a href="<?= base_url('laporan/Transaksi'); ?>" class="nav-link <?= $submenu == 'transaksi' ? 'active' : ''; ?>">
                                         <i class="far fa-circle nav-icon text-xs"></i>
                                         <p>Cari Transaksi</p>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
                                     <a href="<?= base_url('laporan/AllTransaksi'); ?>" class="nav-link <?= $submenu == 'alltransaksi' ? 'active' : ''; ?>">
                                         <i class="far fa-circle nav-icon text-xs"></i>
-                                        <p>Transaksi</p>
+                                        <p>Penjualan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -234,15 +234,27 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('returnbarang/penjualan'); ?>" class="nav-link <?= $submenu == 'penjualan' ? 'active' : ''; ?>">
+                                    <a href="<?= base_url('returnbarang/penjualan'); ?>" class="nav-link <?= $submenu == 'return penjualan' ? 'active' : ''; ?>">
                                         <i class="far fa-circle nav-icon text-xs"></i>
                                         <p>Return Penjualan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('returnbarang/pembelian'); ?>" class="nav-link <?= $submenu == 'pembelian' ? 'active' : ''; ?>">
+                                    <a href="<?= base_url('returnbarang/allreturnpenjualan'); ?>" class="nav-link <?= $submenu == 'all return penjualan' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>Lap Return Penjualan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('returnbarang/pembelian'); ?>" class="nav-link <?= $submenu == 'return pembelian' ? 'active' : ''; ?>">
                                         <i class="far fa-circle nav-icon text-xs"></i>
                                         <p>Return Pembelian</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('returnbarang/allreturnpembelian'); ?>" class="nav-link <?= $submenu == 'all return pembelian' ? 'active' : ''; ?>">
+                                        <i class="far fa-circle nav-icon text-xs"></i>
+                                        <p>Lap Return Pembelian</p>
                                     </a>
                                 </li>
                             </ul>
@@ -311,7 +323,7 @@
         </aside> -->
 
 
-        <footer class="main-footer">
+        <footer class="main-footer fixed">
 
             <div class="float-right d-none d-sm-inline">
                 HSSCode

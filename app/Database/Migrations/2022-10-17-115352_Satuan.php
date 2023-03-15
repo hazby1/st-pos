@@ -12,7 +12,7 @@ class Satuan extends Migration
         $this->forge->addField([
             'id_satuan' => [
                 'type' => 'INT',
-                'constraint' => '2',
+                'constraint' => '11',
                 'unsigned'       => true,
                 'auto_increment' => true
             ],

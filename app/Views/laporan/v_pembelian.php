@@ -19,13 +19,13 @@
             ?>
             <!-- end Alert -->
 
-            <table class="table table-sm table-striped table-bordered table-hover">
+            <table id="example1" class="table table-sm table-striped table-bordered table-hover">
                 <thead class="text-center">
                     <tr>
                         <th width="70px">#</th>
                         <th>Nota Pembelian</th>
                         <th>Nama Supplier</th>
-                        <th>Total Harga</th>
+                        <th colspan="2">Total Harga</th>
                         <th width="300px">Opsi</th>
                     </tr>
                 </thead>
@@ -38,7 +38,8 @@
                                 <input hidden type="text" id="nota_beli<?= $nilai['nota_beli']; ?>" value="<?= $nilai['nota_beli']; ?>">
                             </td>
                             <td><?= $nilai['nama_supplier']; ?></td>
-                            <td class="text-right">Rp<?= number_format($nilai['grand_total']); ?></td>
+                            <td style="border-right: 0;">Rp</td>
+                            <td style="border-left: 0;" class=" text-right"><?= number_format($nilai['grand_total']); ?></td>
                             <td class="text-center">
                                 <?php if ($nilai['status'] == 'batal') {
                                     echo '<b class="text-danger">Pembelian Dibatalkan</b>';
@@ -109,7 +110,6 @@
                 <!-- Form -->
                 <div class="modal-body">
                     <h5>Yakin akan Membatalkan Pembelian <b><?= $nilai['nama_supplier'][2]; ?></b>?</h5>
-
                 </div>
 
                 <div class="modal-footer justify-content-between">
@@ -124,6 +124,22 @@
     </div>
 <?php } ?>
 <!-- /.modal -->
+
+<script>
+    // DataTables
+    $(function() {
+        $("#example1").DataTable({
+            "responsive": true,
+            "lengthChange": true,
+            "autoWidth": false,
+            "paging": true,
+            "info": true,
+            "ordering": false,
+            "buttons": ["excel", ]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    })
+</script>
+
 <?php foreach ($pembelian as $key => $nilai) { ?>
     <script>
         function CetakPembelian<?= $nilai['nota_beli']; ?>() {
