@@ -26,6 +26,7 @@
                         <th>Nota Pembelian</th>
                         <th>Nama Supplier</th>
                         <th>Total Harga</th>
+                        <th width="300px">Opsi</th>
                     </tr>
                 </thead>
                 <tbody>

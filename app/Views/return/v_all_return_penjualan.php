@@ -23,7 +23,7 @@
                 <thead class="text-center">
                     <tr>
                         <th width="70px">#</th>
-                        <th>Nota Penjualan</th>
+                        <th>Nomor Faktur</th>
                         <th>Nama Pelanggan</th>
                         <th>Total Harga</th>
                     </tr>
@@ -97,7 +97,7 @@
     function ViewTabelTransaksi() {
         let no_faktur = $('#no_faktur').val();
         if (no_faktur == '') {
-            Swal.fire('Nota Penjualan belum diisi!');
+            Swal.fire('Nomor Faktur belum diisi!');
         } else {
             $.ajax({
                 type: "POST",

@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-6 input-group">
                             <label class="col-sm-3 col-form-label">
-                                Nota Penjualan
+                                Nomor Faktur
                             </label>
                             <input id="no_faktur" name="no_faktur" class="form-control col-sm-5">
                             <span class="input-group-append">
@@ -47,7 +47,7 @@
     function ViewTabel() {
         let no_faktur = $('#no_faktur').val();
         if (no_faktur == '') {
-            Swal.fire('Nota Penjualan belum diisi!');
+            Swal.fire('Nomor Faktur belum diisi!');
         } else {
             $.ajax({
                 type: "POST",
