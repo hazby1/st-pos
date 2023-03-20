@@ -7,6 +7,8 @@ use App\Models\PembelianModel;
 use App\Models\LaporanModel;
 use App\Models\AdminModel;
 use App\Models\SupplierModel;
+use App\Models\KategoriModel;
+use App\Models\SatuanModel;
 
 class Pembelian extends BaseController
 {
@@ -16,6 +18,8 @@ class Pembelian extends BaseController
         $this->LaporanModel = new LaporanModel();
         $this->AdminModel = new AdminModel();
         $this->SupplierModel = new SupplierModel();
+        $this->KategoriModel = new KategoriModel();
+        $this->SatuanModel = new SatuanModel();
     }
 
     public function index()
@@ -33,6 +37,8 @@ class Pembelian extends BaseController
             'grand_total' => $cart->total(),
             'produk' => $this->PembelianModel->AllProduk(),
             'supplier' => $this->SupplierModel->AllData(),
+            'kategori' => $this->KategoriModel->AllData(),
+            'satuan' => $this->SatuanModel->AllData(),
         ];
         return view('v_template', $data);
     }

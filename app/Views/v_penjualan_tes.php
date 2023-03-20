@@ -452,6 +452,7 @@
             $('#kode_produk').val(kode_produk);
             $('#cari-produk').modal('hide');
             $('#kode_produk').focus();
+            CekProduk();
         }
 
         function Pembayaran() {

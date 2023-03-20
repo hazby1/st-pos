@@ -169,7 +169,7 @@
                                         <p>Pelanggan</p>
                                     </a>
                                 </li>
-                                <?php if (session()->get('nama_user') == 'admin') { ?>
+                                <?php if (session()->get('level') == 'admin') { ?>
                                     <li class="nav-item">
                                         <a href="<?= base_url('user'); ?>" class="nav-link <?= $submenu == 'user' ? 'active' : ''; ?>">
                                             <i class="far fa-circle nav-icon text-xs"></i>
@@ -179,7 +179,7 @@
                                 <?php } ?>
                             </ul>
                         </li>
-                        <?php if (session()->get('nama_user') == 'admin') { ?>
+                        <?php if (session()->get('level') == 'admin') { ?>
                             <li class="nav-item <?= $menu == 'laporan' ? 'menu-open' : ''; ?>">
                                 <a href="#" class="nav-link <?= $menu == 'laporan' ? 'active' : ''; ?>">
                                     <i class="nav-icon fas fa-file-alt"></i>
@@ -327,15 +327,15 @@
         </aside> -->
 
 
-        <footer class="main-footer fixed">
-
-            <div class="float-right d-none d-sm-inline">
-                HSSCode
-            </div>
-
-            <strong>Copyright &copy; 2022 <a href="#">SentralTEK POS</a>.</strong> All rights reserved.
-        </footer>
     </div>
+    <footer class="main-footer fixed">
+
+        <div class="float-right d-none d-sm-inline">
+            HSSCode
+        </div>
+
+        <strong>Copyright &copy; 2022 <a href="#">SentralTEK POS</a>.</strong> All rights reserved.
+    </footer>
 
 </body>
 

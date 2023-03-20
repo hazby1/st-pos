@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Controllers\Home;
 use App\Models\AdminModel;
 
 class Admin extends BaseController
@@ -11,6 +12,8 @@ class Admin extends BaseController
     public function __construct()
     {
         $this->AdminModel = new AdminModel();
+        // $this->Home = new Home();
+        // $this->Home->CekLogin();
     }
 
     public function index()

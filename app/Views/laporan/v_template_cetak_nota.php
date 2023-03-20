@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="<?= base_url('adminlte') ?>/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('adminlte') ?>/dist/css/adminlte.min.css">
+    <!-- Nota CSS -->
+    <link rel="stylesheet" href="<?= base_url('') ?>/print.css">
+
 </head>
 
 <body>
@@ -21,7 +24,7 @@
             <!-- title row -->
             <div class="row">
 
-                <div class="col-12">
+                <div class="col-12 hr">
                     <div class="row">
                         <div class="col-8">
                             <div class="row">
@@ -63,9 +66,8 @@
                 </div>
 
                 <div class="col-12 text-center mt-0">
-                    <hr>
                     <b>
-                        <h4 class=""><b>NOTA PENJUALAN</b></h4>
+                        <h4 class=" mt-0"><b>NOTA PENJUALAN</b></h4>
                     </b>
                 </div>
                 <!-- /.col -->

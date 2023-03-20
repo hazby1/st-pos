@@ -2,7 +2,6 @@
     <div class="card card-red">
         <div class="card-header">
             <h3 class="card-title"><?= $subjudul; ?></h3>
-
         </div>
 
         <div class="card-body">

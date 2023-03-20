@@ -2,7 +2,10 @@
     <div class="card card-red">
         <div class="card-header">
             <h3 class="card-title"><?= $subjudul; ?></h3>
-
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-toggle="modal" data-target="#tambah-data"><i class="fas fa-plus"></i> <span> Tambah Data</span>
+                </button>
+            </div>
         </div>
 
         <div class="row">
@@ -68,6 +71,7 @@
                                         <span class="input-group-text">Rp</span>
                                     </div>
                                     <input name="harga" id="harga" class="form-control text-right" placeholder="0">
+                                    <input hidden name="harga_beli" id="harga_beli" class="form-control text-right" placeholder="0">
                                 </div>
                             </div>
                         </div>
@@ -235,7 +239,103 @@
     </div>
 
 </div>
+<!-- Modal Tambah Data -->
+<div class="modal fade" id="tambah-data">
+    <!-- Modal Dialog -->
+    <div class="modal-dialog">
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Tambah Data <?= $subjudul; ?></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
+            <!-- Form -->
+            <?= form_open('Produk/InsertData') ?>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="">Kode Produk</label>
+                    <input type="text" name="kode_produk" class="form-control" placeholder="Kode Produk" required autofocus value="<?= old('kode_produk'); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="">Nama Produk</label>
+                    <input type="text" name="nama_produk" class="form-control" placeholder="Nama Produk" required value="<?= old('nama_produk'); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="">Kategori</label>
+                    <select name="id_kategori" class="form-control" required>
+                        <option value="">-- Pilih Kategori --</option>
+                        <?php foreach ($kategori as $key => $kat) { ?>
+                            <option value="<?= $kat['id_kategori']; ?>"><?= $kat['nama_kategori']; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Satuan</label>
+                    <select name="id_satuan" class="form-control" required>
+                        <option value="">-- Pilih Satuan --</option>
+                        <?php foreach ($satuan as $key => $sat) { ?>
+                            <option value="<?= $sat['id_satuan']; ?>"><?= $sat['nama_satuan']; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Harga Beli</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rp</span>
+                        </div>
+                        <input id="harga_beli" name="harga_beli" type="text" class="form-control" placeholder="Harga Beli" required value="<?= old('harga_beli'); ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Harga Pokok</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rp</span>
+                        </div>
+                        <input id="harga_jual" name="harga_jual" type="text" class="form-control" placeholder="Harga Pokok" required value="<?= old('harga_jual'); ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Harga Reseller A</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rp</span>
+                        </div>
+                        <input id="harga_jual_a" name="harga_jual_a" type="text" class="form-control" placeholder="Harga Reseller A" required value="<?= old('harga_jual_a'); ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Harga Reseller B</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rp</span>
+                        </div>
+                        <input id="harga_jual_b" name="harga_jual_b" type="text" class="form-control" placeholder="Harga Reseller B" required value="<?= old('harga_jual_b'); ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Stok</label>
+                    <input id="stok" type="text" name="stok" class="form-control" placeholder="Stok" required value="<?= old('stok'); ?>">
+                </div>
+            </div>
+
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary btn-flat">Simpan</button>
+            </div>
+            <?= form_close(); ?>
+            <!-- end Form -->
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 <script>
     $(document).ready(function() {
         $('#kode_produk').focus();
@@ -266,6 +366,7 @@
                     Swal.fire('Kode produk tidak terdaftar!');
                 } else {
                     $('[name="nama_produk"]').val(response.nama_produk);
+                    $('[name="harga_beli"]').val(response.harga_beli);
                     $('#harga').focus();
                 }
             }
@@ -276,6 +377,7 @@
         $('#kode_produk').val(kode_produk);
         $('#cari-produk').modal('hide');
         $('#kode_produk').focus();
+        CekProduk();
     }
 
     function Pembayaran() {
@@ -303,4 +405,60 @@
             NewWin = window.open("<?= base_url('Laporan/CetakPembelian'); ?>/" + faktursimpan, "NewWin", "width=1500")
         }
     }
+
+    // AutoNumeric
+    new AutoNumeric('#harga_beli', {
+        // currencySymbol: ''
+        digitalGroupSeparator: ',',
+        decimalPlaces: 0,
+    });
+    new AutoNumeric('#harga_jual', {
+        currencySymbol: '',
+        digitalGroupSeparator: ',',
+        decimalPlaces: 0,
+    });
+    new AutoNumeric('#harga_jual_a', {
+        currencySymbol: '',
+        digitalGroupSeparator: ',',
+        decimalPlaces: 0,
+    });
+    new AutoNumeric('#harga_jual_b', {
+        currencySymbol: '',
+        digitalGroupSeparator: ',',
+        decimalPlaces: 0,
+    });
+    new AutoNumeric('#stok', {
+        currencySymbol: '',
+        digitalGroupSeparator: ',',
+        decimalPlaces: 0,
+    });
+
+    <?php
+    foreach ($produk as $key => $nilai) { ?>
+        new AutoNumeric('#harga_beli<?= $nilai['id_produk'] ?>', {
+            // currencySymbol: ''
+            digitalGroupSeparator: ',',
+            decimalPlaces: 0,
+        });
+        new AutoNumeric('#harga_jual<?= $nilai['id_produk'] ?>', {
+            currencySymbol: '',
+            digitalGroupSeparator: ',',
+            decimalPlaces: 0,
+        });
+        new AutoNumeric('#harga_jual_a<?= $nilai['id_produk'] ?>', {
+            currencySymbol: '',
+            digitalGroupSeparator: ',',
+            decimalPlaces: 0,
+        });
+        new AutoNumeric('#harga_jual_b<?= $nilai['id_produk'] ?>', {
+            currencySymbol: '',
+            digitalGroupSeparator: ',',
+            decimalPlaces: 0,
+        });
+        new AutoNumeric('#stok<?= $nilai['id_produk'] ?>', {
+            currencySymbol: '',
+            digitalGroupSeparator: ',',
+            decimalPlaces: 0,
+        });
+    <?php } ?>
 </script>
