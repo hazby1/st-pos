@@ -32,6 +32,10 @@ class RinciBeli extends Migration
                 'type' => 'INT',
                 'constraint' => '11'
             ],
+            'return_barang' => [
+                'type' => 'INT',
+                'constraint' => '11'
+            ],
             'total_harga' => [
                 'type' => 'INT',
                 'constraint' => '11'
@@ -42,7 +46,7 @@ class RinciBeli extends Migration
             ],
             'status' => [
                 'type' => 'ENUM',
-                'constraint' => ['berhasil', 'batal'],
+                'constraint' => ['berhasil', 'batal', 'return'],
                 'default' => 'berhasil'
             ],
             'created_at DATETIME DEFAULT CURRENT_TIMESTAMP',

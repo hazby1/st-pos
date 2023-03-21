@@ -86,6 +86,7 @@ class Produk extends BaseController
             $stok = str_replace(",", "", $this->request->getPost('stok'));
             $data = [
                 'id_produk' => $id_produk,
+                'kode_produk' => $this->request->getPost('kode_produk'),
                 'nama_produk' => $this->request->getPost('nama_produk'),
                 'id_kategori' => $this->request->getPost('id_kategori'),
                 'id_satuan' => $this->request->getPost('id_satuan'),

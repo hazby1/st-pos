@@ -97,6 +97,21 @@ class LaporanModel extends Model
             ->get()->getResultArray();
     }
 
+    public function AllReturn()
+    {
+        # code...
+        return $this->db->table('t_rinci')
+            ->join('t_produk', 't_produk.kode_produk=t_rinci.kode_produk')
+            ->join('t_pelanggan', 't_pelanggan.id_pelanggan=t_rinci.id_pelanggan')
+            ->where('t_rinci.status', 'return')
+            ->select('t_produk.nama_produk')
+            ->select('t_rinci.no_faktur')
+            ->select('t_rinci.harga')
+            ->select('t_pelanggan.nama_pelanggan')
+            ->select('t_rinci.status')
+            ->get()->getResultArray();
+    }
+
     public function DetailTransaksi($no_faktur)
     {
         # code...

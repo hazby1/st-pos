@@ -1,0 +1,63 @@
+table {
+    width: 100%;
+    font-size: 14pt;
+}
+
+.total {
+    border-bottom: 2px solid black;
+}
+
+p {
+    font-size: 10pt;
+}
+
+th {
+    border: 2px solid black;
+}
+
+.rp {
+    border-right: 0;
+    text-align: center;
+}
+
+.nominal {
+    border-left: 0;
+}
+
+.hr {
+    border-bottom: 2px solid black;
+}
+
+h4 {
+    margin-top: -2px;
+    position: relative;
+}
+
+.footer {
+    position: fixed;
+    bottom: 50%;
+    width: 100%;
+    /* border-top: 2px solid black; */
+}
+
+.footer-text {
+    text-align: center;
+}
+
+.total {
+    border: 2px solid black;
+}
+
+.transparant {
+    visibility: hidden;
+}
+
+.d-none{
+    display: none;
+}
+
+@media print{
+    .d-none{
+        display: block !important;
+    }
+}

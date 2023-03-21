@@ -10,7 +10,7 @@
             <b>Nama Supplier : </b><?= $nilai['nama_supplier']; ?>
         <?php } ?>
         <hr>
-        <table class="table table-striped table-bordered">
+        <table class="table table-sm table-striped table-bordered">
             <tr class="text-center bg-gray">
                 <th>#</th>
                 <th>Kode Produk</th>

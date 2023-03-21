@@ -20,22 +20,52 @@
         <section class="invoice">
             <!-- title row -->
             <div class="row">
-                <div class="col-12 text-center">
-                    <div class="media">
-                        <img width="60px" height="60px" class="mr-1 mt-2" src="<?= base_url('logo.png'); ?>" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-0">
-                                <font size=7> <b><?= $web['nama_toko']; ?></b></font>
-                            </h5>
-                            <label for="" class="mt-0 mb-0"><?= $web['slogan']; ?></label><br>
-                            <span class="mt-0"><?= $web['alamat']; ?> <?= $web['no_telepon']; ?></span>
+
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="row">
+                                <div class="media col-2 float-end">
+                                    <img width="95px" height="95px" class="mt-1 ml-1" src="<?= base_url('logo.png'); ?>">
+                                </div>
+                                <div class="media-body col-7 text-center">
+                                    <h5 class="mt-0 mb-0">
+                                        <font size=7> <b><?= $web['nama_toko']; ?></b></font>
+                                    </h5>
+                                    <label for="" class="mt-0 mb-0"><?= $web['slogan']; ?></label><br>
+                                    <span class="mt-0"><?= $web['alamat']; ?> <?= $web['no_telepon']; ?></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <table>
+                                <tr>
+                                    <td>Tanggal</td>
+                                    <td> : <?php echo date('d/m/Y'); ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Supplier</td>
+                                    <?php foreach ($supplier as $key => $nilai) { ?>
+                                        <td> : <?php echo $nilai['nama_supplier']; ?></td>
+                                    <?php } ?>
+                                </tr>
+                                <tr>
+                                    <td>No Nota</td>
+                                    <td> : <?php echo $nota_beli; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Kasir</td>
+                                    <td> : <?= session('nama_user'); ?></td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-12 text-center mt-0">
                     <hr>
                     <b>
-                        <h4 class="">Nota Pembelian</h4>
+                        <h4 class=""><b>NOTA PEMBELIAN</b></h4>
                     </b>
                 </div>
                 <!-- /.col -->

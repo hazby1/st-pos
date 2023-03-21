@@ -74,6 +74,7 @@ class Filters extends BaseConfig
                     'Supplier', 'Supplier/*',
                     'Pelanggan', 'Pelanggan/*',
                     'Pembelian', 'Pembelian/*',
+                    'ReturnBarang', 'ReturnBarang/*',
                     '/',
                 ]
             ],
@@ -82,10 +83,14 @@ class Filters extends BaseConfig
                     'Home', 'Home/*',
                     'Admin', 'Admin/*',
                     'Penjualan', 'Penjualan/*',
+                    'Produk', 'Produk/*',
+                    'Kategori', 'Kategori/*',
+                    'Satuan', 'Satuan/*',
                     'Laporan', 'Laporan/*',
                     'Supplier', 'Supplier/*',
                     'Pelanggan', 'Pelanggan/*',
                     'Pembelian', 'Pembelian/*',
+                    'ReturnBarang', 'ReturnBarang/*',
                     '/',
                 ]
             ],

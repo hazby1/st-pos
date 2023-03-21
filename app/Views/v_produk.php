@@ -42,8 +42,8 @@
             <table id="example1" class="table table-striped table-sm table-bordered table-hover">
                 <thead class="text-center text-sm">
                     <tr>
-                        <th width="60px">#</th>
-                        <th width="130px">Kode Produk</th>
+                        <th max-width="60px">#</th>
+                        <th>Kd Produk</th>
                         <th>Nama Produk</th>
                         <th>Kategori</th>
                         <th>Satuan</th>
@@ -51,8 +51,8 @@
                         <th>Harga Pokok</th>
                         <th>Harga Reseller A</th>
                         <th>Harga Reseller B</th>
-                        <th width="80px">Stok</th>
-                        <th width="90px">Opsi</th>
+                        <th max-width="80px">Stok</th>
+                        <th max-width="90px">Opsi</th>
                     </tr>
                 </thead>
                 <tbody>

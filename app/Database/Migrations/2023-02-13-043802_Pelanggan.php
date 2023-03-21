@@ -12,7 +12,7 @@ class Pelanggan extends Migration
         $this->forge->addField([
             'id_pelanggan' => [
                 'type' => 'INT',
-                'constraint' => '2',
+                'constraint' => '11',
                 'unsigned'       => true,
                 'auto_increment' => true
             ],
